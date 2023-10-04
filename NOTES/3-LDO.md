@@ -20,3 +20,6 @@ Max output = 200mA
 # NB
 - Même besoin : https://www.reddit.com/r/embedded/comments/138iipt/best_voltage_regulator_for_esp32/
 - Système fonctionnera tant que battery > 3V3 ? 3V0 ?
+
+- voir pour utiliser une batterie lifepo4 sans LDO du coup
+https://electronics.stackexchange.com/questions/524634/charging-circuit-for-a-lifepo4-cell
