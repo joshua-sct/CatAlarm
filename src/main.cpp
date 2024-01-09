@@ -6,7 +6,15 @@
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
 
+<<<<<<< Updated upstream
 
+=======
+// Définitions des constantes
+#define TOLERANCE_ANGLE_CHANGE 15    // Tolérance de changement d'angle après calibration
+#define TOLERANCE_VIBRATION 0.1      // Seuil de détection de vibration (probablement en radians)
+#define DURATION_CALIB_GYRO 200     // Durée de calibration du gyroscope en millisecondes
+#define BLINKER_PIN 1                // Pin pour la détection de clignotement (recalibration)
+>>>>>>> Stashed changes
 
 
 #define tolerance_changement_angle 10 //degrés en +/- des extremas de la calibration
@@ -75,6 +83,11 @@ unsigned long debutSirene = 0;
 unsigned long dureeSirene = duree_sirene; //millisecondes 
 unsigned long delaisSirene = delais_sirene; //millisecondes 
 
+<<<<<<< Updated upstream
+=======
+// Création de l'instance de la sirène
+Siren mySiren(SIREN_PIN, SIREN_FREQ, SIREN_DURATION_MINIMAL, SIREN_MAX_DURATION, SIREN_INTERVAL_DURATION, SIREN_MIN_DELAY_BETWEEN_TWO_TRIGGERS, SIREN_HAS_BEEN_PLAYING_FOR_TOO_LONG_MINIMUM_DELAY_WITHOUT_ERROR, SIREN_LOG_SIZE);
+>>>>>>> Stashed changes
 
 /*
 cheatsheet millis :
@@ -83,8 +96,22 @@ while  : (millis() - start < ms) ;
 before : (millis() - start > ms) ;
 */
 
+<<<<<<< Updated upstream
 
 /* ---------------------------------------------- */
+=======
+    // 1er setup tone
+    mySiren.playQuickTone();
+    
+    // Initialisation et calibration des capteurs
+    verifyMPU();
+    setupMPUTiltDetection();
+    calibrateAccel();
+    calibrateGyro();
+
+    // 2eme setup tone
+    mySiren.playQuickTone();
+>>>>>>> Stashed changes
 
   
 
