@@ -3,20 +3,31 @@
 
 #include <Arduino.h>
 
+struct SirenSettings {
+    int pin;
+    unsigned long freq;
+    unsigned long intervalDuration;
+    unsigned long minDelayBetweenTwoTriggers;
+    unsigned long durationMin;
+    unsigned long durationMax;
+    unsigned long durationMaxInDurationRef;
+    unsigned long durationRef;
+    int logSize;
+};
+
 class Siren {
 public:
-    Siren(int pin, unsigned long freq, unsigned long durationMinimal, unsigned long durationMaximal, unsigned long intervalDuration, unsigned long minDelayBetweenTwoTriggers, unsigned long sirenHasBeenPlayingForTooLongMinimumDelayWithoutError, int logSize);    
+    Siren(const SirenSettings& params);    
     ~Siren();
     void handlePlay();
     void playIntermittentTone();
     void playQuickTone();
-    unsigned long sirenHasBeenPlayingForTooLongLastErrorTime;
-    unsigned long sirenHasBeenPlayingForTooLongMinimumDelayWithoutError;
-private:
+    private:
     struct SirenLog {
         unsigned long startTime;
-        unsigned long duration;
+        unsigned long endTime;
     };
+
     //    std::list<SirenTrigger> sirenTriggers; // pas de lib c++ standard sur arduino => Pas de liste chaînés 
     const int logSize;
     int logIndex; // Indice pour suivre la position actuelle du log circulaire
@@ -27,15 +38,17 @@ private:
     unsigned long freq;
     unsigned long durationMinimal;
     unsigned long durationMaximal;
+    unsigned long durationMaxInDurationRef;
+    unsigned long durationRef;
     unsigned long intervalDuration;
     unsigned long minDelayBetweenTwoTriggers;
     
-    bool firstRing;
-    bool toneState;
-    unsigned long currentTime;
     unsigned long intermittentToneStartTime;
-    unsigned long eachIntervalStartTime;
     unsigned long intermittentToneEndTime;
+
+    bool isLastLogEmpty() const;
+    bool hasSoundedMoreThan(unsigned long period) const;
+    bool hasSoundedMoreThanXinX(unsigned long duration, unsigned long durationRef) const;
 };
 
 extern Siren mySiren;

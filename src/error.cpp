@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include "error.h"
-#include "siren.h"
+#include "Siren.h"
 #include "globals.h"
 
 // Code d'erreur

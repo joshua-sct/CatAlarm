@@ -1,364 +1,186 @@
-//arduino
+// Le reste du code devrait inclure les fonctions pour communiquer avec le module Sigfox
+// et pour déclencher les actions appropriées en cas d'erreur ou d'alerte.
+
+// Faire un timer pour handleSiren
+
+// Inclusions des bibliothèques nécessaires
 #include <Arduino.h>
-#include <SoftwareSerial.h>
-//MPU6050
-#include <Adafruit_MPU6050.h>
-#include <Adafruit_Sensor.h>
-#include <Wire.h>
+#include <SoftwareSerial.h> // Port série logiciel (=> sigfox)
+#include <Adafruit_MPU6050.h> // Accel + Gyro
+#include <Adafruit_Sensor.h> // Accel + Gyro
+#include <Wire.h> // I2C
+#include "globals.h"
+#include "error.h"
+#include "sigfox.h"
+#include "Siren.h"
+#include <stdint.h>
+#include "settings.h"
 
-<<<<<<< Updated upstream
-
-=======
 // Définitions des constantes
 #define TOLERANCE_ANGLE_CHANGE 15    // Tolérance de changement d'angle après calibration
 #define TOLERANCE_VIBRATION 0.1      // Seuil de détection de vibration (probablement en radians)
 #define DURATION_CALIB_GYRO 200     // Durée de calibration du gyroscope en millisecondes
 #define BLINKER_PIN 1                // Pin pour la détection de clignotement (recalibration)
->>>>>>> Stashed changes
 
-
-#define tolerance_changement_angle 10 //degrés en +/- des extremas de la calibration
-#define serial_fox_rx 4 //rx de l'arduino, tx du sigfox, etc.
-#define serial_fox_tx 3
-#define delais_sigfox 60000 //délais pendant lequel le système ne renvoie pas d'alerte radio (millisecondes)
-#define duree_calibration_gyro  100 //durée de callibration du gyroscope (millisecondes)
-#define duree_sirene 1 //duree de la douce mélodie (millisecondes)
-#define siren_pin 17 //pin de la gate du mofset de la sirene
-#define delais_sirene 0 //délais pendant lequel le système ne fera pas 2 déclenchements de la mélodie (à partir du début de la précédente)
-
-
-
-/*@brief  Each bit represents an error. See here for more info
-@details 0 -> everything is right, the code is sent by sigfox or the alarm if != 0, 1 low importance, 2 critical
-bit decimal erreur             //action 
-
-0  1: 
-1  2: 
-2  4:      GPS Disconnected    // nothing                                                 ok
-3  8:
-4  16:
-5  32:     debugSendSig        // sigfox                                                  a voir
-6  64:     Low battery         // sigfox +       + specific music (like CO alarms)        todo
-7  128:         
-8  256:    sigfox disconnected // sigfox + siren                                          todo
-9  512:    
-10 1024:
-11 2048:   
-12 4096:   
-13 8192:   AccelDetect         // sigfox + siren                                          ok
-14 16384:  GyroDetect          // sigfox + siren                                          ok
-15 32768:  MPU fail            // sigfox + siren                                          ok je crois
-
-ca pourrait être 16, mais pas grave
-
-*/
-int32_t error_code = 0; 
-int32_t sigfoxErrorLevelTrigger = 32 ; // définit à partir de quel niveau envoyer message sigfox, ex:  tous les error code > 32 sont envoyés par sigfox
-int32_t  sirenErrorLevelTrigger = 256; // définit à partir de quel niveau faire sirene, ex: tous les error code > 32  allument la sirene
-
-//faire un melody trigger pour economiser la batterie, facon alarme incendie qui a plus de piles
-
-
-
-
-
-
-//gyro
+// Configuration initiale du MPU6050
 Adafruit_MPU6050 mpu;
-//ref de l'angle
-double refXmin, refXmax, refYmin, refYmax, refZmin, refZmax;  //extremas trouvés pendant calibration
-double toleranceAngle = tolerance_changement_angle;//degrés en +/- des extremas de la calibration
-unsigned long dureeCalibration = duree_calibration_gyro; //durée en millisecondes de callibration
-sensors_event_t g, a, temp;  // ici c'est ok ???
+double refXminGyro, refXmaxGyro, refYminGyro, refYmaxGyro, refZminGyro, refZmaxGyro;
+double refAccel;
+double toleranceAngle = TOLERANCE_ANGLE_CHANGE * (PI / 180.0);
+unsigned long durationCalibration = DURATION_CALIB_GYRO;
+sensors_event_t eventGyro, eventAccel, eventTemp;
 
-//WISOL WSSFM10R1
-SoftwareSerial SerFox(serial_fox_rx, serial_fox_tx); //inversé par rapport a arduino rx puis tx arduino ---- tx puis rx module
-//bitSet(error_code, 5);//DEBUGAGE : envois un message sigfox dans tous les cas
-unsigned long debutSigfox = 0; 
-unsigned long delaisSigfox = delais_sigfox; //millisecondes 
+// Déclarations des fonctions
+void calibrateGyro();
+void detectGyroMovement();
+void gyroGraph();
 
-//siren
-int siren = siren_pin; //pin sur l'arduino nano - gate of the n mofset
-unsigned long debutSirene = 0; 
-unsigned long dureeSirene = duree_sirene; //millisecondes 
-unsigned long delaisSirene = delais_sirene; //millisecondes 
+void setupMPUTiltDetection();
+void verifyMPU();
+void calibrateAccel();
 
-<<<<<<< Updated upstream
-=======
+SirenSettings mySirenSettings = {	SIREN_PIN,
+									SIREN_FREQ,
+									SIREN_DURATION_MIN,
+									SIREN_DURATION_MAX,
+									SIREN_DURATION_MAX_IN_DURATION_REF,
+									SIREN_DURATION_REF,
+									SIREN_INTERVAL_DURATION,
+									SIREN_MIN_DELAY_BETWEEN_TWO_TRIGGERS, 
+									SIREN_LOG_SIZE	};
+
 // Création de l'instance de la sirène
-Siren mySiren(SIREN_PIN, SIREN_FREQ, SIREN_DURATION_MINIMAL, SIREN_MAX_DURATION, SIREN_INTERVAL_DURATION, SIREN_MIN_DELAY_BETWEEN_TWO_TRIGGERS, SIREN_HAS_BEEN_PLAYING_FOR_TOO_LONG_MINIMUM_DELAY_WITHOUT_ERROR, SIREN_LOG_SIZE);
->>>>>>> Stashed changes
+Siren mySiren(mySirenSettings);
 
-/*
-cheatsheet millis :
-https://www.norwegiancreations.com/2018/10/arduino-tutorial-avoiding-the-overflow-issue-when-using-millis-and-micros/
-while  : (millis() - start < ms) ;
-before : (millis() - start > ms) ;
-*/
+// Fonction de démarrage exécutée une fois au démarrage du microcontrôleur
+void setup() {
+	// Initialisation du port série pour le débogage
+	Serial.begin(9600);
 
-<<<<<<< Updated upstream
+	// 1er setup tone
+	mySiren.playQuickTone();
+	
+	// Initialisation et calibration des capteurs
+	verifyMPU();
+	setupMPUTiltDetection();
+	calibrateAccel();
+	calibrateGyro();
 
-/* ---------------------------------------------- */
-=======
-    // 1er setup tone
-    mySiren.playQuickTone();
-    
-    // Initialisation et calibration des capteurs
-    verifyMPU();
-    setupMPUTiltDetection();
-    calibrateAccel();
-    calibrateGyro();
+	// 2eme setup tone
+	mySiren.playQuickTone();
 
-    // 2eme setup tone
-    mySiren.playQuickTone();
->>>>>>> Stashed changes
+}
 
-  
+// Boucle principale du programme
+void loop() {
 
+	// Processus de recalibration si nécessaire
+	/*
+	if (digitalRead(BLINKER_PIN) == HIGH) {
+		delay(30000); // Attente avant la recalibration
+		calibrateGyro();
+	}*/
 
-void gyroCali(sensors_event_t g){ // calibrate orientation during the first dureeCalibration seconds
-  //set reference values
-  mpu.getEvent(&g, &a, &temp);
-  refXmin = g.gyro.x;
-  refXmax = g.gyro.x;
-  refYmin = g.gyro.y;
-  refYmax = g.gyro.y;
-  refZmin = g.gyro.z;
-  refZmax = g.gyro.z;
-  unsigned long tiktak = millis();
-  while (millis() - tiktak < dureeCalibration) { //continue tant qu'on dépasse pas
-    //x
-    // record the maximum sensor value
-    if (g.gyro.x > refXmax) {
-      refXmax = g.gyro.x;
-    }
-    // record the minimum sensor value
-    if (g.gyro.x < refXmin) {
-      refXmin = g.gyro.x;
-    }
-    //y
-    // record the maximum sensor value
-    if (g.gyro.y > refYmax) {
-      refYmax = g.gyro.y;
-    }
-    // record the minimum sensor value
-    if (g.gyro.y < refYmin) {
-      refYmin = g.gyro.y;
-    }
-    //z
-    // record the maximum sensor value
-    if (g.gyro.z > refZmax) {
-      refZmax = g.gyro.z;
-    }
-    // record the minimum sensor value
-    if (g.gyro.z < refZmin) {
-      refZmin = g.gyro.z;
-    }
+	// Vérification et détection des mouvements
+	verifyMPU();
+	detectGyroMovement();
+
+	// Affichage de données pour le débogage (à commenter en production)
+	// gyroGraph();
+}
+
+// Ajouter ici le reste des fonctions définies plus haut, avec des commentaires expliquant leur fonctionnement
+// Calibre l'orientation pendant les premières secondes définies par durationCalibration
+void calibrateGyro() {
+  // Nettoyage initial des événements
+  mpu.getEvent(&eventGyro, &eventAccel, &eventTemp);
+  delay(100); // Délai pour stabiliser le capteur
+
+  // Initialisation des valeurs de référence /#
+  refXminGyro = eventGyro.gyro.x;
+  refXmaxGyro = refXminGyro;
+  refYminGyro = eventGyro.gyro.y;
+  refYmaxGyro = refYminGyro;
+  refZminGyro = eventGyro.gyro.z;
+  refZmaxGyro = refZminGyro;
+
+  unsigned long startTime = millis();
+  while (millis() - startTime < durationCalibration) {
+	mpu.getEvent(&eventGyro, &eventAccel, &eventTemp);
+	delay(1); // Délai entre les lectures pour la stabilité
+
+	// Enregistrement des valeurs extrêmes pour chaque axe
+	refXminGyro = min(refXminGyro, eventGyro.gyro.x);
+	refXmaxGyro = max(refXmaxGyro, eventGyro.gyro.x);
+	refYminGyro = min(refYminGyro, eventGyro.gyro.y);
+	refYmaxGyro = max(refYmaxGyro, eventGyro.gyro.y);
+	refZminGyro = min(refZminGyro, eventGyro.gyro.z);
+	refZmaxGyro = max(refZmaxGyro, eventGyro.gyro.z);
   }
 }
 
-void verifMPU(){ 
+// Calibre l'accélération (non utilisée dans le code original)
+void calibrateAccel() {
+  mpu.getEvent(&eventGyro, &eventAccel, &eventTemp);
+  refAccel = abs(eventAccel.acceleration.x) + abs(eventAccel.acceleration.y) + abs(eventAccel.acceleration.z);
+}
+
+// Vérifie la connexion avec le MPU6050 et initialise si nécessaire
+void verifyMPU() {
   if (!mpu.begin()) {
-    bitSet(error_code, 15);//Failed to find MPU6050 chip
+	setError(errorAccel, true);
   }
 }
 
-void setupMPUShockDetection(){ //TODO VVVV
-  mpu.setHighPassFilter(MPU6050_HIGHPASS_0_63_HZ);
-  mpu.setMotionDetectionThreshold(2);// a calibrer
-  mpu.setMotionDetectionDuration(2);// a calibrer
-  mpu.setInterruptPinLatch(true);  // Keep it latched.  Will turn off when reinitialized.
-  mpu.setInterruptPinPolarity(true);
-  mpu.setMotionInterrupt(true);
-}
-
-void setupMPUTiltDetection(){ //TODO VVVV
-  //---------setup angle change detection---------------//
-  /* Get new sensor events with the readings */
-  // set accelerometer range to +-8G
+// Configuration de la détection de changement d'angle
+void setupMPUTiltDetection() {
   mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
-  // set gyro range to +- 500 deg/s
   mpu.setGyroRange(MPU6050_RANGE_500_DEG);
-  // set filter bandwidth to 21 Hz
   mpu.setFilterBandwidth(MPU6050_BAND_260_HZ);
 }
 
-void setup()
-{
-  //Begin serial communication with Arduino and Arduino IDE (Serial Monitor)
-  Serial.begin(9600);
+// Détecte les mouvements à l'aide du gyroscope
+void detectGyroMovement() {
+  mpu.getEvent(&eventGyro, &eventAccel, &eventTemp);
 
-  //Begin serial communication with Arduino and WISOL WSSFM10R1
-  SerFox.begin(9600); // !!!!!! le moniteur série doit etre en CR
-
-  //verifMPU(); dans loop
-  setupMPUShockDetection();
-  setupMPUTiltDetection();
-  mpu.getEvent(&g, &a, &temp);
-  gyroCali(g);
-
-
-
-  //siren
-  pinMode(siren, OUTPUT);
-  digitalWrite(siren, LOW);
-}
-
-void updateSerial() { //uniquement pour du debug avec le pc
-  delay(1000);//super important pour pas corrompre
-  while (Serial.available()) {
-    SerFox.write(Serial.read());//Forward what Serial received to Software Serial Port
-  }
-  while(SerFox.available()) {
-    Serial.write(SerFox.read());//Forward what Software Serial received to Serial Port
-  }
-}
-
-void serFoxFloatPrint(float f) { //conversion float -> hex
-  byte * b = (byte *) &f;
-  if(b[0] < 16) SerFox.print('0');
-  SerFox.print(b[0], HEX);
-  if(b[1] < 16) SerFox.print('0');
-  SerFox.print(b[1], HEX);
-  if(b[2] < 16) SerFox.print('0');
-  SerFox.print(b[2], HEX);
-  if(b[3] < 16) SerFox.print('0');
-  SerFox.print(b[3], HEX);
-}
-
-void serFoxInt32Print(int32_t i) { //conversion int32_t -> hex
-  byte * b = (byte *) &i;
-  if(b[0] < 16) SerFox.print('0');
-  SerFox.print(b[0], HEX);
-  if(b[1] < 16) SerFox.print('0');
-  SerFox.print(b[1], HEX);
-  if(b[2] < 16) SerFox.print('0');
-  SerFox.print(b[2], HEX);
-  if(b[3] < 16) SerFox.print('0');
-  SerFox.print(b[3], HEX);
-}
-
-void gyroGraph(){
-  /* Get new sensor events with the readings */
-  //sensors_event_t g, a, temp;
-  mpu.getEvent(&g, &a, &temp);
-
-  /* Print out the values *
-  Serial.print(a.acceleration.x);
-  Serial.print(",");
-  Serial.print(a.acceleration.y);
-  Serial.print(",");
-  Serial.print(a.acceleration.z);
-  Serial.print(", ");//*/
-
-  Serial.print(",");
-  Serial.print(g.gyro.x);
-  Serial.print(",");
-  Serial.print(refXmax + toleranceAngle);
-  Serial.print(",");
-  Serial.print(refXmin - toleranceAngle);
-  Serial.print(",");
-  Serial.print(g.gyro.y);
-  Serial.print(",");
-  Serial.print(refYmax + toleranceAngle);
-  Serial.print(",");
-  Serial.print(refYmin - toleranceAngle);
-  Serial.print(",");
-  Serial.print(g.gyro.z);
-  Serial.print(",");
-  Serial.print(refZmax + toleranceAngle);
-  Serial.print(",");
-  Serial.print(refZmin - toleranceAngle);
-  Serial.print(",");
-
-  Serial.println("");
-}
-
-void msgSigfox(int32_t error,float lat, float lng){
-  SerFox.listen(); //Only one SoftwareSerial object can listen at a time
-  SerFox.print("AT$SF=");
-  //intégrer code d'erreur
-  serFoxInt32Print(error);
-  serFoxFloatPrint(lat); //32 bits - 4 bytes 
-  serFoxFloatPrint(lng);
-  SerFox.write(0x0D);    
-  updateSerial();
-}
-
-void doSiren(){
-  if (error_code >=  sirenErrorLevelTrigger){ //le code se clear en fin de loop
-    if(millis() - debutSirene > delaisSirene ){ // après la durée de pause
-      debutSirene = millis(); //debut du delais entre deux melodies
-      digitalWrite(siren, HIGH);
-    }
-  }
-  //ici car le reset DOIT se faire VV
-  if(millis() - debutSirene > dureeSirene ){ // après la durée de mélodie
-    digitalWrite(siren, LOW);
+  // Détection de changement d'angle pour chaque axe
+  if (
+	  (eventGyro.gyro.x > refXmaxGyro + toleranceAngle || eventGyro.gyro.x < refXminGyro - toleranceAngle) ||
+	  (eventGyro.gyro.y > refYmaxGyro + toleranceAngle || eventGyro.gyro.y < refYminGyro - toleranceAngle) ||
+	  (eventGyro.gyro.z > refZmaxGyro + toleranceAngle || eventGyro.gyro.z < refZminGyro - toleranceAngle)
+  ) {
+		setError(errorGyro, true);
+  } else {
+		setError(errorGyro, false);
   }
   
-
-  // TODO: delais_sirene
+  // Détection de vibration (utilisation de l'accéléromètre)
+  double vibration = abs(eventAccel.acceleration.x) + abs(eventAccel.acceleration.y) + abs(eventAccel.acceleration.z);
+  if (vibration > refAccel + TOLERANCE_VIBRATION || vibration < refAccel - TOLERANCE_VIBRATION) {
+	setError(errorAccel, true);
+  }
+  refAccel = vibration; // Mise à jour de la valeur de référence pour les vibrations
 }
 
-void sendAlert() {
-  if ( error_code >=  sigfoxErrorLevelTrigger ){ //  voir declaration  , se clear en fin de loop
-    if(millis() - debutSigfox >  delaisSigfox ){ //reset interdiction de l'envoi temporaire sans gps, imaginer que ce if est à la fin
-      debutSigfox = millis(); //debut du delais entre deux envois
-      msgSigfox(error_code, float(0.0),float(0.0)); //avant c'etait latitude et longitude dans les float
-    }
-  }
+// Affiche les données du gyroscope et de l'accéléromètre
+void gyroGraph() {
+	mpu.getEvent(&eventGyro, &eventAccel, &eventTemp);
+
+	// Gyroscope : X,Y,Z avec seuils de tolérance
+	Serial.print("\nGX: "); Serial.print(eventGyro.gyro.x);
+	Serial.print(" Tol+: "); Serial.print(refXmaxGyro + toleranceAngle);
+	Serial.print(" Tol-: "); Serial.print(refXminGyro - toleranceAngle);
+
+	Serial.print(" GY: "); Serial.print(eventGyro.gyro.y);
+	Serial.print(" Tol+: "); Serial.print(refYmaxGyro + toleranceAngle);
+	Serial.print(" Tol-: "); Serial.print(refYminGyro - toleranceAngle);
+
+	Serial.print(" GZ: "); Serial.print(eventGyro.gyro.z);
+	Serial.print(" Tol+: "); Serial.print(refZmaxGyro + toleranceAngle);
+	Serial.print(" Tol-: "); Serial.println(refZminGyro - toleranceAngle);
+
+	// Accéléromètre :  avec seuils de tolérance
+	Serial.print("Vibration Ref: "); Serial.print(refAccel);
+	Serial.print(" Tol+: "); Serial.print(refAccel + TOLERANCE_VIBRATION);
+	Serial.print(" Tol-: "); Serial.println(refAccel - TOLERANCE_VIBRATION);
 }
-
-void accelDetect(){
-  if(mpu.getMotionInterruptStatus()){ //detects accelerations, not motion!
-  bitSet(error_code, 13);//accel interrupt
-    Serial.print("shock\r\n");
-  }
-}
-
-void gyroDetect(){
-
-  mpu.getEvent(&g, &a, &temp);
-  
-  if( (g.gyro.x > refXmax + toleranceAngle) || (g.gyro.x < refXmin - toleranceAngle)){ 
-    bitSet(error_code, 14);//tilt changed
-  }
-  if( (g.gyro.y > refYmax + toleranceAngle) || (g.gyro.y < refYmin - toleranceAngle)){
-    bitSet(error_code, 14);//tilt changed
-  }
-  if( (g.gyro.z > refZmax + toleranceAngle) || (g.gyro.z < refZmin - toleranceAngle)){
-    bitSet(error_code, 14);//tilt changed
-  }
-}
-
-
-
-
-void loop()
-{
-  
-
-      msgSigfox(error_code, float(0.0),float(0.0)); //avant c'etait latitude et longitude dans les float
-  //mpu6050
-  verifMPU();
-  accelDetect();
-  gyroDetect();
-
-  //conditions et envoi
-  //doSiren(); //ajouter des check a chaque étape pour vérifier que tout va bien
-  sendAlert();
-
- 
-
-  //debug
-  gyroGraph();
-  //debug
-  Serial.print(error_code);
-  Serial.print(",");
-  Serial.print(error_code, BIN);
-  Serial.print(",");
-
-  error_code = 0; // l'erreur s'additionne jusqu'à la sirène et le sigfox puis est reset, ca n'influe pas les délais
-}
-
