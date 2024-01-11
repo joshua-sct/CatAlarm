@@ -3,12 +3,6 @@
 #include "Siren.h"
 #include "globals.h"
 
-// Code d'erreur
-uint32_t ERROR_CODE = 0;             // Définition de la variable externe
-uint32_t ERROR_CODE_PERSISTENT = 0;  // Copie du code d'erreur en cas d'alarme persistente
-
-bool sirenState;
-
 // Fonction pour tester un bit à une position spécifique
 //bool testBit(unsigned long value, int bitPosition) {
 //    return (value >> bitPosition) & 1;
@@ -24,32 +18,15 @@ void handleError() {
     } 
 
 
-    if (ERROR_CODE & maskSigfox) {
+    if (ERROR_CODE & maskSiren) {
         mySiren.handlePlay();
     }
 
-    /* Sans utilisation des logs pour la sirene pour savoir si SirenHasBeenPlayingForTooLong */
-    // // La sirène a sonné trop longtemps
-    // if (ERROR_CODE & errorSirenHasBeenPlayingForTooLong) {
-    //     unsigned long currentTime = millis();
-
-    //     /* On distingue 2 cas : erreur maskSiren, ou pas d'erreur maskSiren */  
-
-    //     // Erreur sirène
-    //     if (ERROR_CODE & maskSiren) {
-    //         // Garder la trace de la dernière erreure liée à la sirène
-    //         mySiren.sirenHasBeenPlayingForTooLongLastErrorTime = currentTime;
-    //     }
-    //     // Pas d'erreur sirène, et plus depuis un certain temps
-    //     else if (mySiren.sirenHasBeenPlayingForTooLongLastErrorTime - currentTime > mySiren.sirenHasBeenPlayingForTooLongMinimumDelayWithoutError) {
-    //         setError(errorSirenHasBeenPlayingForTooLong, false);
-    //         // L'erreur 
-    //     }
-    // }
-    // // Une erreur est liée à la sirène et il n'y a pas errorSirenHasBeenPlayingForTooLong
-    // else if ((ERROR_CODE & maskSiren)) { // Erreur du gyroscope ou de l'accéléromètre
-    //     mySiren.handlePlay();
-    // }
+    // La sirène a sonné trop longtemps
+    if (ERROR_CODE & errorSirenHasBeenPlayingForTooLong) {
+        // sifgox_send()
+    }
+   
 
 }
 

@@ -18,18 +18,20 @@ Siren::Siren(const SirenSettings& settings) :
     intermittentToneStartTime(0),
 	intermittentToneEndTime(0)
 
-	{
-		// Initialisation des pins
-		pinMode(pin, OUTPUT);
-    	digitalWrite(pin, LOW);
+	{}
 
-		// Initialisation des logs
-		logs = new SirenLog[logSize];
-		for (int i = 0; i < logSize; ++i) {
-    	    logs[i].startTime = 0;
-        	logs[i].endTime = 0;
-	    }
+void Siren::init() {
+	// Initialisation des pins
+	pinMode(pin, OUTPUT);
+	digitalWrite(pin, LOW);
+
+	// Initialisation des logs
+	logs = new SirenLog[logSize];
+	for (int i = 0; i < logSize; ++i) {
+		logs[i].startTime = 0;
+		logs[i].endTime = 0;
 	}
+}
 
 void Siren::recordSirenTrigger(unsigned long startTime, unsigned long endTime) {
     // Ajouter la nouvelle entrée au tableau

@@ -19,6 +19,7 @@ class Siren {
 public:
     Siren(const SirenSettings& params);    
     ~Siren();
+    void init();
     void handlePlay();
     void playIntermittentTone();
     void playQuickTone();
