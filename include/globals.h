@@ -18,4 +18,7 @@
 #define GYRO_DURATION_CALIB 200                         // Durée de calibration du gyroscope en millisecondes
 #define BLINKER_PIN 1                                   // Pin pour la détection de clignotement (recalibration)
 
+// Paramètres Sigfox
+#define DELAY_SIGFOX 60000                              // Délai entre les alertes Sigfox en millisecondes
+
 #endif // GLOBAL_H

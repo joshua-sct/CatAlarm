@@ -1,8 +1,7 @@
 #ifndef SIREN_H
 #define SIREN_H
 
-#include <Arduino.h>
-
+// Structure des paramètres de Siren
 struct SirenSettings {
     int pin;
     unsigned long freq;
@@ -15,26 +14,28 @@ struct SirenSettings {
     int logSize;
 };
 
+// Classe Siren
 class Siren {
 public:
-    Siren(const SirenSettings& params);    
+    // Constructeur et destructeur
+    Siren(const SirenSettings& params);
     ~Siren();
+
+    // Méthodes d'initialisation et de contrôle
     void init();
     void handlePlay();
-    void playIntermittentTone();
+
+    // Méthodes pour jouer la sirène
+    void playIntermittentTone(unsigned long duration);
     void playQuickTone();
-    private:
+
+private:
     struct SirenLog {
         unsigned long startTime;
         unsigned long endTime;
     };
 
-    //    std::list<SirenTrigger> sirenTriggers; // pas de lib c++ standard sur arduino => Pas de liste chaînés 
-    const int logSize;
-    int logIndex; // Indice pour suivre la position actuelle du log circulaire
-    SirenLog* logs; // Utilisez un pointeur au lieu d'un tableau fixe
-    void recordSirenTrigger(unsigned long startTime, unsigned long duration);
-
+    // Paramètres de configuration
     int pin;
     unsigned long freq;
     unsigned long durationMinimal;
@@ -43,15 +44,27 @@ public:
     unsigned long durationRef;
     unsigned long intervalDuration;
     unsigned long minDelayBetweenTwoTriggers;
-    
+
+    // Log circulaire
+    const int logSize;
+    int logIndex; // Indice pour suivre la position actuelle du log circulaire
+    SirenLog* logs; // Utilisez un pointeur au lieu d'un tableau fixe
+
+    // Timing des intermittentTone 
     unsigned long intermittentToneStartTime;
     unsigned long intermittentToneEndTime;
 
+    // Méthodes privées
+    void recordSirenTrigger(unsigned long startTime, unsigned long duration);
     bool isLastLogEmpty() const;
     bool hasSoundedMoreThan(unsigned long period) const;
     bool hasSoundedMoreThanXinX(unsigned long duration, unsigned long durationRef) const;
 };
 
+// Déclaration externe de mySiren
 extern Siren mySiren;
+
+// Fonction de calcul pour utile pour hasSoundedMoreThan()
+int positiveModulo(int value, int modulus);
 
 #endif // SIREN_H

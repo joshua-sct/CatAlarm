@@ -1,53 +1,48 @@
-#include <Arduino.h>
-#include "globals.h"
-#include "error.h"
-#include "Siren.h"
+// Inclusions des bibliothèques nécessaires
+#include <Arduino.h>	// Framework Arduino
+#include "globals.h"	// Paramètres globaux
+#include "error.h"		// Gestion d'erreurs
+#include "Siren.h"		// Gestion de Siren
+#include "sigfox.h" 	// Gestion de Sigfox
 
-Siren::Siren(const SirenSettings& settings) :
-	logSize(settings.logSize),
-	logIndex(0),
-	pin(settings.pin),
-	freq(settings.freq),
-    durationMinimal(settings.durationMin),
-	durationMaximal(settings.durationMax),
-	durationMaxInDurationRef(settings.durationMaxInDurationRef),
-	durationRef(settings.durationRef),
-    intervalDuration(settings.intervalDuration),
-	minDelayBetweenTwoTriggers(settings.minDelayBetweenTwoTriggers),
-    
+// Constructeur de Siren
+Siren::Siren(const SirenSettings& params) :
+    pin(params.pin),
+    freq(params.freq),
+    durationMinimal(params.durationMin),
+    durationMaximal(params.durationMax),
+    durationMaxInDurationRef(params.durationMaxInDurationRef),
+    durationRef(params.durationRef),
+    intervalDuration(params.intervalDuration),
+    minDelayBetweenTwoTriggers(params.minDelayBetweenTwoTriggers),
+    logSize(params.logSize),
+    logIndex(0),
+    logs(new SirenLog[logSize]),
     intermittentToneStartTime(0),
-	intermittentToneEndTime(0)
+    intermittentToneEndTime(0)
+{
+    // Pas d'initialisation ici car sinon a lieu avant le setup() du main 
+}
 
-	{}
-
+// Initialise Siren
 void Siren::init() {
 	// Initialisation des pins
 	pinMode(pin, OUTPUT);
 	digitalWrite(pin, LOW);
 
 	// Initialisation des logs
-	logs = new SirenLog[logSize];
 	for (int i = 0; i < logSize; ++i) {
 		logs[i].startTime = 0;
 		logs[i].endTime = 0;
 	}
 }
 
-void Siren::recordSirenTrigger(unsigned long startTime, unsigned long endTime) {
-    // Ajouter la nouvelle entrée au tableau
-    logs[logIndex].startTime = startTime;
-    logs[logIndex].endTime = endTime;
-
-    // Incrémenter l'index du tableau
-    logIndex = (logIndex + 1) % logSize;
-}
-
-// Gestion de la sirène
+// Gère la sirène lors de son appel
 void Siren::handlePlay() {
 	// Première sonnerie
 	if (isLastLogEmpty()) {
 		// Première sonnerie
-		playIntermittentTone();
+		playIntermittentTone(durationMinimal);
 	}
 	
 	// n-ième sonnerie
@@ -64,17 +59,19 @@ void Siren::handlePlay() {
 		
 		// Sinon la sirène doit encore sonner 
 		else {
-			playIntermittentTone();
+			playIntermittentTone(durationMinimal);
+			sendSigfoxAlert(ERROR_CODE);
+			setError(errorSirenHasBeenPlayingForTooLong, false);
 		}
 	}
 }
 
-// Sonnerie intermittente de durée durationMinimal
-void Siren::playIntermittentTone() {
+// Sonne de manière intermittente pendant durationMinimal
+void Siren::playIntermittentTone(unsigned long duration) {
     intermittentToneStartTime = millis();
 
-	// La sirène sonne pendant durationMinimal
-    while (millis() - intermittentToneStartTime < durationMinimal) {
+	// Sonne pendant durationMinimal
+    while (millis() - intermittentToneStartTime < duration) {
         // Jouer une période de sirène
 		tone(pin, freq);
 		delay(intervalDuration / 2); // Temps de tonalité
@@ -83,23 +80,27 @@ void Siren::playIntermittentTone() {
     }
 
 	intermittentToneEndTime = millis();
-	// Enregistrer cette sonnerie dans les logs
+
+	// Enregistre l'entrée correspondante dans le journal 'logs'
 	recordSirenTrigger(intermittentToneStartTime, intermittentToneEndTime);
 }
 
-// Un bip de sirène
+// Joue un bip de sirène
 void Siren::playQuickTone() {
   tone(pin, freq, intervalDuration);
 }
 
-Siren::~Siren() {
-    delete[] logs;  // Libération de la mémoire du tableau
+// Ajoute une entrée (startTime, endTime) au journal 'logs'
+void Siren::recordSirenTrigger(unsigned long startTime, unsigned long endTime) {
+    // Ajouter la nouvelle entrée au tableau
+    logs[logIndex].startTime = startTime;
+    logs[logIndex].endTime = endTime;
+
+    // Incrémenter l'index du tableau
+    logIndex = (logIndex + 1) % logSize;
 }
 
-int positiveModulo(int value, int modulus) {
-    return (value % modulus + modulus) % modulus;
-}
-
+// Test si la dernière entrée du journal est vide
 bool Siren::isLastLogEmpty() const {
     return (logs[logIndex].startTime == 0 && logs[logIndex].endTime == 0);
 }
@@ -120,7 +121,6 @@ bool Siren::hasSoundedMoreThan(unsigned long duration) const {
 	return (totalDuration >= duration);
 }
 
-
 // Détermine si la sonnerie à sonner plus longtemps que "duration" sur la période "durationRef"
 bool Siren::hasSoundedMoreThanXinX(unsigned long duration, unsigned long durationRef) const {
     unsigned long totalDuration = 0;
@@ -138,4 +138,17 @@ bool Siren::hasSoundedMoreThanXinX(unsigned long duration, unsigned long duratio
 	}
 
 	return (totalDuration >= duration);
+}
+
+// Destructeur de Siren
+Siren::~Siren() {
+	// Evite les problèmes potentiels
+	if (logs != nullptr) {
+ 	   delete[] logs;  // Libération de la mémoire du tableau
+	}
+}
+
+// Renvoie une valeur positive de value modulo modulus
+int positiveModulo(int value, int modulus) {
+    return (value % modulus + modulus) % modulus;
 }

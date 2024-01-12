@@ -1,44 +1,40 @@
-#include <Arduino.h>
-#include "globals.h"
-#include <Adafruit_MPU6050.h> // Accel + Gyro
-#include <Adafruit_Sensor.h> // Accel + Gyro
-#include "sensors.h"
-#include "error.h"
+// Inclusions des bibliothèques nécessaires
+#include <Arduino.h>            // Framework Arduino
+#include <Adafruit_MPU6050.h>   // Librairie MPU (Accel + Gyro)
+#include "error.h"              // Gestion d'erreurs
+#include "AccelGyro.h"          // Gestion des capteurs
 
+// Constructeur de AccelGyro
 AccelGyro::AccelGyro(const AccelGyroSettings& settings) :
-    toleranceAccel(settings.toleranceAccel),
     toleranceGyro(settings.toleranceGyro),
-    durationCalibration(settings.durationCalibration),
+    durationCalibrationGyro(settings.durationCalibrationGyro),
     blinkerPin(settings.blinkerPin),
-    mpu(),
     refXminGyro(0.0),
     refXmaxGyro(0.0),
     refYminGyro(0.0),
     refYmaxGyro(0.0),
     refZminGyro(0.0),
     refZmaxGyro(0.0),
-    refAccel(0.0),
+    mpu(),
     eventGyro(),
     eventAccel(),
     eventTemp()
 {}
 
+// Initialisation de AccelGyro
 void AccelGyro::init() {
 	mpu.begin();
-    setupShockDetection();
-	setupTiltDetection();
-    calibrateGyro();
+    setupAccel();
+	setupGyro();
+    calibrateGyro(durationCalibrationGyro);
 }
 
-// Ajouter ici le reste des fonctions définies plus haut, avec des commentaires expliquant leur fonctionnement
-// Calibre l'orientation pendant les premières secondes définies par durationCalibration
-void AccelGyro::calibrateGyro() {
+// Calibre le Gyro pendant durationCalibration
+void AccelGyro::calibrateGyro(unsigned long calibrationDuration) {
     // Nettoyage initial des événements
     mpu.getEvent(&eventGyro, &eventAccel, &eventTemp);
-    refAccel = abs(eventAccel.acceleration.x) + abs(eventAccel.acceleration.y) + abs(eventAccel.acceleration.z);
-    delay(100); // Délai pour stabiliser le capteur
 
-    // Initialisation des valeurs de référence /#
+    // Initialisation des valeurs de référence
     refXminGyro = eventGyro.gyro.x;
     refXmaxGyro = refXminGyro;
     refYminGyro = eventGyro.gyro.y;
@@ -46,8 +42,9 @@ void AccelGyro::calibrateGyro() {
     refZminGyro = eventGyro.gyro.z;
     refZmaxGyro = refZminGyro;
 
+    // Calibration
     unsigned long startTime = millis();
-    while (millis() - startTime < durationCalibration) {
+    while (millis() - startTime < calibrationDuration) {
         mpu.getEvent(&eventGyro, &eventAccel, &eventTemp);
         delay(1); // Délai entre les lectures pour la stabilité
 
@@ -69,24 +66,25 @@ void AccelGyro::verify() {
     }
 }
 
-void AccelGyro::setupShockDetection(){ //TODO VVVV
+// Setup de l'Accel
+void AccelGyro::setupAccel(){ 
   mpu.setHighPassFilter(MPU6050_HIGHPASS_0_63_HZ);
-  mpu.setMotionDetectionThreshold(2);// a calibrer
-  mpu.setMotionDetectionDuration(2);// a calibrer
-  mpu.setInterruptPinLatch(true);  // Keep it latched.  Will turn off when reinitialized.
+  mpu.setMotionDetectionThreshold(2);               // a calibrer
+  mpu.setMotionDetectionDuration(2);                // a calibrer 
+  mpu.setInterruptPinLatch(true);                   // Keep it latched.  Will turn off when reinitialized.
   mpu.setInterruptPinPolarity(true);
   mpu.setMotionInterrupt(true);
 }
 
 
-// Configuration de la détection de changement d'angle
-void AccelGyro::setupTiltDetection() {
+// Setup du Gyro
+void AccelGyro::setupGyro() {
     mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
     mpu.setGyroRange(MPU6050_RANGE_500_DEG);
     mpu.setFilterBandwidth(MPU6050_BAND_260_HZ);
 }
 
-// Détecte les mouvements à l'aide du gyroscope
+// Détecte les anomalies AccelGyro
 void AccelGyro::detectAbnormal() {
     verify();
     mpu.getEvent(&eventGyro, &eventAccel, &eventTemp);
@@ -110,26 +108,33 @@ void AccelGyro::detectAbnormal() {
     }
 }
 
-
 // Affiche les données du gyroscope et de l'accéléromètre
 void AccelGyro::serialOutput() {
+    // Récupère les évènements de l'AccelGyro
 	mpu.getEvent(&eventGyro, &eventAccel, &eventTemp);
 
 	// Gyroscope : X,Y,Z avec seuils de tolérance
-	Serial.print("\nGX: "); Serial.print(eventGyro.gyro.x);
-	Serial.print(" Tol+: "); Serial.print(refXmaxGyro + toleranceGyro);
-	Serial.print(" Tol-: "); Serial.print(refXminGyro - toleranceGyro);
+	Serial.print("\nGyroscope: \n");
+	Serial.print("GX: "); Serial.print(eventGyro.gyro.x);
+	Serial.print(", Tol+: "); Serial.print(refXmaxGyro + toleranceGyro);
+	Serial.print(", Tol-: "); Serial.print(refXminGyro - toleranceGyro);
 
-	Serial.print(" GY: "); Serial.print(eventGyro.gyro.y);
-	Serial.print(" Tol+: "); Serial.print(refYmaxGyro + toleranceGyro);
-	Serial.print(" Tol-: "); Serial.print(refYminGyro - toleranceGyro);
+	Serial.print("\nGY: "); Serial.print(eventGyro.gyro.y);
+	Serial.print(", Tol+: "); Serial.print(refYmaxGyro + toleranceGyro);
+	Serial.print(", Tol-: "); Serial.print(refYminGyro - toleranceGyro);
 
-	Serial.print(" GZ: "); Serial.print(eventGyro.gyro.z);
-	Serial.print(" Tol+: "); Serial.print(refZmaxGyro + toleranceGyro);
-	Serial.print(" Tol-: "); Serial.println(refZminGyro - toleranceGyro);
+	Serial.print("\nGZ: "); Serial.print(eventGyro.gyro.z);
+	Serial.print(", Tol+: "); Serial.print(refZmaxGyro + toleranceGyro);
+	Serial.print(", Tol-: "); Serial.println(refZminGyro - toleranceGyro);
 
-	// Accéléromètre :  avec seuils de tolérance
-	Serial.print("Vibration Ref: "); Serial.print(refAccel);
-	Serial.print(" Tol+: "); Serial.print(refAccel + toleranceAccel);
-	Serial.print(" Tol-: "); Serial.println(refAccel - toleranceAccel);
+	// Accéléromètre : X, Y, Z 
+    Serial.print("\nAccéléromètre:\n");
+    Serial.print("AX: "); Serial.print(eventAccel.acceleration.x);
+    Serial.print("\nAY: "); Serial.print(eventAccel.acceleration.y);
+    Serial.print("\nAZ: "); Serial.print(eventAccel.acceleration.z);
+
+    // Vibrations anormales
+    if (isError(errorAccel)) {
+        Serial.println("\nDétection de vibrations (shock) !\n");
+    }
 }

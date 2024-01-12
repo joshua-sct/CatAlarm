@@ -1,35 +1,34 @@
+// Inclusions des bibliothèques nécessaires
 #include <Arduino.h>
+#include "globals.h"
 #include "error.h"
 #include "Siren.h"
-#include "globals.h"
-
-// Fonction pour tester un bit à une position spécifique
-//bool testBit(unsigned long value, int bitPosition) {
-//    return (value >> bitPosition) & 1;
-//}
-
-// bool getError(error)
+#include "sigfox.h"
 
 // Gère l'erreur survenue
 void handleError() {
-    // Erreur à envoyer à Sigfox
-    if (ERROR_CODE & maskSigfox) {
-        // sigfox_send()
+    // Erreur pour Sigfox
+    if (isError(maskSigfox)) {
+        sendSigfoxAlert(ERROR_CODE);
     } 
 
 
-    if (ERROR_CODE & maskSiren) {
+    // Erreur car la sirène a trop sonné
+    if (isError(errorSirenHasBeenPlayingForTooLong)) {
+        sendSigfoxAlert(ERROR_CODE);
+    }
+    
+    // Erreur pour la Siren
+    else if (isError(maskSiren)) {
         mySiren.handlePlay();
+        sendSigfoxAlert(ERROR_CODE);
     }
-
-    // La sirène a sonné trop longtemps
-    if (ERROR_CODE & errorSirenHasBeenPlayingForTooLong) {
-        // sifgox_send()
-    }
-   
-
 }
 
+// Détermine s'il y a une erreur correspondant à 'error'
+bool isError(Error error) {
+    return (ERROR_CODE & error);
+}
 
 // Actualise le code d'erreur et gère l'erreur si besoin 
 void setError(Error error, bool isTrue) {
