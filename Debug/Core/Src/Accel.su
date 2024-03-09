@@ -1,0 +1,11 @@
+../Core/Src/Accel.cpp:21:19:HAL_StatusTypeDef i2cReadL(uint16_t, uint8_t*, uint16_t)	32	static
+../Core/Src/Accel.cpp:25:19:HAL_StatusTypeDef i2cReadH(uint16_t, uint8_t*, uint16_t)	32	static
+../Core/Src/Accel.cpp:29:19:HAL_StatusTypeDef i2cWriteL(uint16_t, uint8_t*, uint16_t)	32	static
+../Core/Src/Accel.cpp:33:19:HAL_StatusTypeDef i2cWriteH(uint16_t, uint8_t*, uint16_t)	32	static
+../Core/Src/Accel.cpp:37:9:uint8_t Accel::init(I2C_HandleTypeDef*)	56	static
+../Core/Src/Accel.cpp:154:6:void Accel::readAccel(I2C_HandleTypeDef*)	40	static
+../Core/Src/Accel.cpp:189:9:uint8_t Accel::init2(I2C_HandleTypeDef*)	16	static
+../Core/Src/Accel.cpp:199:6:void Accel::readAccel2(I2C_HandleTypeDef*)	16	static
+../Core/Src/Accel.cpp:209:6:void Accel::detectAbnormal(I2C_HandleTypeDef*)	56	static
+../Core/Src/Accel.cpp:236:6:void Accel::calibrate(I2C_HandleTypeDef*)	32	static
+../Core/Src/Accel.cpp:260:7:float Accel::angleBetweenVectors(float, float, float, float, float, float)	48	static

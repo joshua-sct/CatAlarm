@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "name": "STM32",
+      "includePath": [
+        "/Core/Inc",
+        "/Drivers/STM32G0xx_HAL_Driver/Inc",
+        "/Drivers/STM32G0xx_HAL_Driver/Inc/Legacy",
+        "/Drivers/CMSIS/Device/ST/STM32G0xx/Include",
+        "/Drivers/CMSIS/Include"
+      ],
+      "defines": [
+        "DEBUG",
+        "USE_HAL_DRIVER",
+        "STM32G030xx"
+      ],
+      "compilerPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-g++.exe"
+    }
+  ],
+  "version": 4
+}

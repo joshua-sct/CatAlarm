@@ -1,0 +1,9 @@
+{
+  "cortex-debug.gdbPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/arm-none-eabi-gdb.exe",
+  "cortex-debug.armToolchainPath": "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.2 Rel1/bin/",
+  "cortex-debug.stutilPath": "C:/Program Files (x86)/stlink/bin/st-util.exe",
+  "files.associations": {
+    "main.h": "c"
+  },
+  "C_Cpp.errorSquiggles": "disabled",
+}

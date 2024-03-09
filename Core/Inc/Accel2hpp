@@ -1,0 +1,34 @@
+#ifndef ACCEL_H
+#define ACCEL_H
+
+#include <lis2dw12_reg.h>
+#include <string.h>
+#include <stdio.h>
+#include "i2c.h"
+
+class Accel {
+private:
+    stmdev_ctx_t dev_ctx;
+    int16_t data_raw_acceleration[3];
+    int16_t data_raw_temperature;
+    float acceleration_mg[3];
+    float temperature_degC;
+    uint8_t whoamI;
+    uint8_t rst;
+    uint8_t tx_buffer[1000];
+
+    static const uint32_t BOOT_TIME = 5;
+
+    static void tx_com(uint8_t *tx_buffer, uint16_t len);
+    static void platform_delay(uint32_t ms);
+    static void platform_init(void);
+
+public:
+    Accel();
+    void readDataPolling();
+};
+
+static int32_t platform_write(void *handle, uint8_t reg, const uint8_t *bufp, uint16_t len);
+static int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t len);
+
+#endif /* ACCEL_H */
