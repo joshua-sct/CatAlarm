@@ -153,7 +153,6 @@ uint8_t Accel::init(I2C_HandleTypeDef *I2Cx)
 
 void Accel::readAccel(I2C_HandleTypeDef *I2Cx)
 {
-
 	uint8_t available;
 
 	lis2dw12_status_t status;
@@ -225,7 +224,7 @@ void Accel::detectAbnormal(I2C_HandleTypeDef *I2Cx) {
 	Acc = sqrt(Ax*Ax+Ay*Ay+Az*Az);
 
 	//if (Acc > refAcc)
-	if (angle > refAngle || Acc > refAcc)
+	if (angle > refAngle || abs(Acc-refAcc) > 4)
 	{
 		handleStartBuzzer();
 	} else {
@@ -239,6 +238,7 @@ void Accel::calibrate(I2C_HandleTypeDef *I2Cx) {
 	Axref = 0;
 	Ayref = 0;
 	Azref = 0;
+	refAcc = 0;
 
 	for (int i=0; i < Ncalibration; i++) {
 		readAccel(I2Cx);
@@ -246,12 +246,14 @@ void Accel::calibrate(I2C_HandleTypeDef *I2Cx) {
 		Ayref += Ay;
 		Azref += Az;
 		Acc = sqrt(Ax*Ax+Ay*Ay+Az*Az);
-		if (refAcc < Acc) {
-			refAcc = Acc;
-		}
+//		if (refAcc < Acc) {
+//			refAcc = Acc;
+//		}
+		refAcc += Acc;
 	}
 	// SEUIL FIXE
-	refAcc=refAcc+4;
+	refAcc=refAcc/Ncalibration;
+
 	Axref /= Ncalibration;
 	Ayref /= Ncalibration;
 	Azref /= Ncalibration;

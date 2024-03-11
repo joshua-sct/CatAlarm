@@ -2,8 +2,8 @@
 #define GLOBAL_H
 
 /* Paramètres de la Sirène */
-#define SIREN_PIN 6 // ou 5                             // Pin de commande de la sirène
-#define SIREN_FREQ 4000                               // Fréquence du bip de la sirène
+#define SIREN_PIN 6 // ozu 5                             // Pin de commande de la sirène
+#define SIREN_FREQ 4000                                 // Fréquence du bip de la sirène
 #define SIREN_INTERVAL_DURATION 200                     // Durée du bip de la sonnerie intermittente
 #define SIREN_MIN_DELAY_BETWEEN_TWO_TRIGGERS 1000       // Delai minimale entre le déclenchement de 2 sirènes
 #define SIREN_DURATION_MIN 10000                        // Durée min d'une sirène
@@ -17,7 +17,7 @@
 #define GYRO_TOLERANCE_ANGLE 15                         // Tolérance de changement d'angle après calibration
 #define GYRO_DURATION_CALIB 200                         // Durée de calibration du gyroscope en millisecondes
 //#define BLINKER_PIN 1                                   // Pin pour la détection de clignotement (recalibration)
-//new
+
 #define GYRO_TOLERANCE_TMP 2 // 2
 #define ACC_TOLERANCE_TMP 0.15 // 0.1 ~= limite
 #define I2C_TIMEOUT 100

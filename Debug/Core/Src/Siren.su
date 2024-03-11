@@ -1,0 +1,11 @@
+../Core/Src/Siren.cpp:10:1:Siren::Siren(const SirenSettings&)	16	static
+../Core/Src/Siren.cpp:30:6:void Siren::init()	24	static
+../Core/Src/Siren.cpp:39:6:void Siren::handlePlay()	16	static
+../Core/Src/Siren.cpp:68:6:void Siren::playIntermittentTone(long unsigned int)	16	static
+../Core/Src/Siren.cpp:87:6:void Siren::playQuickTone()	16	static
+../Core/Src/Siren.cpp:94:6:void Siren::recordSirenTrigger(long unsigned int, long unsigned int)	24	static
+../Core/Src/Siren.cpp:104:6:bool Siren::isLastLogEmpty() const	16	static
+../Core/Src/Siren.cpp:109:6:bool Siren::hasSoundedMoreThan(long unsigned int) const	24	static
+../Core/Src/Siren.cpp:125:6:bool Siren::hasSoundedMoreThanXinX(long unsigned int, long unsigned int) const	40	static
+../Core/Src/Siren.cpp:144:1:Siren::~Siren()	16	static
+../Core/Src/Siren.cpp:152:5:int positiveModulo(int, int)	16	static
