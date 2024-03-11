@@ -1,17 +1,19 @@
 #ifndef SIREN_H
 #define SIREN_H
 
+#include <stdint.h>
+#include "rtc.h"
+#include "Log.hpp"
+
 // Structure des paramètres de Siren
 struct SirenSettings {
-//    int pin;
-//    unsigned long freq;
     unsigned long intervalDuration;
     unsigned long minDelayBetweenTwoTriggers;
     unsigned long durationMin;
     unsigned long durationMax;
     unsigned long durationMaxInDurationRef;
     unsigned long durationRef;
-    bool isInterval;
+    bool intermittentMode;
     int logSize;
 };
 
@@ -19,22 +21,26 @@ struct SirenSettings {
 class Siren {
 public:
     // Constructeur et destructeur
-    Siren(const SirenSettings& params);
+    Siren();
     ~Siren();
 
     // Méthodes d'initialisation et de contrôle
     void init();
-    void handlePlay();
+    void handleStart();
+    void handleStop();
 
     // Méthodes pour jouer la sirène
     void playIntermittentTone(unsigned long duration);
+    void playTone(unsigned long duration);
     void playQuickTone();
+    bool isPlaying() const;
 
 private:
-    struct SirenLog {
-        unsigned long startTime;
-        unsigned long endTime;
-    };
+    Log* log;
+
+    uint8_t age;
+    bool playing;
+    bool stopRequest;
 
     // Paramètres de configuration
     int pin;
@@ -57,10 +63,12 @@ private:
     unsigned long intermittentToneEndTime;
 
     // Méthodes privées
-    void recordSirenTrigger(unsigned long startTime, unsigned long duration);
+    void recordSirenTrigger(unsigned long startTiming, unsigned long duration);
     bool isLastLogEmpty() const;
     bool hasSoundedMoreThan(unsigned long period) const;
     bool hasSoundedMoreThanXinX(unsigned long duration, unsigned long durationRef) const;
+    void start();
+    void stop();
 };
 
 // Déclaration externe de mySiren
@@ -68,5 +76,8 @@ extern Siren mySiren;
 
 // Fonction de calcul pour utile pour hasSoundedMoreThan()
 int positiveModulo(int value, int modulus);
+void set_time();
+void get_time();
+void dif_time();
 
 #endif // SIREN_H

@@ -11,7 +11,6 @@ void handleError() {
         sendSigfoxAlert(ERROR_CODE);
     } 
 
-
     // Erreur car la sirène a trop sonné
     if (isError(errorSirenHasBeenPlayingForTooLong)) {
         sendSigfoxAlert(ERROR_CODE);
@@ -19,7 +18,7 @@ void handleError() {
     
     // Erreur pour la Siren
     else if (isError(maskSiren)) {
-        mySiren.handlePlay();
+        mySiren.handleStart();
         sendSigfoxAlert(ERROR_CODE);
     }
 }

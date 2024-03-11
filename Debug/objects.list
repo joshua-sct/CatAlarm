@@ -1,4 +1,5 @@
 "./Core/Src/Accel.o"
+"./Core/Src/Log.o"
 "./Core/Src/Siren.o"
 "./Core/Src/alt_main.o"
 "./Core/Src/error.o"

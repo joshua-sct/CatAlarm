@@ -10,7 +10,8 @@
 #define SIREN_DURATION_MAX 300000                       // Durée max d'une sirene
 #define SIREN_DURATION_MAX_IN_DURATION_REF 300000       // Durée cumulée max pendant laquelle la sirène peut sonnée pendant une durée de référence
 #define SIREN_DURATION_REF 1800000                      // Durée de référence
-#define SIREN_LOG_SIZE 100                              // Taille des logs des triggers de la sirène
+#define SIREN_LOG_SIZE 100								// Taille des logs des triggers de la sirène
+#define SIREN_INTERMITTENT_MODE false
 
 // Paramètres de l'AccelGyro
 #define ACCEL_TOLERANCE_VIBRATION 0.1                   // Seuil de détection de vibration (probablement en radians)

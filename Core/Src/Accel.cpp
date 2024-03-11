@@ -226,9 +226,9 @@ void Accel::detectAbnormal(I2C_HandleTypeDef *I2Cx) {
 	//if (Acc > refAcc)
 	if (angle > refAngle || abs(Acc-refAcc) > 4)
 	{
-		handleStartBuzzer();
+		abnormalStart();
 	} else {
-		handleStopBuzzer();
+		abnormalStop();
 	}
 }
 

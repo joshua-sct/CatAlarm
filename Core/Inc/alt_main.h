@@ -7,8 +7,8 @@ extern "C"
 #endif
 
 int alt_main();
-void handleStartBuzzer();
-void handleStopBuzzer();
+void abnormalStart();
+void abnormalStop();
 
 #ifdef __cplusplus
 }
