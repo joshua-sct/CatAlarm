@@ -120,7 +120,7 @@ int alt_main()
 	blinkerInterruptFlag = true;
 	hot = false;
 
-	Log.init();
+	Log.clear();
 
 	// Accel init
 	// HAL_Delay(100);

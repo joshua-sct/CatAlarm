@@ -6,6 +6,7 @@
 #include "alt_main.h"
 #include "sigfox.hpp"
 #include "gpio.h"
+#include "Log.hpp"
 
 SirenSettings mySirenSettings = {
 	SIREN_DURATION_MIN,
@@ -95,7 +96,7 @@ void Siren::playIntermittentTone(unsigned long duration) {
 	//intermittentToneEndTime = millis();
 
 	// Enregistre l'entrée correspondante dans le journal 'logs'
-	recordSirenTrigger(intermittentToneStartTime, intermittentToneEndTime);
+	recordSirenTrigger(ringStartTime, ringStopTime);
 }
 
 void Siren::playTone(unsigned long duration) {
@@ -113,7 +114,7 @@ void Siren::playTone(unsigned long duration) {
 	//intermittentToneEndTime = millis();
 
 	// Enregistre l'entrée correspondante dans le journal 'logs'
-	recordSirenTrigger(intermittentToneStartTime, intermittentToneEndTime);
+	recordSirenTrigger(ringStartTime, ringStopTime);
 }
 
 // Joue un bip de sirène
@@ -125,13 +126,12 @@ void Siren::playQuickTone() {
 }
 
 // Ajoute une entrée (startTime, endTime) au journal 'logs'
-void Siren::recordSirenTrigger(Timing startTiming, Timing stopTiming) {
+void Siren::recordSirenTrigger(LogTime startTime, LogTime stopTime) {
     // Ajouter la nouvelle entrée au tableau
-    logs[logIndex].startTiming = startTiming;
-    logs[logIndex].stopTiming = stopTiming;
-
-    // Incrémenter l'index du tableau
-    logIndex = (logIndex + 1) % logSize;
+	LogEntry entry;
+	entry.startTime = startTime;
+	entry.stopTime = stopTime;
+	Log.add(entry);
 }
 
 bool Siren::isPlaying() const {

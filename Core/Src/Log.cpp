@@ -1,10 +1,12 @@
 #include "log.hpp"
+#include "global.h"
+#include <cmath>
 
-size_t Log::getIndexPlusOffset(size_t i) {
+size_t Log::getIndexPlusOffset(size_t i) const {
     return (currentIndex + i % MAX_LOG_SIZE + MAX_LOG_SIZE) % MAX_LOG_SIZE;
 }
 
-void Log::addLog(LogEntry entry) {
+void Log::addEntry(LogEntry entry) {
     currentIndex = getIndexPlusOffset(1);
     LogEntries[currentIndex] = entry;
 }
@@ -34,14 +36,13 @@ void Log::clear() {
 }
 
 // Test si la dernière entrée du journal est vide
-bool Log::isLastLogEmpty() const {
-    bool isEmpty = true;
-    isEmpty &&= (LogEntries[currentIndex].startTime.date.Year == 0);
-    isEmpty &&= (LogEntries[currentIndex].startTime.date.Month == 0);
-    isEmpty &&= (LogEntries[currentIndex].startTime.date.Date == 0);
-    isEmpty &&= (LogEntries[currentIndex].startTime.time.Hours == 0);
-    isEmpty &&= (LogEntries[currentIndex].startTime.time.Minutes == 0);
-    isEmpty &&= (LogEntries[currentIndex].startTime.time.Seconds == 0);
+bool Log::isLastEntryEmpty() const {
+    bool isEmpty = (LogEntries[currentIndex].startTime.date.Year == 0)
+    && (LogEntries[currentIndex].startTime.date.Month == 0)
+    && (LogEntries[currentIndex].startTime.date.Date == 0)
+    && (LogEntries[currentIndex].startTime.time.Hours == 0)
+    && (LogEntries[currentIndex].startTime.time.Minutes == 0)
+    && (LogEntries[currentIndex].startTime.time.Seconds == 0);
     return isEmpty;
 }
 
@@ -53,14 +54,14 @@ bool Log::hasRungMoreThan(unsigned long duration) const {
     int j;
     LogTime currentTime = getTime(); 
     // Vérifie si le log est pas trop vieux
-    deltaBetween = elapsedTime(LogEntries[i].stopTime.date, LogEntries[i].stopTime.time, currentTime.date, currentTime.time);
+    deltaBetween = elapsedTime(LogEntries[i].stopTime, currentTime);
     while (deltaBetween < SIREN_MIN_DELAY_BETWEEN_TWO_TRIGGERS) {
         // Ajout de la durée du log actuel
         totalDuration += elapsedTime(LogEntries[i].startTime, LogEntries[i].stopTime);
         // Calcul de la distance au log précédent
-        int j = getIndexPlusOffset(-1);
+        j = getIndexPlusOffset(-1);
         deltaBetween = elapsedTime(LogEntries[j].stopTime, LogEntries[i].startTime);
-        int i = j;
+        i = j;
     }
     return (totalDuration > duration);
 }
@@ -90,7 +91,7 @@ bool Log::hasRungMoreThanXinX(uint32_t duration, uint32_t durationRef) const {
         else {
             // La partie concernée s'étend de stopTime à (currentTime-durationRef)
             clippedTime = AddSecondToTime(-durationRef, currentTime);
-            totalDuration += clippedTime;
+            totalDuration += elapsedTime(clippedTime, LogEntries[i].stopTime);
         }        
         // Calcul de la distance au log précédent
         i = getIndexPlusOffset(-1);
@@ -101,14 +102,20 @@ bool Log::hasRungMoreThanXinX(uint32_t duration, uint32_t durationRef) const {
 }
 
 // Renvoie le nombre de seconde sentre 2 LogTime
-int32_t elapsedTime(LogTime LogTime1, LogTime LogTime2)
+uint32_t elapsedTime(LogTime LogTime1, LogTime LogTime2)
 {
+	// Log1 < Log2
+	int8_t elapsedYear =
+
+
+
+
 	// Convertir les heures en secondes et les jours en secondes pour LogTime1
 	uint32_t Seconds1 = LogTime1.time.Hours * 3600 + LogTime1.time.Minutes * 60 + LogTime1.time.Seconds;
-	Seconds1 += (LogTime1.date - 1) * 86400;
+    Seconds1 += (LogTime1.date.Year * 365 + LogTime1.date.Month * 30 + LogTime1.date.Date - 1) * 86400;
 	// Convertir les heures en secondes et les jours en secondes pour LogTime2
 	uint32_t Seconds2 = LogTime2.time.Hours * 3600 + LogTime2.time.Minutes * 60 + LogTime2.time.Seconds;
-	Seconds2 += (LogTime2.date - 1) * 86400; 
+    Seconds2 += (LogTime2.date.Year * 365 + LogTime2.date.Month * 30 + LogTime2.date.Date - 1) * 86400;
 	// Retourne la différence de temps en secondes
 	return abs(Seconds2 - Seconds1);
 }
@@ -125,7 +132,8 @@ LogTime getTime(void)
 LogTime AddSecondToTime(uint32_t offsetSeconds, LogTime oriLogTime) {
     // Convertir le temps en secondes
     uint32_t oriSeconds = oriLogTime.time.Hours * 3600 + oriLogTime.time.Minutes * 60 + oriLogTime.time.Seconds;
-    oriSeconds += (oriLogTime.date - 1) * 86400;
+    oriSeconds += (oriLogTime.date.Year * 365 + oriLogTime.date.Month * 30 + oriLogTime.date.Date - 1) * 86400;
+
     
     // Ajouter l'offset en secondes
     uint32_t totalSeconds = oriSeconds + offsetSeconds;
