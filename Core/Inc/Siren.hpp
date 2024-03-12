@@ -53,11 +53,6 @@ private:
     unsigned long intervalDuration;
     unsigned long minDelayBetweenTwoTriggers;
 
-    // Log circulaire
-    const int logSize;
-    int logIndex; // Indice pour suivre la position actuelle du log circulaire
-    SirenLog* logs; // Utilisez un pointeur au lieu d'un tableau fixe
-
     // Timing des intermittentTone 
     unsigned long intermittentToneStartTime;
     unsigned long intermittentToneEndTime;

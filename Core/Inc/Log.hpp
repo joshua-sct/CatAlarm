@@ -8,8 +8,8 @@
 #define MAX_LOG_SIZE 100
 
 struct LogTime {
-	RTC_DateTypeDef date;
-	RTC_TimeTypeDef time;
+    RTC_DateTypeDef date;
+    RTC_TimeTypeDef time;
 };
 
 // Structure pour un log

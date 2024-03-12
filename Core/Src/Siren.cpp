@@ -134,41 +134,6 @@ void Siren::recordSirenTrigger(Timing startTiming, Timing stopTiming) {
     logIndex = (logIndex + 1) % logSize;
 }
 
-// Détermine si la sonnerie à sonner plus longtemps que "duration"
-bool Siren::hasSoundedMoreThan(unsigned long duration) const {
-    unsigned long totalDuration = 0;
-	int i = logIndex; 
-
-	//* Tant que le log actuel correspond à la même sonnerie que celle qui va sonner
-//	while (millis() - logs[i].endTiming < minDelayBetweenTwoTriggers) {
-//		// Ajouter la durée de la sonnerie du log actuel
-//		totalDuration += (logs[i].endTiming - logs[i].startTiming);
-//		// Passer au log précédent
-//		i = positiveModulo(i - 1, logSize);
-//		}
-
-	return (totalDuration >= duration);
-}
-
-// Détermine si la sonnerie à sonner plus longtemps que "duration" sur la période "durationRef"
-bool Siren::hasSoundedMoreThanXinX(unsigned long duration, unsigned long durationRef) const {
-    unsigned long totalDuration = 0;
-	int i = logIndex;
-	int j = 0;
-
-	//* Tant que le log actuel n'as pas sonné plus tard qu'il y a durationRef et que la liste entière n'as pas été entièrement parcourue
-//	while ((logs[i].startTiming > millis() - durationRef) && j < logSize) {
-//		// Ajouter la durée de la sonnerie du log actuel
-//		totalDuration += (logs[i].endTiming - logs[i].startTiming);
-//		// Passer au log précédent
-//		i = positiveModulo(i - 1, logSize);
-//		// Incrémenter le nombre d'élément parcouru dans la liste
-//		j++;
-//	}
-
-	return (totalDuration >= duration);
-}
-
 bool Siren::isPlaying() const {
 	return playing;
 }
@@ -210,26 +175,3 @@ RTC_DateTypeDef initDate;
 RTC_DateTypeDef gDate;
 RTC_TimeTypeDef gTime;
 
-void get_time(void)
-{
- HAL_RTC_GetTime(&hrtc, &gTime, RTC_FORMAT_BIN);
- HAL_RTC_GetDate(&hrtc, &gDate, RTC_FORMAT_BIN);
-}
-
-int32_t differenceSeconds;
-
-void dif_time(RTC_DateTypeDef g1Date, RTC_TimeTypeDef g1Time, RTC_DateTypeDef g2Date, RTC_TimeTypeDef g2Time)
-{
-	// Convertir la différence des 2 moments en secondes
-	uint32_t g1Seconds = g1Time.Hours * 3600 + g1Time.Minutes * 60 + g1Time.Seconds;
-	g1Seconds += (g1Date.Date - 1) * 86400; // Ajouter les secondes pour les jours écoulés
-	uint32_t g2Seconds = g2Time.Hours * 3600 + g2Time.Minutes * 60 + g2Time.Seconds;
-	g2Seconds += (g2Date.Date - 1) * 86400; // Ajouter les secondes pour les jours écoulés
-	differenceSeconds = g2Seconds - g1Seconds;
-
-	//	// Calculer le temps écoulé en jours, heures, minutes et secondes
-	//	int32_t jours = differenceSeconds / 86400;
-	//	int32_t heures = (differenceSeconds % 86400) / 3600;
-	//	int32_t minutes = (differenceSeconds % 3600) / 60;
-	//	int32_t secondes = differenceSeconds % 60;
-}
