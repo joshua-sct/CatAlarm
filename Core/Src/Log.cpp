@@ -105,7 +105,12 @@ bool Log::hasRungMoreThanXinX(uint32_t duration, uint32_t durationRef) const {
 uint32_t elapsedTime(LogTime LogTime1, LogTime LogTime2)
 {
 	// Log1 < Log2
-	int8_t elapsedYear =
+	int8_t elapsedYear = LogTime2.date.Year - LogTime1.date.Year;
+	int8_t elapsedYear = LogTime2.date.Month- LogTime1.date.Year;
+	int8_t elapsedYear = LogTime2.date.Date - LogTime1.date.Year;
+	int8_t elapsedYear = LogTime2.date.Year - LogTime1.date.Year;
+	int8_t elapsedYear = LogTime2.date.Year - LogTime1.date.Year;
+	int8_t elapsedYear = LogTime2.date.Year - LogTime1.date.Year;
 
 
 
@@ -155,3 +160,73 @@ LogTime AddSecondToTime(uint32_t offsetSeconds, LogTime oriLogTime) {
     newLogTime.time.Seconds = newSeconds;
     return newLogTime;
 }
+
+#define SECS_PER_MINUTE     60
+#define SECS_PER_HOUR       (60 * SECS_PER_MINUTE)
+#define SECS_PER_DAY        (24 * SECS_PER_HOUR)
+#define SECS_PER_WEEK       (7 * SECS_PER_DAY)
+#define SECS_PER_YEAR       (365 * SECS_PER_DAY)
+// The seconds elapsed from 01-01-1970 to 01-01-2000
+#define SECS_TILL_YEAR_2K   (946684800)
+#define IS_LEAP_YEAR(x)     (((x) % 4 == 0) && (((x) % 100 != 0) || ((x) % 400 == 0)))
+
+static uint16_t days_since_year_start[12] = {
+0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
+
+// Convertir LogTime en Timestamp UNIX
+uint32_t logTimeToTimestamp(LogTime LogTime)
+{
+	int i;
+	uint32_t sec;
+
+	sec = LogTime.date.Year * SECS_PER_YEAR;
+	for (i = 0; i < LogTime.date.Year; i++) {
+		if (IS_LEAP_YEAR(i))
+			sec += SECS_PER_DAY;
+	}
+
+	sec += (days_since_year_start[LogTime.date.Month - 1] +
+		(IS_LEAP_YEAR(LogTime.date.Year) && LogTime.date.Month > 2) +
+		(LogTime.date.Date - 1)) * SECS_PER_DAY;
+
+    sec += LogTime.time.Hours * 3600 + LogTime.time.Minutes * 60 + LogTime.time.Seconds;
+	// Ajout des secondes écoulées entre 1970 et 2000
+	return sec + SECS_TILL_YEAR_2K;
+}
+
+// // Convertir Timestamp UNIX en LogTime
+// LogTime timestampToLogTime(uint32_t sec)
+// {
+// 	LogTime time;
+// 	int day_tmp;
+// 	int i;
+
+// 	// Attention : Année RTC doit être >2000
+// 	sec = (sec > SECS_TILL_YEAR_2K) ? (sec - SECS_TILL_YEAR_2K) : 0;
+
+// 	day_tmp = sec / SECS_PER_DAY;
+// 	time.date.Year = day_tmp / 365;
+// 	day_tmp %= 365;
+// 	for (i = 0; i < time.date.Year; i++) {
+// 		if (IS_LEAP_YEAR(i))
+// 			day_tmp -= 1;
+// 	}
+// 	day_tmp++;
+// 	if (day_tmp <= 0) {
+// 		time.date.Year -= 1;
+// 		day_tmp += IS_LEAP_YEAR(time.date.Year) ? 366 : 365;
+// 	}
+// 	for (i = 1; i < 12; i++) {
+// 		if (days_since_year_start[i] +
+// 		    (IS_LEAP_YEAR(time.date.Year) && (i >= 2)) >= day_tmp)
+// 			break;
+// 	}
+// 	time.date.Month = i;
+
+// 	day_tmp -= days_since_year_start[time.date.Month - 1] +
+// 		   (IS_LEAP_YEAR(time.date.Year) && (time.date.Month > 2));
+// 	time.date.Date = day_tmp;
+
+// 	return time;
+// }
+
