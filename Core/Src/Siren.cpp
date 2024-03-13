@@ -19,14 +19,10 @@ SirenSettings mySirenSettings = {
 	SIREN_LOG_SIZE
 };
 
-
-// Constructeur de Siren
-Siren(Log* ptrLog) : log(ptrLog) {}
-
 // Gère la sirène lors de son appel
 void Siren::handleStart() {
 	// Première sonnerie
-	if (isLastLogEmpty()) {
+	if (ptrLog->isLastEntryEmpty()) {
 		// Première sonnerie
 		playIntermittentTone(durationMinimal);
 	}
@@ -34,12 +30,12 @@ void Siren::handleStart() {
 	// n-ième sonnerie
 	else {
 		// Si la sirène a trop sonné en continu
-		if (hasSoundedMoreThan(durationMaximal)) {
+		if (ptrLog->hasRungMoreThan(durationMaximal)) {
 			setError(errorSirenHasBeenPlayingForTooLong, true);
 		}
 
 		// Si la sirène a trop sonné pendant une période donnée
-		else if (hasSoundedMoreThanXinX(durationMaxInDurationRef, durationRef)) {
+		else if (ptrLog->hasRungMoreThanXinX(durationMaxInDurationRef, durationRef)) {
 			setError(errorSirenHasBeenPlayingForTooLong, true);
 		}
 		
@@ -96,7 +92,7 @@ void Siren::playIntermittentTone(unsigned long duration) {
 	//intermittentToneEndTime = millis();
 
 	// Enregistre l'entrée correspondante dans le journal 'logs'
-	recordSirenTrigger(ringStartTime, ringStopTime);
+	addLogEntry();
 }
 
 void Siren::playTone(unsigned long duration) {
@@ -114,7 +110,7 @@ void Siren::playTone(unsigned long duration) {
 	//intermittentToneEndTime = millis();
 
 	// Enregistre l'entrée correspondante dans le journal 'logs'
-	recordSirenTrigger(ringStartTime, ringStopTime);
+	addLogEntry();
 }
 
 // Joue un bip de sirène
@@ -126,12 +122,12 @@ void Siren::playQuickTone() {
 }
 
 // Ajoute une entrée (startTime, endTime) au journal 'logs'
-void Siren::recordSirenTrigger(LogTime startTime, LogTime stopTime) {
+void Siren::addLogEntry() {
     // Ajouter la nouvelle entrée au tableau
 	LogEntry entry;
-	entry.startTime = startTime;
-	entry.stopTime = stopTime;
-	Log.add(entry);
+	entry.startTimestamp = ringStartTimestamp;
+	entry.stopTimestamp = ringStopTimestamp;
+	ptrLog->addEntry(entry);
 }
 
 bool Siren::isPlaying() const {

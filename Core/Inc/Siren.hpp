@@ -20,10 +20,9 @@ struct SirenSettings {
 // Classe Siren
 class Siren {
 public:
-    // Constructeur et destructeur
-	Siren(Log* ptrLog);
-	~Siren();
-
+    // Singleton
+    static Siren& getInstance();
+	
     // Méthodes d'initialisation et de contrôle
     void init();
     void handleStart();
@@ -36,7 +35,12 @@ public:
     bool isPlaying() const;
 
 private:
-    Log* log;
+    // Singleton
+    Siren() {}
+    Siren(const Siren&) = delete;
+    Siren& operator=(const Siren&) = delete;
+
+    Log* ptrLog;
 
     uint8_t age;
     bool playing;
@@ -54,12 +58,11 @@ private:
     unsigned long minDelayBetweenTwoTriggers;
 
     // Timing des intermittentTone 
-    LogTime ringStartTime;
-    LogTime ringStopTime;
+    uint32_t ringStartTimestamp;
+    uint32_t ringStopTimestamp;
 
     // Méthodes privées
-    void recordSirenTrigger(LogTime startTime, LogTime stopTime);
-    bool isLastLogEmpty() const;
+    void addLogEntry();
     bool hasSoundedMoreThan(unsigned long period) const;
     bool hasSoundedMoreThanXinX(unsigned long duration, unsigned long durationRef) const;
     void start();
