@@ -17,7 +17,7 @@ void Log::addEntry(LogEntry entry) {
 }
 
 // Fonction d'initialisation de la structure Log
-void Log::clear() {
+void Log::init() {
     // Réinitialiser l'index courant à zéro
     currentIndex = 0;
 

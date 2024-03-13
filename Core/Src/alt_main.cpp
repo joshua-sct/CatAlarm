@@ -10,7 +10,8 @@
 #include "Log.hpp"
 //#include "global.h"
 
-Siren& mySiren = Siren::getInstance();
+Log& myLog = Log::getInstance();
+
 Accel Accel;
 
 bool calibrating = false;
@@ -55,15 +56,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 		}
 
 		// Sonner 1 seconde
-		if (Siren.isPlaying()) {
-			Siren.handleStop();
+		if (mySiren.isPlaying()) {
+			mySiren.handleStop();
 		}
 	}
 }
 
 // Interrupt HOT / BLINKER
 void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin) {
-	Siren.handleStop();
+	mySiren.handleStop();
 
 	// Stop (buzzer + calibrate) request
     if (GPIO_Pin == BLK_Pin) {
@@ -91,7 +92,7 @@ void HAL_GPIO_EXTI_Falling_Callback(uint16_t GPIO_Pin) {
     if (GPIO_Pin == ACC_Pin) {
     	// Véhicule s'éteint
     	hot = false;
-    	Siren.handleStop();
+    	mySiren.handleStop();
     }
 }
 
@@ -119,7 +120,8 @@ int alt_main()
 	blinkerInterruptFlag = true;
 	hot = false;
 
-	Log.clear();
+	myLog.init();
+	mySiren.init(myLog);
 
 	// Accel init
 	// HAL_Delay(100);

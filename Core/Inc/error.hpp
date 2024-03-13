@@ -20,6 +20,7 @@ enum Error : uint32_t {
     maskSigfox          = (1U << 5) - 1,    // les 5 premiers bits déclenche sigfox
 };
 
+
 // Fonctions de gestion d'erreur
 void handleError();
 bool isError(Error error);

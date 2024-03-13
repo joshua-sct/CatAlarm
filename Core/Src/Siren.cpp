@@ -26,14 +26,14 @@ Siren& Siren::getInstance() {
 }
 
 // Injection de dépendances
-void Siren::init(const Log& log) const {
-    Log& logInstance = Log::getInstance();
+void Siren::init(Log& log) {
+    Log& logInstance = Log::getInstance();	
 }
 
 // Gère la sirène lors de son appel
 void Siren::handleStart() {
 	// Première sonnerie
-	if (ptrLog->isLastEntryEmpty()) {
+	if (logInstance->isLastEntryEmpty()) {
 		// Première sonnerie
 		playIntermittentTone(durationMinimal);
 	}
@@ -41,12 +41,12 @@ void Siren::handleStart() {
 	// n-ième sonnerie
 	else {
 		// Si la sirène a trop sonné en continu
-		if (ptrLog->hasRungMoreThan(durationMaximal)) {
+		if (logInstance->hasRungMoreThan(durationMaximal)) {
 			setError(errorSirenHasBeenPlayingForTooLong, true);
 		}
 
 		// Si la sirène a trop sonné pendant une période donnée
-		else if (ptrLog->hasRungMoreThanXinX(durationMaxInDurationRef, durationRef)) {
+		else if (logInstance->hasRungMoreThanXinX(durationMaxInDurationRef, durationRef)) {
 			setError(errorSirenHasBeenPlayingForTooLong, true);
 		}
 		
@@ -88,7 +88,7 @@ void Siren::stop() {
 
 
 // Sonne de manière intermittente pendant durationMinimal
-void Siren::playIntermittentTone(unsigned long duration) {
+void Siren::playIntermittentTone(uint32_t duration) {
     //* intermittentToneStartTime = millis();
 
 	//* Sonne pendant durationMinimal
@@ -106,7 +106,7 @@ void Siren::playIntermittentTone(unsigned long duration) {
 	addLogEntry();
 }
 
-void Siren::playTone(unsigned long duration) {
+void Siren::playTone(uint32_t duration) {
     //* intermittentToneStartTime = millis();
 
 	//* Sonne pendant durationMinimal
@@ -138,7 +138,7 @@ void Siren::addLogEntry() {
 	LogEntry entry;
 	entry.startTimestamp = ringStartTimestamp;
 	entry.stopTimestamp = ringStopTimestamp;
-	ptrLog->addEntry(entry);
+	logInstance->addEntry(entry);
 }
 
 bool Siren::isPlaying() const {
@@ -172,6 +172,7 @@ void set_time (void)
   HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR1, 0x32F2); // backup register
 }
 
+Siren& mySiren = Siren::getInstance();
 
 RTC_TimeTypeDef initTime;
 RTC_DateTypeDef initDate;

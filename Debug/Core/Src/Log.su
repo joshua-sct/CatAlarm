@@ -2,7 +2,7 @@
 ../Core/Src/Log.cpp:5:6:static Log& Log::getInstance()	8	static
 ../Core/Src/Log.cpp:10:8:size_t Log::getIndexPlusOffset(size_t) const	24	static
 ../Core/Src/Log.cpp:14:6:void Log::addEntry(LogEntry)	24	static
-../Core/Src/Log.cpp:20:6:void Log::clear()	24	static
+../Core/Src/Log.cpp:20:6:void Log::init()	24	static
 ../Core/Src/Log.cpp:33:6:bool Log::isLastEntryEmpty() const	24	static
 ../Core/Src/Log.cpp:40:6:bool Log::hasRungMoreThan(uint32_t) const	48	static
 ../Core/Src/Log.cpp:59:6:bool Log::hasRungMoreThanXinX(uint32_t, uint32_t) const	64	static

@@ -1,10 +1,14 @@
-../Core/Src/Siren.cpp:23:6:void Siren::handleStart()	16	static
-../Core/Src/Siren.cpp:51:6:void Siren::handleStop()	16	static
-../Core/Src/Siren.cpp:63:6:void Siren::start()	16	static
-../Core/Src/Siren.cpp:74:6:void Siren::stop()	16	static
-../Core/Src/Siren.cpp:80:6:void Siren::playIntermittentTone(long unsigned int)	16	static
-../Core/Src/Siren.cpp:98:6:void Siren::playTone(long unsigned int)	16	static
-../Core/Src/Siren.cpp:117:6:void Siren::playQuickTone()	16	static
-../Core/Src/Siren.cpp:125:6:void Siren::addLogEntry()	24	static
-../Core/Src/Siren.cpp:133:6:bool Siren::isPlaying() const	16	static
-../Core/Src/Siren.cpp:137:6:void set_time()	32	static
+../Core/Src/Siren.cpp:23:8:static Siren& Siren::getInstance()	8	static
+../Core/Src/Siren.cpp:29:6:void Siren::init(Log&)	24	static
+../Core/Src/Siren.cpp:34:6:void Siren::handleStart()	16	static
+../Core/Src/Siren.cpp:62:6:void Siren::handleStop()	16	static
+../Core/Src/Siren.cpp:74:6:void Siren::start()	16	static
+../Core/Src/Siren.cpp:85:6:void Siren::stop()	16	static
+../Core/Src/Siren.cpp:91:6:void Siren::playIntermittentTone(uint32_t)	16	static
+../Core/Src/Siren.cpp:109:6:void Siren::playTone(uint32_t)	16	static
+../Core/Src/Siren.cpp:128:6:void Siren::playQuickTone()	16	static
+../Core/Src/Siren.cpp:136:6:void Siren::addLogEntry()	24	static
+../Core/Src/Siren.cpp:144:6:bool Siren::isPlaying() const	16	static
+../Core/Src/Siren.cpp:148:6:void set_time()	32	static
+../Core/Src/Siren.cpp:181:22:void __static_initialization_and_destruction_0(int, int)	16	static
+../Core/Src/Siren.cpp:181:22:cpp)	8	static

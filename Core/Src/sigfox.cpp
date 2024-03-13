@@ -5,7 +5,7 @@
 #include <stddef.h>        // Inclusion de l'en-tête pour size_t
 
 // Timing de dernier envoi Sigfox
-unsigned long startSigfox = 0;
+uint32_t startSigfox = 0;
 
 // Affiche 'data' (int_32t/float) sur le port série
 // Utilisation : sendSigfoxData(&myData, sizeof(myData));
@@ -35,7 +35,7 @@ void sendSigfoxAlert(uint32_t error) {
 }
 
 // Envoie d'alerte Sigfox (data = error, latitude, longitude)
-void sendSigfoxAlert(uint32_t error, float latitude, float longitude) {
+void sendSigfoxAlert(uint32_t, float latitude, float longitude) {
 //*
 //    if (millis() - startSigfox > DELAY_SIGFOX) {
 //        // Construction du message Sigfox

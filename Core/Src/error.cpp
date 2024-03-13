@@ -4,6 +4,8 @@
 #include "Siren.hpp"
 #include "sigfox.hpp"
 
+uint32_t ERROR_CODE = 0;
+
 // Gère l'erreur survenue
 void handleError() {
     // Erreur pour Sigfox

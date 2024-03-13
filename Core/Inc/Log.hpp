@@ -37,9 +37,9 @@ public:
     // Autres méthodes de la structure Log
     size_t getIndexPlusOffset(size_t i) const;
     void addEntry(LogEntry entry);
-    void clear();
+    void init();
     bool isLastEntryEmpty() const;
-    bool hasRungMoreThan(unsigned long duration) const;
+    bool hasRungMoreThan(uint32_t duration) const;
     bool hasRungMoreThanXinX(uint32_t duration, uint32_t durationRef) const;
 
 private:
