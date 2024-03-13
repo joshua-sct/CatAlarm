@@ -2,6 +2,11 @@
 #include "global.h"
 #include <cmath>
 
+Log& Log::getInstance() {
+    static Log instance; // Instance unique créée une seule fois lors de l'appel de cette fonction
+    return instance;
+}
+
 size_t Log::getIndexPlusOffset(size_t i) const {
     return (currentIndex + i % MAX_LOG_SIZE + MAX_LOG_SIZE) % MAX_LOG_SIZE;
 }

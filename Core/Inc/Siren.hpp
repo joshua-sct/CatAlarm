@@ -24,7 +24,7 @@ public:
     static Siren& getInstance();
 	
     // Méthodes d'initialisation et de contrôle
-    void init();
+    void init(const Log& log);
     void handleStart();
     void handleStop();
 
@@ -36,11 +36,11 @@ public:
 
 private:
     // Singleton
-    Siren() {}
+    Siren() = default;
     Siren(const Siren&) = delete;
     Siren& operator=(const Siren&) = delete;
 
-    Log* ptrLog;
+    const Log* logInstance; // Pointeur vers l'instance de Log
 
     uint8_t age;
     bool playing;

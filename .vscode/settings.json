@@ -3,7 +3,8 @@
   "cortex-debug.armToolchainPath": "c:\\Users\\tungsten\\AppData\\Roaming\\Code\\User\\globalStorage\\bmd.stm32-for-vscode\\@xpack-dev-tools\\arm-none-eabi-gcc\\13.2.1-1.1.1\\.content\\bin",
   "cortex-debug.stutilPath": "C:/Program Files (x86)/stlink/bin/st-util.exe",
   "files.associations": {
-    "main.h": "c"
+    "main.h": "c",
+    "cmath": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled",
 }

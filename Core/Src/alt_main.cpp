@@ -10,9 +10,8 @@
 #include "Log.hpp"
 //#include "global.h"
 
-Log Log;
+Siren& mySiren = Siren::getInstance();
 Accel Accel;
-Siren Siren(&Log);
 
 bool calibrating = false;
 bool detectOn = false;
@@ -25,11 +24,11 @@ volatile bool hot;
 uint16_t countHot =0;
 
 void abnormalStart() {
-	Siren.handleStart();
+	mySiren.handleStart();
 }
 
 void abnormalStop() {
-	Siren.handleStop();
+	mySiren.handleStop();
 }
 
 

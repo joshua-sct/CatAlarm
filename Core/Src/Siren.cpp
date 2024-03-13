@@ -19,6 +19,17 @@ SirenSettings mySirenSettings = {
 	SIREN_LOG_SIZE
 };
 
+// Singleton
+Siren& Siren::getInstance() {
+    static Siren instance;
+    return instance;
+}
+
+// Injection de dépendances
+void Siren::init(const Log& log) const {
+    Log& logInstance = Log::getInstance();
+}
+
 // Gère la sirène lors de son appel
 void Siren::handleStart() {
 	// Première sonnerie
@@ -133,9 +144,6 @@ void Siren::addLogEntry() {
 bool Siren::isPlaying() const {
 	return playing;
 }
-
-// Destructeur de Siren
-Siren::~Siren() {}
 
 void set_time (void)
 {

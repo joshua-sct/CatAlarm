@@ -30,16 +30,25 @@ struct LogEntry {
 	uint32_t stopTimestamp;
 };
 
-struct Log {
-    std::array<LogEntry, MAX_LOG_SIZE> LogEntries; // Tableau pour stocker les logs
-    size_t currentIndex = 0;
+class Log {
+public:
+    static Log& getInstance(); // Méthode pour obtenir l'instance unique
 
+    // Autres méthodes de la structure Log
     size_t getIndexPlusOffset(size_t i) const;
     void addEntry(LogEntry entry);
     void clear();
     bool isLastEntryEmpty() const;
     bool hasRungMoreThan(unsigned long duration) const;
     bool hasRungMoreThanXinX(uint32_t duration, uint32_t durationRef) const;
+
+private:
+    Log() = default;
+    Log(const Log&) = delete;
+    Log& operator=(const Log&) = delete;
+
+    std::array<LogEntry, MAX_LOG_SIZE> LogEntries;
+    size_t currentIndex = 0;
 };
 
 uint32_t getTimestamp(void);
