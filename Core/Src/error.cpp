@@ -1,8 +1,7 @@
-// Inclusions des bibliothèques nécessaires
-#include <error.hpp>
-#include "global.h"
-#include "Siren.hpp"
-#include "sigfox.hpp"
+#include "error.hpp"		// Module Erreur
+#include "Siren.hpp"		// Module Siren
+#include "sigfox.hpp"		// Module Sigfox
+#include "global.h"         // Paramètres et définitions générales
 
 uint32_t ERROR_CODE = 0;
 

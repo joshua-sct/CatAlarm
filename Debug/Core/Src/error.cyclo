@@ -1,3 +1,3 @@
-../Core/Src/error.cpp:10:6:void handleError()	2
-../Core/Src/error.cpp:29:6:bool isError(Error)	1
-../Core/Src/error.cpp:34:6:void setError(Error, bool)	2
+../Core/Src/error.cpp:9:6:void handleError()	2
+../Core/Src/error.cpp:28:6:bool isError(Error)	1
+../Core/Src/error.cpp:33:6:void setError(Error, bool)	2

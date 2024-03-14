@@ -1,21 +1,20 @@
 #include "main.h"           // Main C
 #include "alt_main.h"       // Main C++
-#include "tim.h"			// HAL Timer 
-#include "gpio.h"			// HAL GPIO
-#include "rtc.h"			// HAL RTC
-#include "i2c.h"            // HAL I2C
-#include "global.h"         // Paramètres et définitions générales
 #include "Accel.hpp"		// Module Accel
 #include "Siren.hpp"        // Module Siren
 #include "Log.hpp"			// Module Log
+#include "global.h"         // Paramètres et définitions générales
+#include "tim.h"			// HAL Timer 
+#include "gpio.h"			// HAL GPIO
+#include "i2c.h"            // HAL I2C
 
 // Définition des singletons
 Log& myLog = Log::getInstance();
 Siren& mySiren = Siren::getInstance();
 
 // Déclaration des instances
-Accel AccelINT(ACCEL_INTERN_I2C, ACCEL_INTERN_I2C_ADD);
-Accel AccelOUT(ACCEL_EXTERN_I2C, ACCEL_EXTERN_I2C_ADD);
+Accel AccelIN(ACCEL_IN_I2C, ACCEL_IN_I2C_ADD);
+Accel AccelOUT(ACCEL_OUT_I2C, ACCEL_OUT_I2C_ADD);
 
 // Déclarations des variables
 volatile bool blinkerInterruptFlag = false;
@@ -24,7 +23,6 @@ bool detectOn = false;
 bool calibrating = false;
 
 // Debug
-uint16_t countMain =0;
 uint16_t countBlinker =0;
 uint16_t countHot =0;
 
@@ -32,9 +30,6 @@ uint16_t countHot =0;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 {
 	if (htim == &htim3) {
-		// Debug
-		countMain++;
-
 		// Interrupt Blinker
 		if (blinkerInterruptFlag && !hot) {
 			// Désactiver le timer pendant la calibration
@@ -111,7 +106,6 @@ int alt_main()
 	// ***POUR LES TESTS***
 	blinkerInterruptFlag = true;
 	hot = false;
-
 
 	myLog.init();
 	mySiren.init(myLog);

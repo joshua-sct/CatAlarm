@@ -1,7 +1,7 @@
-../Core/Src/Siren.cpp:24:8:static Siren& Siren::getInstance()	1
-../Core/Src/Siren.cpp:30:6:void Siren::init(Log&)	1
-../Core/Src/Siren.cpp:37:6:void Siren::handleStart()	5
-../Core/Src/Siren.cpp:70:6:void Siren::handleStop()	3
-../Core/Src/Siren.cpp:90:6:void Siren::handleStopInterrupt()	2
-../Core/Src/Siren.cpp:106:6:void Siren::start()	1
+../Core/Src/Siren.cpp:21:8:static Siren& Siren::getInstance()	1
+../Core/Src/Siren.cpp:27:6:void Siren::init(Log&)	1
+../Core/Src/Siren.cpp:34:6:void Siren::handleStart()	7
+../Core/Src/Siren.cpp:69:6:void Siren::handleStop()	3
+../Core/Src/Siren.cpp:89:6:void Siren::handleStopInterrupt()	2
+../Core/Src/Siren.cpp:105:6:void Siren::start()	1
 ../Core/Src/Siren.cpp:112:6:void Siren::playQuickTone()	1

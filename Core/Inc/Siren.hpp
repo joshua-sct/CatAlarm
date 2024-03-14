@@ -1,9 +1,8 @@
 #ifndef SIREN_H
 #define SIREN_H
 
-#include <stdint.h>
-#include "rtc.h"
-#include "Log.hpp"
+#include "Log.hpp"			// Module Log
+#include "rtc.h"			// HAL RTC
 
 // Structure des paramètres de Siren
 struct SirenSettings {

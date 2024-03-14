@@ -1,8 +1,8 @@
 #ifndef LOG_H
 #define LOG_H
 
-#include <array>
-#include "rtc.h"
+#include "rtc.h"			// HAL RTC
+#include <array>			// Tableaux de taille fixe
 
 #define SECS_PER_MINUTE     60
 #define SECS_PER_HOUR       (60 * SECS_PER_MINUTE)
@@ -49,7 +49,7 @@ private:
     Log& operator=(const Log&) = delete;
 
     std::array<LogEntry, MAX_LOG_SIZE> LogEntries;
-    size_t currentIndex = 0;
+    size_t currentIndex;
 };
 
 uint32_t getTimestamp(void);

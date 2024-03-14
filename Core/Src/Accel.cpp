@@ -1,17 +1,10 @@
-// Copyright (C) Bulanov Konstantin,2021
-// MPU6050
-
-#include <Accel.hpp>
-#include "alt_main.h"
-#include "global.h"
-#include "gpio.h"
-#include <math.h>
-#include <string.h>
-#include <stdio.h>
-#include "stm32g0xx_hal.h"
-#include "i2c.h"
-#include "lis2dw12_reg.h"
-#include "Siren.hpp"
+#include "alt_main.h"      // Main C++
+#include "Accel.hpp"       // Module Accel
+#include "Siren.hpp"       // Module Siren
+#include "global.h"        // Paramètres et définitions générales
+#include "i2c.h"           // HAL I2C
+#include "lis2dw12_reg.h"  // Driver LIS2DW12
+#include <string.h>        // Chaînes de caractères
 
 static int16_t data_raw_acceleration[3];
 
@@ -176,25 +169,25 @@ void Accel::readAccel()
 }
 
 void Accel::detectAbnormal(Siren& mySiren) {
-	Axres = 0;
-	Ayres = 0;
-	Azres = 0;
+	meanAx = 0;
+	meanAy = 0;
+	meanAz = 0;
 	for (int i=0; i<Ndetection;i++) {
 		readAccel();
-		Axres += Ax;
-		Ayres += Ay;
-		Azres += Az;
+		meanAx += Ax;
+		meanAy += Ay;
+		meanAz += Az;
 	}
 
-	Axres /= Ndetection;
-	Ayres /= Ndetection;
-	Azres /= Ndetection;
+	meanAx /= Ndetection;
+	meanAy /= Ndetection;
+	meanAz /= Ndetection;
 
-	angle = angleBetweenVectors(Axres, Ayres, Azres, Axref, Ayref, Azref);
-	Acc = sqrt(Ax*Ax+Ay*Ay+Az*Az);
+	angle = angleBetweenVectors(meanAx, meanAy, meanAz, refAx, refAy, refAz);
+	Acc = sqrt(Ax*Ax + Ay*Ay + Az*Az);
 
-	//if (Acc > refAcc)
-	if (angle > refAngle || abs(Acc-refAcc) > 4)
+//	if (angle > refAngle || abs(Acc-refAcc) > 4)
+	if (abs(Acc-refAcc) > 4)
 	{
 		mySiren.handleStart();
 	} else {
@@ -202,19 +195,19 @@ void Accel::detectAbnormal(Siren& mySiren) {
 	}
 }
 
+// TODO : Mettre un timer pour qu'il execute @freq pendant @T
+// Enregistrement des valeurs extrêmes pour chaque axe
 void Accel::calibrate() {
-	// -TODO : Mettre un timer pour qu'il execute @freq pendant @T
-	// Enregistrement des valeurs extrêmes pour chaque axe
-	Axref = 0;
-	Ayref = 0;
-	Azref = 0;
+	refAx = 0;
+	refAy = 0;
+	refAz = 0;
 	refAcc = 0;
 
 	for (int i=0; i < Ncalibration; i++) {
 		readAccel();
-		Axref += Ax;
-		Ayref += Ay;
-		Azref += Az;
+		refAx += Ax;
+		refAy += Ay;
+		refAz += Az;
 		Acc = sqrt(Ax*Ax+Ay*Ay+Az*Az);
 //		if (refAcc < Acc) {
 //			refAcc = Acc;
@@ -224,9 +217,9 @@ void Accel::calibrate() {
 	// SEUIL FIXE
 	refAcc=refAcc/Ncalibration;
 
-	Axref /= Ncalibration;
-	Ayref /= Ncalibration;
-	Azref /= Ncalibration;
+	refAx /= Ncalibration;
+	refAy /= Ncalibration;
+	refAz /= Ncalibration;
 }
 
 float Accel::angleBetweenVectors(float x1, float y1, float z1, float x2, float y2, float z2)

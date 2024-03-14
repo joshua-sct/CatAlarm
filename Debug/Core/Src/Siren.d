@@ -1,6 +1,6 @@
-Core/Src/Siren.o: ../Core/Src/Siren.cpp ../Core/Inc/Siren.hpp \
- ../Core/Inc/rtc.h ../Core/Inc/main.h \
- ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h \
+Core/Src/Siren.o: ../Core/Src/Siren.cpp ../Core/Inc/alt_main.h \
+ ../Core/Inc/Siren.hpp ../Core/Inc/Log.hpp ../Core/Inc/rtc.h \
+ ../Core/Inc/main.h ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h \
  ../Core/Inc/stm32g0xx_hal_conf.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h \
@@ -35,10 +35,10 @@ Core/Src/Siren.o: ../Core/Src/Siren.cpp ../Core/Inc/Siren.hpp \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h \
- ../Core/Inc/Log.hpp ../Core/Inc/global.h ../Core/Inc/error.hpp \
- ../Core/Inc/alt_main.h ../Core/Inc/sigfox.hpp ../Core/Inc/gpio.h \
- ../Core/Inc/Log.hpp
+ ../Core/Inc/Log.hpp ../Core/Inc/error.hpp ../Core/Inc/global.h
+../Core/Inc/alt_main.h:
 ../Core/Inc/Siren.hpp:
+../Core/Inc/Log.hpp:
 ../Core/Inc/rtc.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h:
@@ -77,9 +77,5 @@ Core/Src/Siren.o: ../Core/Src/Siren.cpp ../Core/Inc/Siren.hpp \
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h:
 ../Core/Inc/Log.hpp:
-../Core/Inc/global.h:
 ../Core/Inc/error.hpp:
-../Core/Inc/alt_main.h:
-../Core/Inc/sigfox.hpp:
-../Core/Inc/gpio.h:
-../Core/Inc/Log.hpp:
+../Core/Inc/global.h:

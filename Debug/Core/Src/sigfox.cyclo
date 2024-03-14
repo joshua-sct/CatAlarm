@@ -1,3 +1,3 @@
-../Core/Src/sigfox.cpp:12:6:void sendSigfoxData(void*, size_t)	2
-../Core/Src/sigfox.cpp:24:6:void sendSigfoxAlert(uint32_t)	1
-../Core/Src/sigfox.cpp:38:6:void sendSigfoxAlert(uint32_t, float, float)	1
+../Core/Src/sigfox.cpp:9:6:void sendSigfoxData(void*, size_t)	2
+../Core/Src/sigfox.cpp:21:6:void sendSigfoxAlert(uint32_t)	1
+../Core/Src/sigfox.cpp:35:6:void sendSigfoxAlert(uint32_t, float, float)	1

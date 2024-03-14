@@ -1,12 +1,9 @@
-// Inclusions des bibliothèques nécessaires
-#include <Siren.hpp>		// Gestion de Siren
-#include "global.h"			// Paramètres globaux
-#include "error.hpp"		// Gestion d'erreurs
-#include "stm32g0xx_hal.h"
-#include "alt_main.h"
-#include "sigfox.hpp"
-#include "gpio.h"
-#include "Log.hpp"
+#include "alt_main.h"       // Main C++
+#include "Siren.hpp"        // Module Siren
+#include "Log.hpp"			// Module Log
+#include "error.hpp"		// Module erreur
+#include "global.h"         // Paramètres et définitions générales
+
 
 // Settings de Siren
 SirenSettings mySirenSettings = {
@@ -36,7 +33,7 @@ void Siren::init(Log& logInstance) {
 // Routine de démarrage de la sirène
 void Siren::handleStart() {
 	// Première sonnerie
-	if (myLog->isLastEntryEmpty()) {
+	if (myLog->isLastEntryEmpty() && !playing) {
 		// Première sonnerie
 		ringStartTimestamp = getTimestamp();
 		start();
@@ -47,11 +44,13 @@ void Siren::handleStart() {
 		// Si la sirène a trop sonné en continu
 		if (myLog->hasRungMoreThan(SIREN_DURATION_MAX)) {
 			setError(errorSirenHasBeenPlayingForTooLong, true);
+			// TODO: STOP
 		}
 
 		// Si la sirène a trop sonné pendant une période donnée
 		else if (myLog->hasRungMoreThanXinX(SIREN_DURATION_MAX_IN_DURATION_REF, SIREN_DURATION_REF)) {
 			setError(errorSirenHasBeenPlayingForTooLong, true);
+			// TODO: STOP
 		}
 		
 		// Sinon la sirène doit sonner ou encore sonner 
@@ -106,6 +105,7 @@ void Siren::handleStopInterrupt() {
 void Siren::start() {
 	HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
 	playing = true;
+	age=0;
 }
 
 // Joue un bip de sirène

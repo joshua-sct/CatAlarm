@@ -1,8 +1,5 @@
-// Inclusions des bibliothèques nécessaires
-#include "global.h"            // Paramètres globaux
-#include "error.hpp"              // Gestion d'erreur
-#include <stdint.h>
-#include <stddef.h>        // Inclusion de l'en-tête pour size_t
+#include "error.hpp"        // Module Erreur
+#include <stddef.h>        	// Type size_t
 
 // Timing de dernier envoi Sigfox
 uint32_t startSigfox = 0;

@@ -1,7 +1,7 @@
 #ifndef ERROR_H
 #define ERROR_H
 
-#include <stdint.h>
+#include <stdint.h>			// Type int
 
 // Code d'erreur
 extern uint32_t ERROR_CODE;

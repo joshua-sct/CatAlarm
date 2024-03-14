@@ -1,7 +1,6 @@
-#include <cmath>
-#include "global.h"
-#include "log.hpp"
-#include "error.hpp"
+#include "Log.hpp"			// Module Log
+#include "error.hpp"		// Module Erreur
+#include "global.h"         // Paramètres et définitions générales
 
 // Retourne le singleton
 Log& Log::getInstance() {
@@ -22,8 +21,8 @@ void Log::addEntry(LogEntry entry) {
 
 // Initialise le Log
 void Log::init() {
-    // Réinitialiser l'index courant à zéro
-    currentIndex = 0;
+    // Commencer le premier addEntry à l'indice 0
+    currentIndex = MAX_LOG_SIZE - 1;
 
     // Initialiser chaque élément du tableau LogEntries
     for (size_t i = 0; i < MAX_LOG_SIZE; ++i) {
