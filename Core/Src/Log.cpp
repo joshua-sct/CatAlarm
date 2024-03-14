@@ -1,22 +1,26 @@
-#include "log.hpp"
-#include "global.h"
 #include <cmath>
+#include "global.h"
+#include "log.hpp"
+#include "error.hpp"
 
+// Retourne le singleton
 Log& Log::getInstance() {
     static Log instance; // Instance unique créée une seule fois lors de l'appel de cette fonction
     return instance;
 }
 
+// Parcourt circulairement le Log par offset i
 size_t Log::getIndexPlusOffset(size_t i) const {
     return (currentIndex + i % MAX_LOG_SIZE + MAX_LOG_SIZE) % MAX_LOG_SIZE;
 }
 
+// Ajoute une entré au Log
 void Log::addEntry(LogEntry entry) {
     currentIndex = getIndexPlusOffset(1);
     LogEntries[currentIndex] = entry;
 }
 
-// Fonction d'initialisation de la structure Log
+// Initialise le Log
 void Log::init() {
     // Réinitialiser l'index courant à zéro
     currentIndex = 0;
@@ -30,7 +34,7 @@ void Log::init() {
     setTime();
 }
 
-// Test si la dernière entrée du journal est vide
+// Teste si la dernière entrée du journal est vide
 bool Log::isLastEntryEmpty() const {
     bool isEmpty = (LogEntries[currentIndex].startTimestamp == 0)
     && (LogEntries[currentIndex].stopTimestamp == 0);
@@ -57,6 +61,7 @@ bool Log::hasRungMoreThan(uint32_t duration) const {
     return (totalDuration > duration);
 }
 
+// Détermine si la sonnerie à sonné plus longtemps que "duration" pendant "durationRef"
 bool Log::hasRungMoreThanXinX(uint32_t duration, uint32_t durationRef) const {
     uint32_t totalDuration = 0;
     uint32_t deltaBetween = 0;
@@ -92,6 +97,7 @@ bool Log::hasRungMoreThanXinX(uint32_t duration, uint32_t durationRef) const {
     return (totalDuration > duration);
 }
 
+// Régler l'horloge RTC
 void Log::setTime(void) {
   RTC_TimeTypeDef sTime;
   RTC_DateTypeDef sDate;
@@ -104,7 +110,7 @@ void Log::setTime(void) {
   sTime.StoreOperation = RTC_STOREOPERATION_RESET;
   if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
   {
-    //err
+    setError(errorRTC, true);
   }
   sDate.WeekDay = RTC_WEEKDAY_MONDAY;
   sDate.Month = RTC_MONTH_JANUARY;
@@ -112,13 +118,13 @@ void Log::setTime(void) {
   sDate.Year = 0x0; // year
   if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
   {
-	//err
+    setError(errorRTC, true);
   }
 
   HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR1, 0x32F2); // backup register
 }
 
-// Renvoie le Timestamp actuel
+// Retourne le Timestamp RTC
 uint32_t getTimestamp(void)
 {
     DateTime currentTime;
@@ -127,7 +133,7 @@ uint32_t getTimestamp(void)
     return DateTimeToTimestamp(currentTime);
 }
 
-// Convertie un Datetime en Timestamp UNIX
+// Convertie un Datetime RTC en Timestamp UNIX
 uint32_t DateTimeToTimestamp(DateTime DateTime)
 {
 	int i;

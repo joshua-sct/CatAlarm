@@ -1,5 +1,6 @@
-Core/Src/Log.o: ../Core/Src/Log.cpp ../Core/Inc/log.hpp ../Core/Inc/rtc.h \
- ../Core/Inc/main.h ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h \
+Core/Src/Log.o: ../Core/Src/Log.cpp ../Core/Inc/global.h \
+ ../Core/Inc/log.hpp ../Core/Inc/rtc.h ../Core/Inc/main.h \
+ ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h \
  ../Core/Inc/stm32g0xx_hal_conf.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h \
@@ -34,7 +35,8 @@ Core/Src/Log.o: ../Core/Src/Log.cpp ../Core/Inc/log.hpp ../Core/Inc/rtc.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h \
- ../Core/Inc/global.h
+ ../Core/Inc/error.hpp
+../Core/Inc/global.h:
 ../Core/Inc/log.hpp:
 ../Core/Inc/rtc.h:
 ../Core/Inc/main.h:
@@ -73,4 +75,4 @@ Core/Src/Log.o: ../Core/Src/Log.cpp ../Core/Inc/log.hpp ../Core/Inc/rtc.h \
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_tim_ex.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h:
-../Core/Inc/global.h:
+../Core/Inc/error.hpp:

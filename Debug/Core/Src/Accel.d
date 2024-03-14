@@ -35,9 +35,9 @@ Core/Src/Accel.o: ../Core/Src/Accel.cpp ../Core/Inc/Accel.hpp \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart.h \
  ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_uart_ex.h \
  ../Core/Inc/Siren.hpp ../Core/Inc/rtc.h ../Core/Inc/main.h \
- ../Core/Inc/Log.hpp ../Core/Inc/alt_main.h ../Core/Inc/global.h \
- ../Core/Inc/gpio.h ../Core/Inc/i2c.h ../Core/Inc/lis2dw12_reg.h \
- ../Core/Inc/Siren.hpp
+ ../Core/Inc/Log.hpp ../Core/Inc/i2c.h ../Core/Inc/alt_main.h \
+ ../Core/Inc/global.h ../Core/Inc/gpio.h ../Core/Inc/i2c.h \
+ ../Core/Inc/lis2dw12_reg.h ../Core/Inc/Siren.hpp
 ../Core/Inc/Accel.hpp:
 ../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h:
 ../Core/Inc/stm32g0xx_hal_conf.h:
@@ -78,6 +78,7 @@ Core/Src/Accel.o: ../Core/Src/Accel.cpp ../Core/Inc/Accel.hpp \
 ../Core/Inc/rtc.h:
 ../Core/Inc/main.h:
 ../Core/Inc/Log.hpp:
+../Core/Inc/i2c.h:
 ../Core/Inc/alt_main.h:
 ../Core/Inc/global.h:
 ../Core/Inc/gpio.h:

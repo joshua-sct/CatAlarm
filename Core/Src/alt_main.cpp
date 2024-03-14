@@ -14,7 +14,8 @@ Log& myLog = Log::getInstance();
 Siren& mySiren = Siren::getInstance();
 
 // Déclaration des instances
-Accel Accel;
+Accel AccelINT(ACCEL_INTERN_I2C, ACCEL_INTERN_I2C_ADD);
+Accel AccelOUT(ACCEL_EXTERN_I2C, ACCEL_EXTERN_I2C_ADD);
 
 // Déclarations des variables
 volatile bool blinkerInterruptFlag = false;
@@ -38,15 +39,16 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 		if (blinkerInterruptFlag && !hot) {
 			// Désactiver le timer pendant la calibration
             HAL_TIM_Base_Stop(&htim3);
-			Accel.calibrate(ACCEL_EXTERN);
+			AccelOUT.calibrate();
             HAL_TIM_Base_Start(&htim3);
 
 			blinkerInterruptFlag = false;
 			detectOn = true;
 		}
 
+		// Détection
 		else if (detectOn) {
-			Accel.detectAbnormal(ACCEL_EXTERN, mySiren);
+			AccelOUT.detectAbnormal(mySiren);
 		}
 	}
 }
@@ -115,8 +117,8 @@ int alt_main()
 	mySiren.init(myLog);
 
 	// Accel init
-	Accel.init(ACCEL_EXTERN);
-	Accel.calibrate(ACCEL_EXTERN);
+	AccelOUT.init();
+	AccelOUT.calibrate();
 
 	// Démarrage du timer principal
 	HAL_TIM_Base_Start_IT(&htim3);

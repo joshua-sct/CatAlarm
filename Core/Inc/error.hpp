@@ -13,7 +13,7 @@ enum Error : uint32_t {
     errorGyro                               = 1U << 14, // bit 14
     errorAccel                              = 1U << 13, // bit 13
     errorSirenHasBeenPlayingForTooLong      = 1U << 12, // bit 12
-
+    errorRTC                                = 1U << 11, // bit 11
 
     // Masque de plusieurs erreurs
     maskSiren           = (1U << 10) - 1,   // les 10 premiers bits déclenche la sirène

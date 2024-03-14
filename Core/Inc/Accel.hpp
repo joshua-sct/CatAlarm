@@ -4,24 +4,24 @@
 #include <stdint.h>
 #include "stm32g0xx_hal.h"
 #include "Siren.hpp"
+#include "i2c.h"
 
 #define RAD_TO_DEG 57.295779513082320876798154814105
 
 class Accel {
 public:
-	uint8_t init(I2C_HandleTypeDef *I2Cx);
-	void readAccel(I2C_HandleTypeDef *I2Cx);
-	uint8_t init2(I2C_HandleTypeDef *I2Cx);
-	void readAccel2(I2C_HandleTypeDef *I2Cx);
-	void readGyro(I2C_HandleTypeDef *I2Cx);
-	void readTemp(I2C_HandleTypeDef *I2Cx);
-	void readAll(I2C_HandleTypeDef *I2Cx);
-    void detectAbnormal(I2C_HandleTypeDef *I2Cx, Siren& mySiren);
-    void calibrate(I2C_HandleTypeDef *I2Cx);
+    Accel(I2C_HandleTypeDef *I2Cx, uint16_t deviceAddress);
+	uint8_t init();
+	void readAccel();
+	void readAll();
+    void detectAbnormal(Siren& mySiren);
+    void calibrate();
     float angleBetweenVectors(float x1, float y1, float z1, float x2, float y2, float z2);
     float angle;
 
 private:
+    I2C_HandleTypeDef *I2Cx;
+    uint16_t deviceAddress;
 	uint8_t Rec_Data[14];
 
 	uint32_t timer;
@@ -73,11 +73,9 @@ private:
 
     uint8_t Ndetection;
     uint16_t Ncalibration;
-};
 
-HAL_StatusTypeDef i2cReadL(uint16_t MemAddress, uint8_t *pData, uint16_t Size);
-HAL_StatusTypeDef i2cReadH(uint16_t MemAddress, uint8_t *pData, uint16_t Size);
-HAL_StatusTypeDef i2cWriteL(uint16_t MemAddress, uint8_t *pData, uint16_t Size);
-HAL_StatusTypeDef i2cWriteH(uint16_t MemAddress, uint8_t *pData, uint16_t Size);
+    HAL_StatusTypeDef readI2C(uint16_t MemAddress, uint8_t *pData, uint16_t Size);
+    HAL_StatusTypeDef writeI2C(uint16_t MemAddress, uint8_t *pData, uint16_t Size);
+};
 
 #endif // ACCEL_HPP

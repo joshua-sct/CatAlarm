@@ -14,8 +14,10 @@
 #define SIREN_INTERMITTENT_MODE false
 
 // Paramètres de l'Accel
-#define ACCEL_INTERN &hi2c2
-#define ACCEL_EXTERN &hi2c1
+#define ACCEL_EXTERN_I2C &hi2c1
+#define ACCEL_EXTERN_I2C_ADD   0x31U
+#define ACCEL_INTERN_I2C &hi2c2
+#define ACCEL_INTERN_I2C_ADD   0x33U
 #define ACCEL_TOLERANCE_VIBRATION 0.1                   // Seuil de détection de vibration (probablement en radians)
 #define GYRO_TOLERANCE_ANGLE 15                         // Tolérance de changement d'angle après calibration
 #define GYRO_DURATION_CALIB 200                         // Durée de calibration du gyroscope en millisecondes

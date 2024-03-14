@@ -15,135 +15,131 @@
 
 static int16_t data_raw_acceleration[3];
 
-#define SENSOR_BUS &hi2c2
 #define BOOT_TIME 50 // ms
 #define TIMEOUT 100
 
-HAL_StatusTypeDef i2cReadL(uint16_t MemAddress, uint8_t *pData, uint16_t Size){
-	return HAL_I2C_Mem_Read(SENSOR_BUS, LIS2DW12_I2C_ADD_L, MemAddress, I2C_MEMADD_SIZE_8BIT, pData, Size, TIMEOUT);
+HAL_StatusTypeDef Accel::readI2C(uint16_t MemAddress, uint8_t *pData, uint16_t Size){
+	return HAL_I2C_Mem_Read(I2Cx, deviceAddress, MemAddress, I2C_MEMADD_SIZE_8BIT, pData, Size, TIMEOUT);
 }
 
-HAL_StatusTypeDef i2cReadH(uint16_t MemAddress, uint8_t *pData, uint16_t Size){
-	return HAL_I2C_Mem_Read(SENSOR_BUS, LIS2DW12_I2C_ADD_H, MemAddress, I2C_MEMADD_SIZE_8BIT, pData, Size, TIMEOUT);
+HAL_StatusTypeDef Accel::writeI2C(uint16_t MemAddress, uint8_t *pData, uint16_t Size){
+	return HAL_I2C_Mem_Write(I2Cx, deviceAddress, MemAddress, I2C_MEMADD_SIZE_8BIT, pData, Size, TIMEOUT);
 }
 
-HAL_StatusTypeDef i2cWriteL(uint16_t MemAddress, uint8_t *pData, uint16_t Size){
-	return HAL_I2C_Mem_Write(SENSOR_BUS, LIS2DW12_I2C_ADD_L, MemAddress, I2C_MEMADD_SIZE_8BIT, pData, Size, TIMEOUT);
-}
+Accel::Accel(I2C_HandleTypeDef *I2Cx, uint16_t deviceAddress) :
+	I2Cx(I2Cx),
+	deviceAddress(deviceAddress)
+	{}
 
-HAL_StatusTypeDef i2cWriteH(uint16_t MemAddress, uint8_t *pData, uint16_t Size){
-	return HAL_I2C_Mem_Write(SENSOR_BUS, LIS2DW12_I2C_ADD_L, MemAddress, I2C_MEMADD_SIZE_8BIT, pData, Size, TIMEOUT);
-}
-
-uint8_t Accel::init(I2C_HandleTypeDef *I2Cx)
+uint8_t Accel::init()
 {
 	HAL_Delay(BOOT_TIME);
 	HAL_StatusTypeDef ret;
 
 	uint8_t whoamI;
-	i2cReadL(LIS2DW12_WHO_AM_I, &whoamI, 1);
+	readI2C(LIS2DW12_WHO_AM_I, &whoamI, 1);
 	if (whoamI != LIS2DW12_ID) {
 		while (1) { }
 	}
 	/* Restore default configuration */
 	lis2dw12_ctrl2_t reg2;
-	if (i2cReadL(LIS2DW12_CTRL2, (uint8_t *) &reg2, 1) == HAL_OK)
+	if (readI2C(LIS2DW12_CTRL2, (uint8_t *) &reg2, 1) == HAL_OK)
 	{
 		reg2.soft_reset = PROPERTY_ENABLE;
-		i2cWriteL(LIS2DW12_CTRL2, (uint8_t *) &reg2, 1);
+		writeI2C(LIS2DW12_CTRL2, (uint8_t *) &reg2, 1);
 	}
 
 	uint8_t rst;
 	do {
-		i2cReadL(LIS2DW12_CTRL2, (uint8_t *) &reg2, 1);
+		readI2C(LIS2DW12_CTRL2, (uint8_t *) &reg2, 1);
 		rst = reg2.soft_reset;
 	} while (rst);
 
 	/* Enable Block Data Update */
-	if (i2cReadL(LIS2DW12_CTRL2, (uint8_t *) &reg2, 1) == HAL_OK)
+	if (readI2C(LIS2DW12_CTRL2, (uint8_t *) &reg2, 1) == HAL_OK)
 	{
 		reg2.bdu = PROPERTY_ENABLE;
-		i2cWriteL(LIS2DW12_CTRL2, (uint8_t *) &reg2, 1);
+		writeI2C(LIS2DW12_CTRL2, (uint8_t *) &reg2, 1);
 	}
 
 	/* Set full scale */
 	lis2dw12_ctrl6_t reg6;
-	if (i2cReadL(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1) == HAL_OK)
+	if (readI2C(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1) == HAL_OK)
 	{
 		reg6.fs = LIS2DW12_2g;
-		i2cWriteL(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
+		writeI2C(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
 	}
 
 	/* Configure filtering chain
 	* Accelerometer - filter path / bandwidth
 	*/
 	lis2dw12_ctrl_reg7_t reg7;
-	ret = i2cReadL(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
+	ret = readI2C(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
 	if (ret == HAL_OK)
 	{
 		reg6.fds = ((uint8_t) LIS2DW12_LPF_ON_OUT & 0x10U) >> 4;
-		ret = i2cReadL(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
+		ret = readI2C(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
 	}
 
 	if (ret == HAL_OK)
 	{
-		ret = i2cReadL(LIS2DW12_CTRL_REG7, (uint8_t *) &reg7, 1);
+		ret = readI2C(LIS2DW12_CTRL_REG7, (uint8_t *) &reg7, 1);
 	}
 
 	if (ret == HAL_OK)
 	{
 		reg7.usr_off_on_out = (uint8_t) LIS2DW12_LPF_ON_OUT & 0x01U;
-		ret = i2cReadL(LIS2DW12_CTRL_REG7, (uint8_t *) &reg7, 1);
+		ret = readI2C(LIS2DW12_CTRL_REG7, (uint8_t *) &reg7, 1);
 	}
 
 
-  	ret = i2cReadL(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
+  	ret = readI2C(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
 	if (ret == HAL_OK)
 	{
 		reg6.bw_filt = (uint8_t) LIS2DW12_ODR_DIV_4;
-		ret = i2cWriteL(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
+		ret = writeI2C(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
 	}
 
 	/* Configure power mode */
 
 	lis2dw12_ctrl1_t reg1;
-	ret = i2cReadL(LIS2DW12_CTRL1, (uint8_t *) &reg1, 1);
+	ret = readI2C(LIS2DW12_CTRL1, (uint8_t *) &reg1, 1);
 	if (ret == HAL_OK)
 	{
 		reg1.mode = ((uint8_t) LIS2DW12_HIGH_PERFORMANCE & 0x0CU) >> 2;
 		reg1.lp_mode = (uint8_t) LIS2DW12_HIGH_PERFORMANCE & 0x03U ;
-		ret = i2cWriteL(LIS2DW12_CTRL1, (uint8_t *) &reg1, 1);
+		ret = writeI2C(LIS2DW12_CTRL1, (uint8_t *) &reg1, 1);
 	}
 
 	if (ret == HAL_OK)
 	{
-		ret = i2cReadL(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
+		ret = readI2C(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
 	}
 
 	if (ret == HAL_OK)
 	{
 		reg6.low_noise = ((uint8_t) LIS2DW12_HIGH_PERFORMANCE & 0x10U) >> 4;
-		ret = i2cWriteL(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
+		ret = writeI2C(LIS2DW12_CTRL6, (uint8_t *) &reg6, 1);
 	}
 
 	/* Set Output Data Rate */
 	lis2dw12_ctrl3_t reg3;
-	ret = i2cReadL(LIS2DW12_CTRL1, (uint8_t *) &reg1, 1);
+	ret = readI2C(LIS2DW12_CTRL1, (uint8_t *) &reg1, 1);
 	if (ret == HAL_OK)
 	{
 		reg1.odr = (uint8_t) LIS2DW12_XL_ODR_25Hz;
-		ret = i2cWriteL(LIS2DW12_CTRL1, (uint8_t *) &reg1, 1);
+		ret = writeI2C(LIS2DW12_CTRL1, (uint8_t *) &reg1, 1);
 	}
 
 	if (ret == HAL_OK)
 	{
-		ret = i2cReadL(LIS2DW12_CTRL3, (uint8_t *) &reg3, 1);
+		ret = readI2C(LIS2DW12_CTRL3, (uint8_t *) &reg3, 1);
 	}
 
 	if (ret == HAL_OK)
 	{
 		reg3.slp_mode = ((uint8_t) LIS2DW12_XL_ODR_25Hz & 0x30U) >> 4;
-		ret = i2cWriteL(LIS2DW12_CTRL3, (uint8_t *) &reg3, 1);
+		ret = writeI2C(LIS2DW12_CTRL3, (uint8_t *) &reg3, 1);
 	}
 
     Ndetection = 32;
@@ -152,19 +148,19 @@ uint8_t Accel::init(I2C_HandleTypeDef *I2Cx)
 	return 1;
 }
 
-void Accel::readAccel(I2C_HandleTypeDef *I2Cx)
+void Accel::readAccel()
 {
 	uint8_t available;
 
 	lis2dw12_status_t status;
-	i2cReadL(LIS2DW12_STATUS, (uint8_t *) &status, 1);
+	readI2C(LIS2DW12_STATUS, (uint8_t *) &status, 1);
 	available = status.drdy;
 
     if (available) {
 		/* Read acceleration data */
 		memset(data_raw_acceleration, 0x00, 3 * sizeof(int16_t));
 		uint8_t buff[6];
-		i2cReadL(LIS2DW12_OUT_X_L, buff, 6);
+		readI2C(LIS2DW12_OUT_X_L, buff, 6);
 		data_raw_acceleration[0] = (int16_t)buff[1];
 		data_raw_acceleration[0] = (data_raw_acceleration[0] * 256) + (int16_t)buff[0];
 		data_raw_acceleration[1] = (int16_t)buff[3];
@@ -177,41 +173,14 @@ void Accel::readAccel(I2C_HandleTypeDef *I2Cx)
 		Ay = ((float_t)data_raw_acceleration[1]) * 0.061f;
 		Az = ((float_t)data_raw_acceleration[2]) * 0.061f;
     }
-
-	//lis2dw12_poll();
-	//float values[3];
-	//get_acceleration(values);
-//	    Ax = values[0];
-//	    Ay = values[1];
-//	    Az = values[2];
 }
 
-uint8_t Accel::init2(I2C_HandleTypeDef *I2Cx)
-{
-	
-    // lis2dw12_init();
-	// Ndetection = 32;
-	// Ncalibration = 500;
-	// refAngle = 3.5;
-	return 1;
-}
-
-void Accel::readAccel2(I2C_HandleTypeDef *I2Cx)
-{
-	// lis2dw12_poll();
-	// float values[3];
-	// get_acceleration(values);
-	//     Ax = values[0];
-	//     Ay = values[1];
-	//     Az = values[2];
-}
-
-void Accel::detectAbnormal(I2C_HandleTypeDef *I2Cx, Siren& mySiren) {
+void Accel::detectAbnormal(Siren& mySiren) {
 	Axres = 0;
 	Ayres = 0;
 	Azres = 0;
 	for (int i=0; i<Ndetection;i++) {
-		readAccel(I2Cx);
+		readAccel();
 		Axres += Ax;
 		Ayres += Ay;
 		Azres += Az;
@@ -233,7 +202,7 @@ void Accel::detectAbnormal(I2C_HandleTypeDef *I2Cx, Siren& mySiren) {
 	}
 }
 
-void Accel::calibrate(I2C_HandleTypeDef *I2Cx) {
+void Accel::calibrate() {
 	// -TODO : Mettre un timer pour qu'il execute @freq pendant @T
 	// Enregistrement des valeurs extrêmes pour chaque axe
 	Axref = 0;
@@ -242,7 +211,7 @@ void Accel::calibrate(I2C_HandleTypeDef *I2Cx) {
 	refAcc = 0;
 
 	for (int i=0; i < Ncalibration; i++) {
-		readAccel(I2Cx);
+		readAccel();
 		Axref += Ax;
 		Ayref += Ay;
 		Azref += Az;
