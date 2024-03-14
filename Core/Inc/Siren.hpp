@@ -24,57 +24,38 @@ public:
     static Siren& getInstance();
 	
     // Méthodes d'initialisation et de contrôle
-    void init(Log& log);
+    void init(Log& logInstance);
     void handleStart();
     void handleStop();
+    void handleStopInterrupt();
 
     // Méthodes pour jouer la sirène
-    void playIntermittentTone(uint32_t duration);
-    void playTone(uint32_t duration);
     void playQuickTone();
-    bool isPlaying() const;
 
 private:
     // Singleton
     Siren() = default;
     Siren(const Siren&) = delete;
     Siren& operator=(const Siren&) = delete;
+    Log* myLog;
 
-    Log* logInstance; // Pointeur vers l'instance de Log
-
-    uint8_t age;
     bool playing;
-    bool stopRequest;
+    uint8_t age;
 
-    // Paramètres de configuration
-    int pin;
-    uint32_t freq;
-    uint32_t durationMinimal;
-    uint32_t durationMaximal;
-    uint32_t durationMaxInDurationRef;
-    uint32_t durationRef;
     bool isInterval;
-    uint32_t intervalDuration;
-    uint32_t minDelayBetweenTwoTriggers;
 
     // Timing des intermittentTone 
     uint32_t ringStartTimestamp;
-    uint32_t ringStopTimestamp;
 
     // Méthodes privées
-    void addLogEntry();
-    bool hasSoundedMoreThan(uint32_t period) const;
-    bool hasSoundedMoreThanXinX(uint32_t duration, uint32_t durationRef) const;
+    void playTone();
     void start();
     void stop();
+    bool hasSoundedMoreThan(uint32_t period) const;
+    bool hasSoundedMoreThanXinX(uint32_t duration, uint32_t durationRef) const;
 };
 
 // Fonction de calcul pour utile pour hasSoundedMoreThan()
 int positiveModulo(int value, int modulus);
-void set_time();
-void get_time();
-void dif_time();
-
-extern Siren& mySiren;
 
 #endif // SIREN_H

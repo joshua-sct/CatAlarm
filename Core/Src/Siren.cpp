@@ -8,6 +8,7 @@
 #include "gpio.h"
 #include "Log.hpp"
 
+// Settings de Siren
 SirenSettings mySirenSettings = {
 	SIREN_DURATION_MIN,
 	SIREN_DURATION_MAX,
@@ -19,164 +20,97 @@ SirenSettings mySirenSettings = {
 	SIREN_LOG_SIZE
 };
 
-// Singleton
+// Retourne le singleton
 Siren& Siren::getInstance() {
     static Siren instance;
     return instance;
 }
 
 // Injection de dépendances
-void Siren::init(Log& log) {
-    Log& logInstance = Log::getInstance();	
+void Siren::init(Log& logInstance) {
+    myLog = &logInstance;
+	playing = false;
+	age = 0;
 }
 
-// Gère la sirène lors de son appel
+// Routine de démarrage de la sirène
 void Siren::handleStart() {
 	// Première sonnerie
-	if (logInstance->isLastEntryEmpty()) {
+	if (myLog->isLastEntryEmpty()) {
 		// Première sonnerie
-		playIntermittentTone(durationMinimal);
+		ringStartTimestamp = getTimestamp();
+		start();
 	}
-	
+
 	// n-ième sonnerie
 	else {
 		// Si la sirène a trop sonné en continu
-		if (logInstance->hasRungMoreThan(durationMaximal)) {
+		if (myLog->hasRungMoreThan(SIREN_DURATION_MAX)) {
 			setError(errorSirenHasBeenPlayingForTooLong, true);
 		}
 
 		// Si la sirène a trop sonné pendant une période donnée
-		else if (logInstance->hasRungMoreThanXinX(durationMaxInDurationRef, durationRef)) {
+		else if (myLog->hasRungMoreThanXinX(SIREN_DURATION_MAX_IN_DURATION_REF, SIREN_DURATION_REF)) {
 			setError(errorSirenHasBeenPlayingForTooLong, true);
 		}
 		
-		// Sinon la sirène doit encore sonner 
+		// Sinon la sirène doit sonner ou encore sonner 
 		else {
-			playIntermittentTone(durationMinimal);
-			sendSigfoxAlert(ERROR_CODE);
+			// Retenir le Timestamp de démarrage de la sirène si elle commence
+			if (!playing) {
+				ringStartTimestamp = getTimestamp();
+			}
+			start();
 			setError(errorSirenHasBeenPlayingForTooLong, false);
 		}
 	}
 }
 
+// Routine d'exctinction de la sirène hors interruption
 void Siren::handleStop() {
-	// duréee minimale buzzer = 100*10ms = 1s
-	if (stopRequest == true && (age > 100)) {
-		//TIM1->CCR2 = 0; // PWM buzzer = 0
+	if (playing) {
+		// Duréee minimale buzzer = age*(1/freq) = 100*10ms = 1s
+		if (age > 100) {
+			// Stop
+			HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+			playing = false;
+			age = 0;
+
+			// Ajouter le log actuel
+			LogEntry entry;
+			entry.startTimestamp = ringStartTimestamp;
+			entry.stopTimestamp = getTimestamp();
+			myLog->addEntry(entry);
+		}
+		age++;
+	}
+}
+
+// Routine d'extinction de la sirène lors d'une interruption
+void Siren::handleStopInterrupt() {
+	if (playing) {
+		// Stop
 		HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
-		//HAL_GPIO_WritePin(UARTINFO_GPIO_Port, UARTINFO_Pin, GPIO_PIN_RESET);
 		playing = false;
-		stopRequest = false;
+		age = 0;
+
+		// Ajouter le log actuel
+		LogEntry entry;
+		entry.startTimestamp = ringStartTimestamp;
+		entry.stopTimestamp = getTimestamp();
+		myLog->addEntry(entry);
 	}
-	age++;
 }
 
+// Démarrage de la sirène
 void Siren::start() {
-	if (!playing) {
-		HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
-		playing = true;
-		get_time();
-		//diff_time(initDate,initTime,gDate,gTime);
-	}
-	age = 0;
-	stopRequest = false;
-}
-
-void Siren::stop() {
-	stopRequest = true;
-}
-
-
-// Sonne de manière intermittente pendant durationMinimal
-void Siren::playIntermittentTone(uint32_t duration) {
-    //* intermittentToneStartTime = millis();
-
-	//* Sonne pendant durationMinimal
-//    while (millis() - intermittentToneStartTime < duration) {
-//        // Jouer une période de sirène
-//		handleStartBuzzer();
-//		HAL_Delay(intervalDuration / 2); // Temps de tonalité
-//		handleStopBuzzer();
-//		HAL_Delay(intervalDuration / 2); // Temps de silence
-//    }
-
-	//intermittentToneEndTime = millis();
-
-	// Enregistre l'entrée correspondante dans le journal 'logs'
-	addLogEntry();
-}
-
-void Siren::playTone(uint32_t duration) {
-    //* intermittentToneStartTime = millis();
-
-	//* Sonne pendant durationMinimal
-//    while (millis() - intermittentToneStartTime < duration) {
-//        // Jouer une période de sirène
-//		handleStartBuzzer();
-//		HAL_Delay(intervalDuration / 2); // Temps de tonalité
-//		handleStopBuzzer();
-//		HAL_Delay(intervalDuration / 2); // Temps de silence
-//    }
-
-	//intermittentToneEndTime = millis();
-
-	// Enregistre l'entrée correspondante dans le journal 'logs'
-	addLogEntry();
+	HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
+	playing = true;
 }
 
 // Joue un bip de sirène
 void Siren::playQuickTone() {
-	// Return if ok
-	handleStart();
-	HAL_Delay(intervalDuration / 2); // Temps de tonalité
-	handleStop();
+	HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
+	HAL_Delay(SIREN_INTERVAL_DURATION / 2); // Temps de tonalité
+	HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
 }
-
-// Ajoute une entrée (startTime, endTime) au journal 'logs'
-void Siren::addLogEntry() {
-    // Ajouter la nouvelle entrée au tableau
-	LogEntry entry;
-	entry.startTimestamp = ringStartTimestamp;
-	entry.stopTimestamp = ringStopTimestamp;
-	logInstance->addEntry(entry);
-}
-
-bool Siren::isPlaying() const {
-	return playing;
-}
-
-void set_time (void)
-{
-  RTC_TimeTypeDef sTime;
-  RTC_DateTypeDef sDate;
-  // Récupérer Time du GPS, sinon :
-
-  sTime.Hours = 0x0; // set hours
-  sTime.Minutes = 0x0; // set minutes
-  sTime.Seconds = 0x0; // set seconds
-  sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-  sTime.StoreOperation = RTC_STOREOPERATION_RESET;
-  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
-  {
-    //err
-  }
-  sDate.WeekDay = RTC_WEEKDAY_MONDAY;
-  sDate.Month = RTC_MONTH_JANUARY;
-  sDate.Date = 0x0; // date
-  sDate.Year = 0x0; // year
-  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
-  {
-	//err
-  }
-
-  HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR1, 0x32F2); // backup register
-}
-
-Siren& mySiren = Siren::getInstance();
-
-RTC_TimeTypeDef initTime;
-RTC_DateTypeDef initDate;
-
-RTC_DateTypeDef gDate;
-RTC_TimeTypeDef gTime;
-

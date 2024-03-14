@@ -41,6 +41,7 @@ public:
     bool isLastEntryEmpty() const;
     bool hasRungMoreThan(uint32_t duration) const;
     bool hasRungMoreThanXinX(uint32_t duration, uint32_t durationRef) const;
+    void setTime(void);
 
 private:
     Log() = default;

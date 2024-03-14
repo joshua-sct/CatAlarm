@@ -13,7 +13,9 @@
 #define SIREN_LOG_SIZE 100								// Taille des logs des triggers de la sirène
 #define SIREN_INTERMITTENT_MODE false
 
-// Paramètres de l'AccelGyro
+// Paramètres de l'Accel
+#define ACCEL_INTERN &hi2c2
+#define ACCEL_EXTERN &hi2c1
 #define ACCEL_TOLERANCE_VIBRATION 0.1                   // Seuil de détection de vibration (probablement en radians)
 #define GYRO_TOLERANCE_ANGLE 15                         // Tolérance de changement d'angle après calibration
 #define GYRO_DURATION_CALIB 200                         // Durée de calibration du gyroscope en millisecondes

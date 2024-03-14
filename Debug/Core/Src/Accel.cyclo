@@ -1,12 +1,12 @@
 C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235\tools\bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/bits/std_abs.h:75:3:constexpr float std::abs(float)	1
-../Core/Src/Accel.cpp:21:19:HAL_StatusTypeDef i2cReadL(uint16_t, uint8_t*, uint16_t)	1
-../Core/Src/Accel.cpp:25:19:HAL_StatusTypeDef i2cReadH(uint16_t, uint8_t*, uint16_t)	1
-../Core/Src/Accel.cpp:29:19:HAL_StatusTypeDef i2cWriteL(uint16_t, uint8_t*, uint16_t)	1
-../Core/Src/Accel.cpp:33:19:HAL_StatusTypeDef i2cWriteH(uint16_t, uint8_t*, uint16_t)	1
-../Core/Src/Accel.cpp:37:9:uint8_t Accel::init(I2C_HandleTypeDef*)	16
-../Core/Src/Accel.cpp:154:6:void Accel::readAccel(I2C_HandleTypeDef*)	2
-../Core/Src/Accel.cpp:188:9:uint8_t Accel::init2(I2C_HandleTypeDef*)	1
-../Core/Src/Accel.cpp:198:6:void Accel::readAccel2(I2C_HandleTypeDef*)	1
-../Core/Src/Accel.cpp:208:6:void Accel::detectAbnormal(I2C_HandleTypeDef*)	5
-../Core/Src/Accel.cpp:235:6:void Accel::calibrate(I2C_HandleTypeDef*)	2
-../Core/Src/Accel.cpp:262:7:float Accel::angleBetweenVectors(float, float, float, float, float, float)	1
+../Core/Src/Accel.cpp:22:19:HAL_StatusTypeDef i2cReadL(uint16_t, uint8_t*, uint16_t)	1
+../Core/Src/Accel.cpp:26:19:HAL_StatusTypeDef i2cReadH(uint16_t, uint8_t*, uint16_t)	1
+../Core/Src/Accel.cpp:30:19:HAL_StatusTypeDef i2cWriteL(uint16_t, uint8_t*, uint16_t)	1
+../Core/Src/Accel.cpp:34:19:HAL_StatusTypeDef i2cWriteH(uint16_t, uint8_t*, uint16_t)	1
+../Core/Src/Accel.cpp:38:9:uint8_t Accel::init(I2C_HandleTypeDef*)	16
+../Core/Src/Accel.cpp:155:6:void Accel::readAccel(I2C_HandleTypeDef*)	2
+../Core/Src/Accel.cpp:189:9:uint8_t Accel::init2(I2C_HandleTypeDef*)	1
+../Core/Src/Accel.cpp:199:6:void Accel::readAccel2(I2C_HandleTypeDef*)	1
+../Core/Src/Accel.cpp:209:6:void Accel::detectAbnormal(I2C_HandleTypeDef*, Siren&)	5
+../Core/Src/Accel.cpp:236:6:void Accel::calibrate(I2C_HandleTypeDef*)	2
+../Core/Src/Accel.cpp:263:7:float Accel::angleBetweenVectors(float, float, float, float, float, float)	1

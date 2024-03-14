@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "stm32g0xx_hal.h"
+#include "Siren.hpp"
 
 #define RAD_TO_DEG 57.295779513082320876798154814105
 
@@ -15,7 +16,7 @@ public:
 	void readGyro(I2C_HandleTypeDef *I2Cx);
 	void readTemp(I2C_HandleTypeDef *I2Cx);
 	void readAll(I2C_HandleTypeDef *I2Cx);
-    void detectAbnormal(I2C_HandleTypeDef *I2Cx);
+    void detectAbnormal(I2C_HandleTypeDef *I2Cx, Siren& mySiren);
     void calibrate(I2C_HandleTypeDef *I2Cx);
     float angleBetweenVectors(float x1, float y1, float z1, float x2, float y2, float z2);
     float angle;

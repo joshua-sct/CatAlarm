@@ -11,6 +11,7 @@
 #include "stm32g0xx_hal.h"
 #include "i2c.h"
 #include "lis2dw12_reg.h"
+#include "Siren.hpp"
 
 static int16_t data_raw_acceleration[3];
 
@@ -205,7 +206,7 @@ void Accel::readAccel2(I2C_HandleTypeDef *I2Cx)
 	//     Az = values[2];
 }
 
-void Accel::detectAbnormal(I2C_HandleTypeDef *I2Cx) {
+void Accel::detectAbnormal(I2C_HandleTypeDef *I2Cx, Siren& mySiren) {
 	Axres = 0;
 	Ayres = 0;
 	Azres = 0;
@@ -226,9 +227,9 @@ void Accel::detectAbnormal(I2C_HandleTypeDef *I2Cx) {
 	//if (Acc > refAcc)
 	if (angle > refAngle || abs(Acc-refAcc) > 4)
 	{
-		abnormalStart();
+		mySiren.handleStart();
 	} else {
-		abnormalStop();
+		mySiren.handleStop();
 	}
 }
 

@@ -27,6 +27,7 @@ void Log::init() {
         LogEntries[i].startTimestamp = 0;
         LogEntries[i].stopTimestamp = 0;
     }
+    setTime();
 }
 
 // Test si la dernière entrée du journal est vide
@@ -89,6 +90,32 @@ bool Log::hasRungMoreThanXinX(uint32_t duration, uint32_t durationRef) const {
         j++;
     }
     return (totalDuration > duration);
+}
+
+void Log::setTime(void) {
+  RTC_TimeTypeDef sTime;
+  RTC_DateTypeDef sDate;
+  // Récupérer Time du GPS, sinon :
+
+  sTime.Hours = 0x0; // set hours
+  sTime.Minutes = 0x0; // set minutes
+  sTime.Seconds = 0x0; // set seconds
+  sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+  sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
+  {
+    //err
+  }
+  sDate.WeekDay = RTC_WEEKDAY_MONDAY;
+  sDate.Month = RTC_MONTH_JANUARY;
+  sDate.Date = 0x0; // date
+  sDate.Year = 0x0; // year
+  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
+  {
+	//err
+  }
+
+  HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR1, 0x32F2); // backup register
 }
 
 // Renvoie le Timestamp actuel

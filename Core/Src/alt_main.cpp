@@ -1,70 +1,60 @@
-#include <alt_main.h>
-#include <Accel.hpp>
-#include "i2c.h"
-#include "tim.h"
-#include "main.h"
-#include "gpio.h"
-#include "lis2dw12_reg.h"
-#include "rtc.h"
-#include "Siren.hpp"
-#include "Log.hpp"
-//#include "global.h"
+#include "main.h"           // Main C
+#include "alt_main.h"       // Main C++
+#include "tim.h"			// HAL Timer 
+#include "gpio.h"			// HAL GPIO
+#include "rtc.h"			// HAL RTC
+#include "i2c.h"            // HAL I2C
+#include "global.h"         // Paramètres et définitions générales
+#include "Accel.hpp"		// Module Accel
+#include "Siren.hpp"        // Module Siren
+#include "Log.hpp"			// Module Log
 
+// Définition des singletons
 Log& myLog = Log::getInstance();
+Siren& mySiren = Siren::getInstance();
 
+// Déclaration des instances
 Accel Accel;
 
-bool calibrating = false;
-bool detectOn = false;
-uint16_t countMain =0;
-
+// Déclarations des variables
 volatile bool blinkerInterruptFlag = false;
-uint16_t countBlinker =0;
-
 volatile bool hot;
+bool detectOn = false;
+bool calibrating = false;
+
+// Debug
+uint16_t countMain =0;
+uint16_t countBlinker =0;
 uint16_t countHot =0;
 
-void abnormalStart() {
-	mySiren.handleStart();
-}
-
-void abnormalStop() {
-	mySiren.handleStop();
-}
-
-
-// Buzzer timer 100Hz (10ms)
+// Timer principal @100Hz
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 {
 	if (htim == &htim3) {
-
-		// MAIN LOOP
+		// Debug
 		countMain++;
 
 		// Interrupt Blinker
 		if (blinkerInterruptFlag && !hot) {
-			calibrating = true; //debug
-			//Accel.calibrate(&hi2c1);
-			Accel.calibrate(&hi2c1);
-			calibrating = false; //debug
+			// Désactiver le timer pendant la calibration
+            HAL_TIM_Base_Stop(&htim3);
+			Accel.calibrate(ACCEL_EXTERN);
+            HAL_TIM_Base_Start(&htim3);
+
 			blinkerInterruptFlag = false;
 			detectOn = true;
 		}
 
 		else if (detectOn) {
-			Accel.detectAbnormal(&hi2c1);
-		}
-
-		// Sonner 1 seconde
-		if (mySiren.isPlaying()) {
-			mySiren.handleStop();
+			Accel.detectAbnormal(ACCEL_EXTERN, mySiren);
 		}
 	}
 }
 
-// Interrupt HOT / BLINKER
+// Callback pour ACC et BLK
 void HAL_GPIO_EXTI_Rising_Callback(uint16_t GPIO_Pin) {
-	mySiren.handleStop();
+	// Stopper la sirène
+	mySiren.handleStopInterrupt();
 
 	// Stop (buzzer + calibrate) request
     if (GPIO_Pin == BLK_Pin) {
@@ -120,19 +110,17 @@ int alt_main()
 	blinkerInterruptFlag = true;
 	hot = false;
 
+
 	myLog.init();
 	mySiren.init(myLog);
 
 	// Accel init
-	// HAL_Delay(100);
-	Accel.init(&hi2c1);
-	Accel.calibrate(&hi2c1);
+	Accel.init(ACCEL_EXTERN);
+	Accel.calibrate(ACCEL_EXTERN);
 
-	//// Start 'loop' timer
-	////HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
-	////TIM1->CCR2 = 0;
+	// Démarrage du timer principal
 	HAL_TIM_Base_Start_IT(&htim3);
+
 	while(1) {}
 	return 0;
 }
-

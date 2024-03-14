@@ -10,18 +10,18 @@ uint32_t ERROR_CODE = 0;
 void handleError() {
     // Erreur pour Sigfox
     if (isError(maskSigfox)) {
-        sendSigfoxAlert(ERROR_CODE);
+        //sendSigfoxAlert(ERROR_CODE);
     } 
 
     // Erreur car la sirène a trop sonné
     if (isError(errorSirenHasBeenPlayingForTooLong)) {
-        sendSigfoxAlert(ERROR_CODE);
+        //sendSigfoxAlert(ERROR_CODE);
     }
     
     // Erreur pour la Siren
     else if (isError(maskSiren)) {
-        mySiren.handleStart();
-        sendSigfoxAlert(ERROR_CODE);
+        //mySiren.handleStart();
+        //sendSigfoxAlert(ERROR_CODE);
     }
 }
 

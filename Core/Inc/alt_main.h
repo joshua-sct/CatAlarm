@@ -7,8 +7,6 @@ extern "C"
 #endif
 
 int alt_main();
-void abnormalStart();
-void abnormalStop();
 
 #ifdef __cplusplus
 }
