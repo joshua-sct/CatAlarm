@@ -4,6 +4,6 @@ C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
 ../Core/Src/Accel.cpp:22:1:Accel::Accel(I2C_HandleTypeDef*, uint16_t)	1
 ../Core/Src/Accel.cpp:27:9:uint8_t Accel::init()	16
 ../Core/Src/Accel.cpp:144:6:void Accel::readAccel()	2
-../Core/Src/Accel.cpp:171:6:void Accel::detectAbnormal(Siren&)	4
-../Core/Src/Accel.cpp:200:6:void Accel::calibrate()	2
-../Core/Src/Accel.cpp:225:7:float Accel::angleBetweenVectors(float, float, float, float, float, float)	1
+../Core/Src/Accel.cpp:171:6:void Accel::detectAbnormal(Siren&)	5
+../Core/Src/Accel.cpp:211:6:void Accel::calibrate()	2
+../Core/Src/Accel.cpp:236:7:float Accel::angleBetweenVectors(float, float, float, float, float, float)	1

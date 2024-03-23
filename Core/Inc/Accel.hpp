@@ -46,6 +46,9 @@ private:
     bool detec;
     uint16_t ite;
 
+//    bool hot;
+//	bool inte;
+
     // Paramètres
     uint16_t Ndetection;
     uint16_t Ncalibration;

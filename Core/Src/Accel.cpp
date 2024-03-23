@@ -187,12 +187,23 @@ void Accel::detectAbnormal(Siren& mySiren) {
 	Acc = sqrt(Ax*Ax + Ay*Ay + Az*Az);
 
 //	if (angle > refAngle || abs(Acc-refAcc) > 4)
-	if (abs(Acc-refAcc) > 4)
+	if ((abs(Acc-refAcc) > 8) || (angle > refAngle))
 	{
 		mySiren.handleStart();
 	} else {
 		mySiren.handleStop();
 	}
+//	if (HAL_GPIO_ReadPin(ACC_GPIO_Port, ACC_Pin) == GPIO_PIN_SET) {
+//			hot = true;
+//		} else {
+//			hot = false;
+//		}
+//	if (HAL_GPIO_ReadPin(BLK_GPIO_Port, BLK_Pin) == GPIO_PIN_SET) {
+//			inte = true;
+//			HAL_Delay(500);
+//		} else {
+//			inte = false;
+//		}
 }
 
 // TODO : Mettre un timer pour qu'il execute @freq pendant @T

@@ -1,8 +1,8 @@
-../Core/Src/alt_main.cpp:30:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
-../Core/Src/alt_main.cpp:52:6:void HAL_GPIO_EXTI_Rising_Callback(uint16_t)	16	static
-../Core/Src/alt_main.cpp:78:6:void HAL_GPIO_EXTI_Falling_Callback(uint16_t)	16	static
-../Core/Src/alt_main.cpp:87:6:void disableHotBlinkerInterrupt()	8	static
-../Core/Src/alt_main.cpp:93:6:void enableHotBlinkerInterrupt()	8	static
-../Core/Src/alt_main.cpp:97:5:int alt_main()	8	static
-../Core/Src/alt_main.cpp:122:1:void __static_initialization_and_destruction_0(int, int)	16	static
-../Core/Src/alt_main.cpp:122:1:cpp)	8	static
+../Core/Src/alt_main.cpp:34:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
+../Core/Src/alt_main.cpp:80:6:void HAL_GPIO_EXTI_Rising_Callback(uint16_t)	16	static
+../Core/Src/alt_main.cpp:106:6:void HAL_GPIO_EXTI_Falling_Callback(uint16_t)	16	static
+../Core/Src/alt_main.cpp:115:6:void disableHotBlinkerInterrupt()	8	static
+../Core/Src/alt_main.cpp:121:6:void enableHotBlinkerInterrupt()	8	static
+../Core/Src/alt_main.cpp:125:5:int alt_main()	8	static
+../Core/Src/alt_main.cpp:155:1:void __static_initialization_and_destruction_0(int, int)	16	static
+../Core/Src/alt_main.cpp:155:1:cpp)	8	static
