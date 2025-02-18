@@ -1,3 +1,0 @@
-../Core/Src/error.cpp:9:6:void handleError()	8	static
-../Core/Src/error.cpp:28:6:bool isError(Error)	16	static
-../Core/Src/error.cpp:33:6:void setError(Error, bool)	16	static

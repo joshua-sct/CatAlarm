@@ -1,7 +1,0 @@
-../Core/Src/Siren.cpp:21:8:static Siren& Siren::getInstance()	8	static
-../Core/Src/Siren.cpp:27:6:void Siren::init(Log&)	16	static
-../Core/Src/Siren.cpp:34:6:void Siren::handleStart()	16	static
-../Core/Src/Siren.cpp:69:6:void Siren::handleStop()	32	static
-../Core/Src/Siren.cpp:89:6:void Siren::handleStopInterrupt()	32	static
-../Core/Src/Siren.cpp:105:6:void Siren::start()	16	static
-../Core/Src/Siren.cpp:112:6:void Siren::playQuickTone()	16	static

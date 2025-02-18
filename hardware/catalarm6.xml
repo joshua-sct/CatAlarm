@@ -1,0 +1,2328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>C:\Users\OurDesktop\Documents\ECATCH\kicad\catalarm6\catalarm6.kicad_sch</source>
+    <date>2/12/2024 10:06:49 PM</date>
+    <tool>Eeschema 7.0.8</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>catalarm6.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C392963</field>
+        <field name="Manufacturer_Part_Number">TCC0402X7R104K160AT</field>
+        <field name="NAMEALIAS">Value</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">0603B104K500NT</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_100nF" description=""/>
+      <property name="NAMEALIAS" value="Value"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="0603B104K500NT"/>
+      <property name="LCSC Part Number" value="C392963"/>
+      <property name="Manufacturer_Part_Number" value="TCC0402X7R104K160AT"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>93c66c93-7ddb-4e41-b1d8-ed308ed27c13</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C392963</field>
+        <field name="Manufacturer_Part_Number">TCC0402X7R104K160AT</field>
+        <field name="NAMEALIAS">Value(F)</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">C_0603_US</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_2_100nf" description=""/>
+      <property name="NAMEALIAS" value="Value(F)"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="C_0603_US"/>
+      <property name="LCSC Part Number" value="C392963"/>
+      <property name="Manufacturer_Part_Number" value="TCC0402X7R104K160AT"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2057389f-e46e-48ae-a214-06cda917e9cc</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>4.7uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C307423</field>
+        <field name="Manufacturer_Part_Number">CL05A475MQ5NRNC</field>
+        <field name="NAMEALIAS">Value(F)</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">C_0603_US</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_4.7uF" description=""/>
+      <property name="NAMEALIAS" value="Value(F)"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="C_0603_US"/>
+      <property name="LCSC Part Number" value="C307423"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="CL05A475MQ5NRNC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>48937942-8b46-4eb0-a876-338b76b8eae7</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C15525</field>
+        <field name="Manufacturer_Part_Number">CL05A106MQ5NUNC</field>
+        <field name="NAMEALIAS">Value(F)</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">C_0603_US</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_4.7uF" description=""/>
+      <property name="NAMEALIAS" value="Value(F)"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="C_0603_US"/>
+      <property name="LCSC Part Number" value="C15525"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="CL05A106MQ5NUNC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>61959354-9d84-4d71-943a-79bb437066c2</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>1nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C696907</field>
+        <field name="Manufacturer_Part_Number">TCC0402X7R102M500AT</field>
+      </fields>
+      <libsource lib="PCM_SL_Devices" part="Capacitor_NP" description="Unpolarized Capacitor"/>
+      <property name="LCSC Part Number" value="C696907"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="TCC0402X7R102M500AT"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized Capacitor"/>
+      <property name="ki_keywords" value="Capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>869751cd-5db7-4857-bd34-f3da10367534</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C392963</field>
+        <field name="Manufacturer_Part_Number">TCC0402X7R104K160AT</field>
+        <field name="NAMEALIAS">Value</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">0603B104K500NT</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_100nF" description=""/>
+      <property name="NAMEALIAS" value="Value"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="0603B104K500NT"/>
+      <property name="LCSC Part Number" value="C392963"/>
+      <property name="Manufacturer_Part_Number" value="TCC0402X7R104K160AT"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0d7ee2c4-e144-4dcd-8313-a6887310481c</tstamps>
+    </comp>
+    <comp ref="C7">
+      <value>1nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C696907</field>
+        <field name="Manufacturer_Part_Number">TCC0402X7R102M500AT</field>
+      </fields>
+      <libsource lib="PCM_SL_Devices" part="Capacitor_NP" description="Unpolarized Capacitor"/>
+      <property name="LCSC Part Number" value="C696907"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="TCC0402X7R102M500AT"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized Capacitor"/>
+      <property name="ki_keywords" value="Capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fefc993d-49c4-4f7c-a6cd-2894dfa642d2</tstamps>
+    </comp>
+    <comp ref="C8">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C392963</field>
+        <field name="Manufacturer_Part_Number">TCC0402X7R104K160AT</field>
+        <field name="NAMEALIAS">Value</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">0603B104K500NT</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_100nF" description=""/>
+      <property name="NAMEALIAS" value="Value"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="0603B104K500NT"/>
+      <property name="LCSC Part Number" value="C392963"/>
+      <property name="Manufacturer_Part_Number" value="TCC0402X7R104K160AT"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a7d06fda-00b2-4fe5-a7fd-8f454a247e2e</tstamps>
+    </comp>
+    <comp ref="C9">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C15525</field>
+        <field name="Manufacturer_Part_Number">CL05A106MQ5NUNC</field>
+        <field name="NAMEALIAS">Value(F)</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">C_0603_US</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_4.7uF" description=""/>
+      <property name="NAMEALIAS" value="Value(F)"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="C_0603_US"/>
+      <property name="LCSC Part Number" value="C15525"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="CL05A106MQ5NUNC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cfd0c5cd-2c91-40a5-a8ca-49c59653f227</tstamps>
+    </comp>
+    <comp ref="C10">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C392963</field>
+        <field name="Manufacturer_Part_Number">TCC0402X7R104K160AT</field>
+        <field name="NAMEALIAS">Value</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">0603B104K500NT</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_100nF" description=""/>
+      <property name="NAMEALIAS" value="Value"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="0603B104K500NT"/>
+      <property name="LCSC Part Number" value="C392963"/>
+      <property name="Manufacturer_Part_Number" value="TCC0402X7R104K160AT"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ed01c78d-05a4-4d23-a97c-1c3f47d43582</tstamps>
+    </comp>
+    <comp ref="C11">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C392963</field>
+        <field name="Manufacturer_Part_Number">TCC0402X7R104K160AT</field>
+        <field name="NAMEALIAS">Value</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">0603B104K500NT</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_100nF" description=""/>
+      <property name="NAMEALIAS" value="Value"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="0603B104K500NT"/>
+      <property name="LCSC Part Number" value="C392963"/>
+      <property name="Manufacturer_Part_Number" value="TCC0402X7R104K160AT"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>99b838ad-166c-4a03-a380-2a63b1b79c4c</tstamps>
+    </comp>
+    <comp ref="C12">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C392963</field>
+        <field name="Manufacturer_Part_Number">TCC0402X7R104K160AT</field>
+        <field name="NAMEALIAS">Value</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">0603B104K500NT</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_100nF" description=""/>
+      <property name="NAMEALIAS" value="Value"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="0603B104K500NT"/>
+      <property name="LCSC Part Number" value="C392963"/>
+      <property name="Manufacturer_Part_Number" value="TCC0402X7R104K160AT"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5982783b-fccd-40cd-8bdb-df742e12d744</tstamps>
+    </comp>
+    <comp ref="C13">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C15525</field>
+        <field name="Manufacturer_Part_Number">CL05A106MQ5NUNC</field>
+        <field name="NAMEALIAS">Value(F)</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">C_0603_US</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_4.7uF" description=""/>
+      <property name="NAMEALIAS" value="Value(F)"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="C_0603_US"/>
+      <property name="LCSC Part Number" value="C15525"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="CL05A106MQ5NUNC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>38d15eb1-c62f-467b-b1a2-c29a8241ad15</tstamps>
+    </comp>
+    <comp ref="C14">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C392963</field>
+        <field name="Manufacturer_Part_Number">TCC0402X7R104K160AT</field>
+        <field name="NAMEALIAS">Value</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">0603B104K500NT</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_100nF" description=""/>
+      <property name="NAMEALIAS" value="Value"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="0603B104K500NT"/>
+      <property name="LCSC Part Number" value="C392963"/>
+      <property name="Manufacturer_Part_Number" value="TCC0402X7R104K160AT"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4425d4c8-9154-4b11-aaac-0cab13aac442</tstamps>
+    </comp>
+    <comp ref="C15">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C392963</field>
+        <field name="Manufacturer_Part_Number">TCC0402X7R104K160AT</field>
+        <field name="NAMEALIAS">Value</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">0603B104K500NT</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_100nF" description=""/>
+      <property name="NAMEALIAS" value="Value"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="0603B104K500NT"/>
+      <property name="LCSC Part Number" value="C392963"/>
+      <property name="Manufacturer_Part_Number" value="TCC0402X7R104K160AT"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e7624667-c96d-494b-b012-b383bf5c0a52</tstamps>
+    </comp>
+    <comp ref="C16">
+      <value>10uF</value>
+      <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C15525</field>
+        <field name="Manufacturer_Part_Number">CL05A106MQ5NUNC</field>
+        <field name="NAMEALIAS">Value(F)</field>
+        <field name="SPICEPRE">C</field>
+        <field name="SPICESYMBOLNAME">C_0603_US</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_4.7uF" description=""/>
+      <property name="NAMEALIAS" value="Value(F)"/>
+      <property name="SPICEPRE" value="C"/>
+      <property name="SPICESYMBOLNAME" value="C_0603_US"/>
+      <property name="LCSC Part Number" value="C15525"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="CL05A106MQ5NUNC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b30a6184-f0ca-4243-a971-b51d6b63ffda</tstamps>
+    </comp>
+    <comp ref="CON1">
+      <value>JST_04</value>
+      <footprint>Connector_JST:JST_XH_S4B-XH-A_1x04_P2.50mm_Horizontal</footprint>
+      <fields>
+        <field name="Digikey Part Number">455-2243-ND</field>
+        <field name="LCSC Part Number">C157925</field>
+        <field name="Manufacturer_Part_Number">S4B-XH-A(LF)(SN)</field>
+      </fields>
+      <libsource lib="PCM_SL_Connectors" part="JST_04" description="JST Connector  4 pins "/>
+      <property name="LCSC Part Number" value="C157925"/>
+      <property name="Digikey Part Number" value="455-2243-ND"/>
+      <property name="Manufacturer_Part_Number" value="S4B-XH-A(LF)(SN)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="JST Connector  4 pins "/>
+      <property name="ki_keywords" value="JST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4f1905fa-5280-494a-bccc-9c28695863a2</tstamps>
+    </comp>
+    <comp ref="CON3">
+      <value>JST_04</value>
+      <footprint>Connector_JST:JST_XH_S4B-XH-A_1x04_P2.50mm_Horizontal</footprint>
+      <fields>
+        <field name="Digikey Part Number">455-2243-ND</field>
+        <field name="LCSC Part Number">C157925</field>
+        <field name="Manufacturer_Part_Number">S4B-XH-A(LF)(SN)</field>
+      </fields>
+      <libsource lib="PCM_SL_Connectors" part="JST_04" description="JST Connector  4 pins "/>
+      <property name="LCSC Part Number" value="C157925"/>
+      <property name="Digikey Part Number" value="455-2243-ND"/>
+      <property name="Manufacturer_Part_Number" value="S4B-XH-A(LF)(SN)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="JST Connector  4 pins "/>
+      <property name="ki_keywords" value="JST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8718c3f0-6fc3-40a4-a922-404c6435b3fd</tstamps>
+    </comp>
+    <comp ref="CON4">
+      <value>JST_04</value>
+      <footprint>Connector_JST:JST_XH_S4B-XH-A_1x04_P2.50mm_Horizontal</footprint>
+      <fields>
+        <field name="Digikey Part Number">455-2243-ND</field>
+        <field name="LCSC Part Number">C157925</field>
+        <field name="Manufacturer_Part_Number">S4B-XH-A(LF)(SN)</field>
+      </fields>
+      <libsource lib="PCM_SL_Connectors" part="JST_04" description="JST Connector  4 pins "/>
+      <property name="LCSC Part Number" value="C157925"/>
+      <property name="Digikey Part Number" value="455-2243-ND"/>
+      <property name="Manufacturer_Part_Number" value="S4B-XH-A(LF)(SN)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="JST Connector  4 pins "/>
+      <property name="ki_keywords" value="JST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>895c187d-6926-42d7-917f-65d85a637628</tstamps>
+    </comp>
+    <comp ref="CON5">
+      <value>JST_04</value>
+      <footprint>Connector_JST:JST_XH_S4B-XH-A_1x04_P2.50mm_Horizontal</footprint>
+      <fields>
+        <field name="Digikey Part Number">455-2243-ND</field>
+        <field name="LCSC Part Number">C157925</field>
+        <field name="Manufacturer_Part_Number">S4B-XH-A(LF)(SN)</field>
+      </fields>
+      <libsource lib="PCM_SL_Connectors" part="JST_04" description="JST Connector  4 pins "/>
+      <property name="LCSC Part Number" value="C157925"/>
+      <property name="Digikey Part Number" value="455-2243-ND"/>
+      <property name="Manufacturer_Part_Number" value="S4B-XH-A(LF)(SN)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="JST Connector  4 pins "/>
+      <property name="ki_keywords" value="JST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6f00b02c-9920-4086-b283-f6f671ffe406</tstamps>
+    </comp>
+    <comp ref="CON6">
+      <value>JST_04</value>
+      <footprint>Connector_JST:JST_XH_S4B-XH-A_1x04_P2.50mm_Horizontal</footprint>
+      <fields>
+        <field name="Digikey Part Number">455-2243-ND</field>
+        <field name="LCSC Part Number">C157925</field>
+        <field name="Manufacturer_Part_Number">S4B-XH-A(LF)(SN)</field>
+      </fields>
+      <libsource lib="PCM_SL_Connectors" part="JST_04" description="JST Connector  4 pins "/>
+      <property name="LCSC Part Number" value="C157925"/>
+      <property name="Digikey Part Number" value="455-2243-ND"/>
+      <property name="Manufacturer_Part_Number" value="S4B-XH-A(LF)(SN)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="JST Connector  4 pins "/>
+      <property name="ki_keywords" value="JST"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5ff94733-f8d8-4413-9ffc-c0846dea0d57</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>SS14</value>
+      <footprint>Diode_SMD:D_SMA</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2480</field>
+        <field name="Manufacturer_Part_Number">SS14</field>
+      </fields>
+      <libsource lib="Device" part="D_Shockley" description="Shockley (PNPN) diode"/>
+      <property name="LCSC Part Number" value="C2480"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="SS14"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Shockley (PNPN) diode"/>
+      <property name="ki_keywords" value="Shockley diode PNPN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>659eee12-afa4-45c9-913a-be9975aeb46e</tstamps>
+    </comp>
+    <comp ref="D4">
+      <value>onsemi ESD9B3.3ST5G </value>
+      <footprint>Diode_SMD:D_SOD-923</footprint>
+      <datasheet>https://www.onsemi.com/pdf/datasheet/esd5z2.5t1-d.pdf</datasheet>
+      <fields>
+        <field name="LCSC Part Number">C96512</field>
+        <field name="Manufacturer_Part_Number">onsemi ESD9B3.3ST5G</field>
+      </fields>
+      <libsource lib="Diode" part="ESD5Zxx" description="ESD Protection Diode, SOD-523"/>
+      <property name="LCSC Part Number" value="C96512"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="onsemi ESD9B3.3ST5G"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="ESD Protection Diode, SOD-523"/>
+      <property name="ki_keywords" value="esd tvs unidirectional diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>85d1a77e-8fcc-43a6-b9bf-cf47451383a7</tstamps>
+    </comp>
+    <comp ref="D5">
+      <value>onsemi ESD9B3.3ST5G </value>
+      <footprint>Diode_SMD:D_SOD-923</footprint>
+      <datasheet>https://www.onsemi.com/pdf/datasheet/esd5z2.5t1-d.pdf</datasheet>
+      <fields>
+        <field name="LCSC Part Number">C96512</field>
+        <field name="Manufacturer_Part_Number">onsemi ESD9B3.3ST5G</field>
+      </fields>
+      <libsource lib="Diode" part="ESD5Zxx" description="ESD Protection Diode, SOD-523"/>
+      <property name="LCSC Part Number" value="C96512"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="onsemi ESD9B3.3ST5G"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="ESD Protection Diode, SOD-523"/>
+      <property name="ki_keywords" value="esd tvs unidirectional diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7ea98c05-06d5-4a8b-980c-b723d936675a</tstamps>
+    </comp>
+    <comp ref="D6">
+      <value>onsemi ESD9B3.3ST5G </value>
+      <footprint>Diode_SMD:D_SOD-923</footprint>
+      <datasheet>https://www.onsemi.com/pdf/datasheet/esd5z2.5t1-d.pdf</datasheet>
+      <fields>
+        <field name="LCSC Part Number">C96512</field>
+        <field name="Manufacturer_Part_Number">onsemi ESD9B3.3ST5G</field>
+      </fields>
+      <libsource lib="Diode" part="ESD5Zxx" description="ESD Protection Diode, SOD-523"/>
+      <property name="LCSC Part Number" value="C96512"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="onsemi ESD9B3.3ST5G"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="ESD Protection Diode, SOD-523"/>
+      <property name="ki_keywords" value="esd tvs unidirectional diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f0c067ee-ffbc-45a5-b694-a23aa529646b</tstamps>
+    </comp>
+    <comp ref="D_out2">
+      <value>D_Schottky</value>
+      <footprint>Diode_SMD:D_SOD-323</footprint>
+      <fields>
+        <field name="LCSC Part Number">C150185</field>
+        <field name="Manufacturer_Part_Number">1SS367,H3F</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky" description="Schottky diode"/>
+      <property name="LCSC Part Number" value="C150185"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="1SS367,H3F"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Schottky diode"/>
+      <property name="ki_keywords" value="diode Schottky"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>54744073-6fbc-43ab-97e1-a83d16025d1e</tstamps>
+    </comp>
+    <comp ref="D_out3">
+      <value>D_Schottky</value>
+      <footprint>Diode_SMD:D_SOD-323</footprint>
+      <fields>
+        <field name="LCSC Part Number">C150185</field>
+        <field name="Manufacturer_Part_Number">1SS367,H3F</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky" description="Schottky diode"/>
+      <property name="LCSC Part Number" value="C150185"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="1SS367,H3F"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Schottky diode"/>
+      <property name="ki_keywords" value="diode Schottky"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>926efa70-f770-46d5-afef-2952dbc00dfe</tstamps>
+    </comp>
+    <comp ref="F1">
+      <value> JK-nSMD030/16V</value>
+      <footprint>Fuse:Fuse_1206_3216Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2830239</field>
+        <field name="Manufacturer_Part_Number">JK-nSMD030/16V</field>
+      </fields>
+      <libsource lib="Device" part="Fuse" description="Fuse"/>
+      <property name="LCSC Part Number" value="C2830239"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="JK-nSMD030/16V"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Fuse"/>
+      <property name="ki_keywords" value="fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3db32edb-93b3-4234-bf76-64a951b481f8</tstamps>
+    </comp>
+    <comp ref="F2">
+      <value> JK-nSMD030/16V</value>
+      <footprint>Fuse:Fuse_1206_3216Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2830239</field>
+        <field name="Manufacturer_Part_Number">JK-nSMD030/16V</field>
+      </fields>
+      <libsource lib="Device" part="Fuse" description="Fuse"/>
+      <property name="LCSC Part Number" value="C2830239"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="JK-nSMD030/16V"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Fuse"/>
+      <property name="ki_keywords" value="fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2c6fba64-ff61-46bb-8ee5-c25e56b8e5e0</tstamps>
+    </comp>
+    <comp ref="FB1">
+      <value>FerriteBead_Small</value>
+      <footprint>Inductor_SMD:L_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C316267</field>
+        <field name="Manufacturer_Part_Number">CB1005-600(f)</field>
+      </fields>
+      <libsource lib="Device" part="FerriteBead_Small" description="Ferrite bead, small symbol"/>
+      <property name="LCSC Part Number" value="C316267"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="CB1005-600(f)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Ferrite bead, small symbol"/>
+      <property name="ki_keywords" value="L ferrite bead inductor filter"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c24c7d2c-5703-4dc1-8ed0-b334a7a9bbd6</tstamps>
+    </comp>
+    <comp ref="FB2">
+      <value>FerriteBead_Small</value>
+      <footprint>Inductor_SMD:L_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C316267</field>
+        <field name="Manufacturer_Part_Number">CB1005-600(f)</field>
+      </fields>
+      <libsource lib="Device" part="FerriteBead_Small" description="Ferrite bead, small symbol"/>
+      <property name="LCSC Part Number" value="C316267"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="CB1005-600(f)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Ferrite bead, small symbol"/>
+      <property name="ki_keywords" value="L ferrite bead inductor filter"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e9b1aeee-a90b-4ed1-87ca-3ea0ad57c5ee</tstamps>
+    </comp>
+    <comp ref="FB3">
+      <value>FerriteBead_Small</value>
+      <footprint>Inductor_SMD:L_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C316267</field>
+        <field name="Manufacturer_Part_Number">CB1005-600(f)</field>
+      </fields>
+      <libsource lib="Device" part="FerriteBead_Small" description="Ferrite bead, small symbol"/>
+      <property name="LCSC Part Number" value="C316267"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="CB1005-600(f)"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Ferrite bead, small symbol"/>
+      <property name="ki_keywords" value="L ferrite bead inductor filter"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>52516262-90b2-4179-9fb9-7e98c90802c6</tstamps>
+    </comp>
+    <comp ref="LED1">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C965799</field>
+        <field name="Manufacturer_Part_Number">XL-1608SURC-06</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="LCSC Part Number" value="C965799"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="XL-1608SURC-06"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>09486839-001a-49ca-bd61-bce37b58e929</tstamps>
+    </comp>
+    <comp ref="LED2">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C965799</field>
+        <field name="Manufacturer_Part_Number">XL-1608SURC-06</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="LCSC Part Number" value="C965799"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="XL-1608SURC-06"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b56333ac-8137-49d3-9773-eea32cdd8c9e</tstamps>
+    </comp>
+    <comp ref="LED3">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C965799</field>
+        <field name="Manufacturer_Part_Number">XL-1608SURC-06</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="LCSC Part Number" value="C965799"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="XL-1608SURC-06"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>32e7f8f7-0d92-49ba-abb9-b87522942fbd</tstamps>
+    </comp>
+    <comp ref="LED4">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C965799</field>
+        <field name="Manufacturer_Part_Number">XL-1608SURC-06</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="LCSC Part Number" value="C965799"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="XL-1608SURC-06"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7da909da-a59a-43ca-b707-b04f16bee4cb</tstamps>
+    </comp>
+    <comp ref="LED5">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C965799</field>
+        <field name="Manufacturer_Part_Number">XL-1608SURC-06</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="LCSC Part Number" value="C965799"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="XL-1608SURC-06"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>65e401ab-a33a-4031-b5a9-354f34033f17</tstamps>
+    </comp>
+    <comp ref="LED6">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C965799</field>
+        <field name="Manufacturer_Part_Number">XL-1608SURC-06</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="LCSC Part Number" value="C965799"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="XL-1608SURC-06"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>eee1a16b-e6b1-474c-83c4-595e91003821</tstamps>
+    </comp>
+    <comp ref="LED7">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C965799</field>
+        <field name="Manufacturer_Part_Number">XL-1608SURC-06</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="LCSC Part Number" value="C965799"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="XL-1608SURC-06"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9cf73d0d-3507-402b-9fe8-68f5b3742602</tstamps>
+    </comp>
+    <comp ref="LED8">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C965799</field>
+        <field name="Manufacturer_Part_Number">XL-1608SURC-06</field>
+      </fields>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="LCSC Part Number" value="C965799"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="XL-1608SURC-06"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a4264201-994d-447f-9143-d2c183633380</tstamps>
+    </comp>
+    <comp ref="LS1">
+      <value>PS-953Q</value>
+      <footprint>SamacSys_Parts:PS953Q</footprint>
+      <datasheet>https://componentsearchengine.com/Datasheets/1/PS-953Q.pdf</datasheet>
+      <fields>
+        <field name="Height">33.2</field>
+        <field name="LCSC Part Number">C6737823</field>
+        <field name="Manufacturer_Name">Mallory Sonalert</field>
+        <field name="Manufacturer_Part_Number">PS-953Q</field>
+        <field name="Mouser Part Number">539-PS-953Q</field>
+        <field name="Mouser Price/Stock">https://www.mouser.com/Search/Refine.aspx?Keyword=539-PS-953Q</field>
+      </fields>
+      <libsource lib="SamacSys_Parts" part="PS-953Q" description="Piezo Buzzers &amp; Audio Indicators SIREN, 5-15VDC 105DB, PC PINS"/>
+      <property name="Height" value="33.2"/>
+      <property name="Manufacturer_Name" value="Mallory Sonalert"/>
+      <property name="Manufacturer_Part_Number" value="PS-953Q"/>
+      <property name="Mouser Part Number" value="539-PS-953Q"/>
+      <property name="Mouser Price/Stock" value="https://www.mouser.com/Search/Refine.aspx?Keyword=539-PS-953Q"/>
+      <property name="LCSC Part Number" value="C6737823"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Piezo Buzzers &amp; Audio Indicators SIREN, 5-15VDC 105DB, PC PINS"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6923f337-6215-4a07-a89e-fa37fa6d5a5f</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>IRLML6244</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.infineon.com/dgdl/Infineon-IRLML6244-DataSheet-v01_01-EN.pdf?fileId=5546d462533600a4015356686fed261f</datasheet>
+      <fields>
+        <field name="LCSC Part Number">C143946</field>
+        <field name="Manufacturer_Part_Number">IRLML6244</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="IRLML6244" description="6.3A Id, 20V Vds, 21mOhm Rds, N-Channel StrongIRFET Power MOSFET, SOT-23"/>
+      <property name="LCSC Part Number" value="C143946"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="IRLML6244"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="6.3A Id, 20V Vds, 21mOhm Rds, N-Channel StrongIRFET Power MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="N-Channel StrongIRFET MOSFET Load switch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>688372be-5f12-4a85-87df-3d29136499e8</tstamps>
+    </comp>
+    <comp ref="Q4">
+      <value>IRLML6244</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.infineon.com/dgdl/Infineon-IRLML6244-DataSheet-v01_01-EN.pdf?fileId=5546d462533600a4015356686fed261f</datasheet>
+      <fields>
+        <field name="LCSC Part Number">C143946</field>
+        <field name="Manufacturer_Part_Number">IRLML6244</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="IRLML6244" description="6.3A Id, 20V Vds, 21mOhm Rds, N-Channel StrongIRFET Power MOSFET, SOT-23"/>
+      <property name="LCSC Part Number" value="C143946"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="IRLML6244"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="6.3A Id, 20V Vds, 21mOhm Rds, N-Channel StrongIRFET Power MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="N-Channel StrongIRFET MOSFET Load switch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c701754e-7d50-4fe0-b56a-663aff8c52a8</tstamps>
+    </comp>
+    <comp ref="Q6">
+      <value>IRLML6244</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.infineon.com/dgdl/Infineon-IRLML6244-DataSheet-v01_01-EN.pdf?fileId=5546d462533600a4015356686fed261f</datasheet>
+      <fields>
+        <field name="LCSC Part Number">C143946</field>
+        <field name="Manufacturer_Part_Number">IRLML6244</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="IRLML6244" description="6.3A Id, 20V Vds, 21mOhm Rds, N-Channel StrongIRFET Power MOSFET, SOT-23"/>
+      <property name="LCSC Part Number" value="C143946"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="IRLML6244"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="6.3A Id, 20V Vds, 21mOhm Rds, N-Channel StrongIRFET Power MOSFET, SOT-23"/>
+      <property name="ki_keywords" value="N-Channel StrongIRFET MOSFET Load switch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>902a1dde-03af-42f4-b6e3-4fe970e54e56</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906885</field>
+        <field name="Manufacturer_Part_Number">FRC0402J103 TS</field>
+        <field name="NAMEALIAS">Value(Ω)</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">Resistor</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_1k" description=""/>
+      <property name="NAMEALIAS" value="Value(Ω)"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="Resistor"/>
+      <property name="LCSC Part Number" value="C2906885"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J103 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>71de5436-2ac1-4af4-b3f4-c7dcbdf7a969</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906885</field>
+        <field name="Manufacturer_Part_Number">FRC0402J103 TS</field>
+        <field name="NAMEALIAS">Value(Ω)</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">Resistor</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_1k" description=""/>
+      <property name="NAMEALIAS" value="Value(Ω)"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="Resistor"/>
+      <property name="LCSC Part Number" value="C2906885"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J103 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>db00b411-bcb1-4f99-88b1-0035c3a0a535</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906885</field>
+        <field name="Manufacturer_Part_Number">FRC0402J103 TS</field>
+        <field name="NAMEALIAS">Value(Ω)</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">Resistor</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_1k" description=""/>
+      <property name="NAMEALIAS" value="Value(Ω)"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="Resistor"/>
+      <property name="LCSC Part Number" value="C2906885"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J103 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>aed79690-2bf5-48c9-905b-7b49d6c00b8a</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Resistance</field>
+        <field name="RESISTANCE (OHMS)">4.7K</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">0603WAF4701T5E</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_3_4.7kΩ" description=""/>
+      <property name="NAMEALIAS" value="Resistance"/>
+      <property name="RESISTANCE (OHMS)" value="4.7K"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="0603WAF4701T5E"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6d8b4992-a731-49fc-8c0c-2be22ee6b0e3</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906885</field>
+        <field name="Manufacturer_Part_Number">FRC0402J103 TS</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="LCSC Part Number" value="C2906885"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J103 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6c2568b1-a4ae-4867-bb6b-d084460035a9</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>10</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C102753</field>
+        <field name="Manufacturer_Part_Number">RTT02100JTH</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="LCSC Part Number" value="C102753"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="RTT02100JTH"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3be7979c-3385-4bc7-b660-f467ee0318a9</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Resistance</field>
+        <field name="RESISTANCE (OHMS)">4.7K</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">0603WAF4701T5E</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_4.7kΩ" description=""/>
+      <property name="NAMEALIAS" value="Resistance"/>
+      <property name="RESISTANCE (OHMS)" value="4.7K"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="0603WAF4701T5E"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9d2ad3c7-6076-41ef-8a69-707b4010d700</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906885</field>
+        <field name="Manufacturer_Part_Number">FRC0402J103 TS</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="LCSC Part Number" value="C2906885"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J103 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5d3d3d35-3636-470d-8700-61f145a21696</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>10</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C102753</field>
+        <field name="Manufacturer_Part_Number">RTT02100JTH</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="LCSC Part Number" value="C102753"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="RTT02100JTH"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1de80412-5636-48a5-92de-570e3c49f497</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Resistance</field>
+        <field name="RESISTANCE (OHMS)">4.7K</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">0603WAF4701T5E</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_3_4.7kΩ" description=""/>
+      <property name="NAMEALIAS" value="Resistance"/>
+      <property name="RESISTANCE (OHMS)" value="4.7K"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="0603WAF4701T5E"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5525bfa6-99a0-43f9-8ba4-1e858fb67157</tstamps>
+    </comp>
+    <comp ref="R11">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Resistance</field>
+        <field name="RESISTANCE (OHMS)">4.7K</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">0603WAF4701T5E</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_4.7kΩ" description=""/>
+      <property name="NAMEALIAS" value="Resistance"/>
+      <property name="RESISTANCE (OHMS)" value="4.7K"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="0603WAF4701T5E"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a406d676-7942-4b1f-8d2e-80b30006f16e</tstamps>
+    </comp>
+    <comp ref="R12">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Resistance</field>
+        <field name="RESISTANCE (OHMS)">4.7K</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">0603WAF4701T5E</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_3_4.7kΩ" description=""/>
+      <property name="NAMEALIAS" value="Resistance"/>
+      <property name="RESISTANCE (OHMS)" value="4.7K"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="0603WAF4701T5E"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fd0a9dea-3a57-43b2-b61e-745f7972085c</tstamps>
+    </comp>
+    <comp ref="R13">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Resistance</field>
+        <field name="RESISTANCE (OHMS)">4.7K</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">0603WAF4701T5E</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_4.7kΩ" description=""/>
+      <property name="NAMEALIAS" value="Resistance"/>
+      <property name="RESISTANCE (OHMS)" value="4.7K"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="0603WAF4701T5E"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ee7c492f-c3ff-4d3d-b2b0-74e692fda778</tstamps>
+    </comp>
+    <comp ref="R14">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Value(Ω)</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">Resistor</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_1k" description=""/>
+      <property name="NAMEALIAS" value="Value(Ω)"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="Resistor"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>34503101-b4e9-4d18-878e-bfcf0510798f</tstamps>
+    </comp>
+    <comp ref="R15">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Value(Ω)</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">Resistor</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_1k" description=""/>
+      <property name="NAMEALIAS" value="Value(Ω)"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="Resistor"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>215084bb-4290-4872-a727-131187944825</tstamps>
+    </comp>
+    <comp ref="R16">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906885</field>
+        <field name="Manufacturer_Part_Number">FRC0402J103 TS</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="LCSC Part Number" value="C2906885"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J103 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c47fa897-f7b0-4c4f-87eb-cae7baf55c5c</tstamps>
+    </comp>
+    <comp ref="R17">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Value(Ω)</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">Resistor</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_1k" description=""/>
+      <property name="NAMEALIAS" value="Value(Ω)"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="Resistor"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bfc130fb-718b-4f1a-bc97-561ed2ed64ff</tstamps>
+    </comp>
+    <comp ref="R18">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Value(Ω)</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">Resistor</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_1k" description=""/>
+      <property name="NAMEALIAS" value="Value(Ω)"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="Resistor"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fa76de1a-bdbd-41df-bd3c-e9f47807e6ce</tstamps>
+    </comp>
+    <comp ref="R19">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Resistance</field>
+        <field name="RESISTANCE (OHMS)">4.7K</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">0603WAF4701T5E</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_3_4.7kΩ" description=""/>
+      <property name="NAMEALIAS" value="Resistance"/>
+      <property name="RESISTANCE (OHMS)" value="4.7K"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="0603WAF4701T5E"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>305b3f18-4d52-460d-800d-02b2f0959cad</tstamps>
+    </comp>
+    <comp ref="R20">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Resistance</field>
+        <field name="RESISTANCE (OHMS)">4.7K</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">0603WAF4701T5E</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_4.7kΩ" description=""/>
+      <property name="NAMEALIAS" value="Resistance"/>
+      <property name="RESISTANCE (OHMS)" value="4.7K"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="0603WAF4701T5E"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>eea102e5-b0ab-43cf-ba3e-9912058793fa</tstamps>
+    </comp>
+    <comp ref="R21">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Resistance</field>
+        <field name="RESISTANCE (OHMS)">4.7K</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">0603WAF4701T5E</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_3_4.7kΩ" description=""/>
+      <property name="NAMEALIAS" value="Resistance"/>
+      <property name="RESISTANCE (OHMS)" value="4.7K"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="0603WAF4701T5E"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c15bfc07-dd10-4663-a5ff-310bb528bcc0</tstamps>
+    </comp>
+    <comp ref="R22">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906941</field>
+        <field name="Manufacturer_Part_Number">FRC0402J472 TS</field>
+        <field name="NAMEALIAS">Resistance</field>
+        <field name="RESISTANCE (OHMS)">4.7K</field>
+        <field name="SPICEPRE">R</field>
+        <field name="SPICESYMBOLNAME">0603WAF4701T5E</field>
+      </fields>
+      <libsource lib="pro1-altium-import" part="root_1_4.7kΩ" description=""/>
+      <property name="NAMEALIAS" value="Resistance"/>
+      <property name="RESISTANCE (OHMS)" value="4.7K"/>
+      <property name="SPICEPRE" value="R"/>
+      <property name="SPICESYMBOLNAME" value="0603WAF4701T5E"/>
+      <property name="LCSC Part Number" value="C2906941"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J472 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cf66647d-0302-4ca7-9bc2-0e40ecb4d6ab</tstamps>
+    </comp>
+    <comp ref="R23">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906885</field>
+        <field name="Manufacturer_Part_Number">FRC0402J103 TS</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="LCSC Part Number" value="C2906885"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J103 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f716c00e-635f-45d7-b05a-edf5ebe0099b</tstamps>
+    </comp>
+    <comp ref="R24">
+      <value>10</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C102753</field>
+        <field name="Manufacturer_Part_Number">RTT02100JTH</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="LCSC Part Number" value="C102753"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="RTT02100JTH"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>94a9c384-f7a5-423f-8198-d7e64432eadc</tstamps>
+    </comp>
+    <comp ref="R25">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <fields>
+        <field name="LCSC Part Number">C2906885</field>
+        <field name="Manufacturer_Part_Number">FRC0402J103 TS</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="LCSC Part Number" value="C2906885"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="FRC0402J103 TS"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6bc501a1-c0bc-4c09-b784-d9674f2f44f7</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>HT7533-3 -1-SOT89 </value>
+      <footprint>Package_TO_SOT_SMD:SOT-89-3</footprint>
+      <datasheet>https://www.holtek.com/documents/10179/116711/HT75xx-1v250.pdf</datasheet>
+      <fields>
+        <field name="LCSC Part Number">C7470656</field>
+        <field name="Manufacturer_Part_Number">HT7533-3 </field>
+      </fields>
+      <libsource lib="Regulator_Linear" part="HT75xx-1-SOT89" description="100mA Low Dropout Voltage Regulator, Fixed Output, SOT89"/>
+      <property name="LCSC Part Number" value="C7470656"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="HT7533-3 "/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="100mA Low Dropout Voltage Regulator, Fixed Output, SOT89"/>
+      <property name="ki_keywords" value="100mA LDO Regulator Fixed Positive"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7aa21392-fdf3-4451-829c-dfd099f526af</tstamps>
+    </comp>
+    <comp ref="U2">
+      <value>STM32G030K8Tx</value>
+      <footprint>Package_QFP:LQFP-32_7x7mm_P0.8mm</footprint>
+      <datasheet>https://www.st.com/resource/en/datasheet/stm32g030k8.pdf</datasheet>
+      <fields>
+        <field name="Digikey Part Number">497-19770-ND</field>
+        <field name="LCSC Part Number">C431631</field>
+        <field name="Manufacturer_Part_Number">STM32G030K8T6</field>
+      </fields>
+      <libsource lib="MCU_ST_STM32G0" part="STM32G030K8Tx" description="STMicroelectronics Arm Cortex-M0+ MCU, 64KB flash, 8KB RAM, 64 MHz, 2.0-3.6V, 29 GPIO, LQFP32"/>
+      <property name="LCSC Part Number" value="C431631"/>
+      <property name="Digikey Part Number" value="497-19770-ND"/>
+      <property name="Manufacturer_Part_Number" value="STM32G030K8T6"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="STMicroelectronics Arm Cortex-M0+ MCU, 64KB flash, 8KB RAM, 64 MHz, 2.0-3.6V, 29 GPIO, LQFP32"/>
+      <property name="ki_keywords" value="Arm Cortex-M0+ STM32G0 STM32G0x0 Value line"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ec15dbfe-4c0c-456a-9671-88bee4ed9654</tstamps>
+    </comp>
+    <comp ref="U3">
+      <value>LIS2DW12TR</value>
+      <footprint>Package_LGA:LGA-12_2x2mm_P0.5mm</footprint>
+      <datasheet>https://www.st.com/resource/en/datasheet/lis2DE12.pdf</datasheet>
+      <fields>
+        <field name="LCSC Part Number">C189624</field>
+        <field name="Manufacturer_Part_Number">LIS2DW12TR</field>
+      </fields>
+      <libsource lib="Sensor_Motion" part="LIS2DE12" description="3-Axis Accelerometer, 2/4/8/16g range, I2C/SPI interface"/>
+      <property name="LCSC Part Number" value="C189624"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="LIS2DW12TR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="3-Axis Accelerometer, 2/4/8/16g range, I2C/SPI interface"/>
+      <property name="ki_keywords" value="3-axis accelerometer spi mems"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3e3436c4-bcc7-49f2-95b5-ce6b8cb7af57</tstamps>
+    </comp>
+    <comp ref="U4">
+      <value>LIS2DW12TR</value>
+      <footprint>Package_LGA:LGA-12_2x2mm_P0.5mm</footprint>
+      <datasheet>https://www.st.com/resource/en/datasheet/lis2DE12.pdf</datasheet>
+      <fields>
+        <field name="LCSC Part Number">C189624</field>
+        <field name="Manufacturer_Part_Number">LIS2DW12TR</field>
+      </fields>
+      <libsource lib="Sensor_Motion" part="LIS2DE12" description="3-Axis Accelerometer, 2/4/8/16g range, I2C/SPI interface"/>
+      <property name="LCSC Part Number" value="C189624"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="LIS2DW12TR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="3-Axis Accelerometer, 2/4/8/16g range, I2C/SPI interface"/>
+      <property name="ki_keywords" value="3-axis accelerometer spi mems"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1ffad4a2-5d19-45d3-a2dc-d33e87c7aaf5</tstamps>
+    </comp>
+    <comp ref="U5">
+      <value>LIS2DW12TR</value>
+      <footprint>Package_LGA:LGA-12_2x2mm_P0.5mm</footprint>
+      <datasheet>https://www.st.com/resource/en/datasheet/lis2DE12.pdf</datasheet>
+      <fields>
+        <field name="LCSC Part Number">C189624</field>
+        <field name="Manufacturer_Part_Number">LIS2DW12TR</field>
+      </fields>
+      <libsource lib="Sensor_Motion" part="LIS2DE12" description="3-Axis Accelerometer, 2/4/8/16g range, I2C/SPI interface"/>
+      <property name="LCSC Part Number" value="C189624"/>
+      <property name="Digikey Part Number" value=""/>
+      <property name="Manufacturer_Part_Number" value="LIS2DW12TR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="catalarm6.kicad_sch"/>
+      <property name="ki_description" value="3-Axis Accelerometer, 2/4/8/16g range, I2C/SPI interface"/>
+      <property name="ki_keywords" value="3-axis accelerometer spi mems"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c6b84d77-2215-4e17-a080-767822c4bd57</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Device" part="D_Schottky">
+      <description>Schottky diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Schottky</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Shockley">
+      <description>Shockley (PNPN) diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Shockley</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="FerriteBead_Small">
+      <description>Ferrite bead, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Inductor_*</fp>
+        <fp>L_*</fp>
+        <fp>*Ferrite*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">FB</field>
+        <field name="Value">FerriteBead_Small</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Fuse">
+      <description>Fuse</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>*Fuse*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">Fuse</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="LED">
+      <description>Light emitting diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Diode" part="ESD5Zxx">
+      <description>ESD Protection Diode, SOD-523</description>
+      <docs>https://www.onsemi.com/pdf/datasheet/esd5z2.5t1-d.pdf</docs>
+      <footprints>
+        <fp>D?SOD?523*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">ESD5Zxx</field>
+        <field name="Footprint">Diode_SMD:D_SOD-523</field>
+        <field name="Datasheet">https://www.onsemi.com/pdf/datasheet/esd5z2.5t1-d.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MCU_ST_STM32G0" part="STM32G030K8Tx">
+      <description>STMicroelectronics Arm Cortex-M0+ MCU, 64KB flash, 8KB RAM, 64 MHz, 2.0-3.6V, 29 GPIO, LQFP32</description>
+      <docs>https://www.st.com/resource/en/datasheet/stm32g030k8.pdf</docs>
+      <footprints>
+        <fp>LQFP*7x7mm*P0.8mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">STM32G030K8Tx</field>
+        <field name="Footprint">Package_QFP:LQFP-32_7x7mm_P0.8mm</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/stm32g030k8.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="PB9" type="bidirectional"/>
+        <pin num="2" name="PC14" type="bidirectional"/>
+        <pin num="3" name="PC15" type="bidirectional"/>
+        <pin num="4" name="VDD" type="power_in"/>
+        <pin num="5" name="VSS" type="power_in"/>
+        <pin num="6" name="NRST" type="input"/>
+        <pin num="7" name="PA0" type="bidirectional"/>
+        <pin num="8" name="PA1" type="bidirectional"/>
+        <pin num="9" name="PA2" type="bidirectional"/>
+        <pin num="10" name="PA3" type="bidirectional"/>
+        <pin num="11" name="PA4" type="bidirectional"/>
+        <pin num="12" name="PA5" type="bidirectional"/>
+        <pin num="13" name="PA6" type="bidirectional"/>
+        <pin num="14" name="PA7" type="bidirectional"/>
+        <pin num="15" name="PB0" type="bidirectional"/>
+        <pin num="16" name="PB1" type="bidirectional"/>
+        <pin num="17" name="PB2" type="bidirectional"/>
+        <pin num="18" name="PA8" type="bidirectional"/>
+        <pin num="19" name="PA9/NC" type="bidirectional"/>
+        <pin num="20" name="PC6" type="bidirectional"/>
+        <pin num="21" name="PA10/NC" type="bidirectional"/>
+        <pin num="22" name="PA11/PA9" type="bidirectional"/>
+        <pin num="23" name="PA12/PA10" type="bidirectional"/>
+        <pin num="24" name="PA13" type="bidirectional"/>
+        <pin num="25" name="PA14" type="bidirectional"/>
+        <pin num="26" name="PA15" type="bidirectional"/>
+        <pin num="27" name="PB3" type="bidirectional"/>
+        <pin num="28" name="PB4" type="bidirectional"/>
+        <pin num="29" name="PB5" type="bidirectional"/>
+        <pin num="30" name="PB6" type="bidirectional"/>
+        <pin num="31" name="PB7" type="bidirectional"/>
+        <pin num="32" name="PB8" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="PCM_SL_Connectors" part="JST_04">
+      <description>JST Connector  4 pins </description>
+      <footprints>
+        <fp>Connector_JST:JST_EH_S4B-EH_1x04_P2.50mm_Horizontal</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">JST_04</field>
+        <field name="Footprint">Connector_JST:JST_EH_B4B-EH-A_1x04_P2.50mm_Vertical</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PCM_SL_Connectors" part="JST_05">
+      <description>JST Connector  5 pins </description>
+      <footprints>
+        <fp>Connector_JST:JST_EH_S5B-EH_1x05_P2.50mm_Horizontal</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">JST_05</field>
+        <field name="Footprint">Connector_JST:JST_EH_B5B-EH-A_1x05_P2.50mm_Vertical</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PCM_SL_Devices" part="Capacitor_NP">
+      <description>Unpolarized Capacitor</description>
+      <footprints>
+        <fp>Capacitor_THT:C_Rect_L7.0mm_W3.5mm_P5.00mm</fp>
+        <fp>Capacitor_THT:C_Rect_L7.0mm_W4.5mm_P5.00mm</fp>
+        <fp>Capacitor_THT:C_Rect_L29.0mm_W7.6mm_P27.50mm_MKT</fp>
+        <fp>Capacitor_THT:C_Rect_L24.0mm_W7.0mm_P22.50mm_MKT</fp>
+        <fp>Capacitor_THT:C_Rect_L11.5mm_W5.0mm_P10.00mm_MKT</fp>
+        <fp>Capacitor_THT:C_Rect_L9.0mm_W3.6mm_P7.50mm_MKT</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">Capacitor_NP</field>
+        <field name="Footprint">Capacitor_THT:C_Disc_D3.0mm_W2.0mm_P2.50mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="PCM_SL_Mechanical" part="M3_Hole_With_Spacer_H10mm">
+      <description>3.2mm Diameter Mounting Hole Pad (M3) With Spacer H10mm</description>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">M3_Hole_With_Spacer_H10mm</field>
+        <field name="Footprint">PCM_SL_Mechanical:MountingHole_3.2mm_With_Spacer_H10mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="PCM_SL_Pin_Headers" part="PINHD_1x6_Male">
+      <description>Pin Header male with pin space 2.54mm. Pin Count -6</description>
+      <footprints>
+        <fp>PinHeader_1x06_P2.54mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">PINHD_1x6_Male</field>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Regulator_Linear" part="HT75xx-1-SOT89">
+      <description>100mA Low Dropout Voltage Regulator, Fixed Output, SOT89</description>
+      <docs>https://www.holtek.com/documents/10179/116711/HT75xx-1v250.pdf</docs>
+      <footprints>
+        <fp>SOT?89*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">HT75xx-1-SOT89</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-89-3</field>
+        <field name="Datasheet">https://www.holtek.com/documents/10179/116711/HT75xx-1v250.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="power_in"/>
+        <pin num="2" name="VIN" type="power_in"/>
+        <pin num="3" name="VOUT" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="SamacSys_Parts" part="PS-953Q">
+      <description>Piezo Buzzers &amp; Audio Indicators SIREN, 5-15VDC 105DB, PC PINS</description>
+      <docs>https://componentsearchengine.com/Datasheets/1/PS-953Q.pdf</docs>
+      <fields>
+        <field name="Reference">LS</field>
+        <field name="Value">PS-953Q</field>
+        <field name="Footprint">PS953Q</field>
+        <field name="Datasheet">https://componentsearchengine.com/Datasheets/1/PS-953Q.pdf</field>
+        <field name="Height">33.2</field>
+        <field name="Manufacturer_Name">Mallory Sonalert</field>
+        <field name="Manufacturer_Part_Number">PS-953Q</field>
+        <field name="Mouser Part Number">539-PS-953Q</field>
+        <field name="Mouser Price/Stock">https://www.mouser.com/Search/Refine.aspx?Keyword=539-PS-953Q</field>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Sensor_Motion" part="LIS2DE12">
+      <description>3-Axis Accelerometer, 2/4/8/16g range, I2C/SPI interface</description>
+      <docs>https://www.st.com/resource/en/datasheet/lis2DE12.pdf</docs>
+      <footprints>
+        <fp>LGA*2x2mm*P0.5mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LIS2DE12</field>
+        <field name="Footprint">Package_LGA:LGA-12_2x2mm_P0.5mm</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/lis2DE12.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="SCL/SPC" type="input"/>
+        <pin num="2" name="~{CS}" type="input"/>
+        <pin num="3" name="SA0/SDO" type="bidirectional"/>
+        <pin num="4" name="SDA/SDI" type="bidirectional"/>
+        <pin num="5" name="RES" type="passive"/>
+        <pin num="6" name="GND" type="power_in"/>
+        <pin num="7" name="GND" type="passive"/>
+        <pin num="8" name="GND" type="passive"/>
+        <pin num="9" name="Vdd" type="power_in"/>
+        <pin num="10" name="Vdd_IO" type="power_in"/>
+        <pin num="11" name="INT2" type="output"/>
+        <pin num="12" name="INT1" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Transistor_FET" part="IRLML6244">
+      <description>6.3A Id, 20V Vds, 21mOhm Rds, N-Channel StrongIRFET Power MOSFET, SOT-23</description>
+      <docs>https://www.infineon.com/dgdl/Infineon-IRLML6244-DataSheet-v01_01-EN.pdf?fileId=5546d462533600a4015356686fed261f</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">IRLML6244</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet">https://www.infineon.com/dgdl/Infineon-IRLML6244-DataSheet-v01_01-EN.pdf?fileId=5546d462533600a4015356686fed261f</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="pro1-altium-import" part="root_1_100nF">
+      <footprints>
+        <fp>C0603</fp>
+      </footprints>
+      <fields/>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="pro1-altium-import" part="root_1_1k">
+      <footprints>
+        <fp>R0603</fp>
+      </footprints>
+      <fields/>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="pro1-altium-import" part="root_1_4.7kΩ">
+      <footprints>
+        <fp>R0603</fp>
+      </footprints>
+      <fields/>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="pro1-altium-import" part="root_1_4.7uF">
+      <footprints>
+        <fp>C0603</fp>
+      </footprints>
+      <fields/>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="pro1-altium-import" part="root_2_100nf">
+      <footprints>
+        <fp>C0603</fp>
+      </footprints>
+      <fields/>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="pro1-altium-import" part="root_3_4.7kΩ">
+      <footprints>
+        <fp>R0603</fp>
+      </footprints>
+      <fields/>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Device.kicad_sym</uri>
+    </library>
+    <library logical="Diode">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Diode.kicad_sym</uri>
+    </library>
+    <library logical="MCU_ST_STM32G0">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/MCU_ST_STM32G0.kicad_sym</uri>
+    </library>
+    <library logical="PCM_SL_Connectors">
+      <uri>C:\Users\OurDesktop\Documents\KiCad\7.0\3rdparty/symbols/com_github_Sajitha-Aldeniya_KiCad-Simple-Libraries/SL_Connectors.kicad_sym</uri>
+    </library>
+    <library logical="PCM_SL_Devices">
+      <uri>C:\Users\OurDesktop\Documents\KiCad\7.0\3rdparty/symbols/com_github_Sajitha-Aldeniya_KiCad-Simple-Libraries/SL_Devices.kicad_sym</uri>
+    </library>
+    <library logical="PCM_SL_Mechanical">
+      <uri>C:\Users\OurDesktop\Documents\KiCad\7.0\3rdparty/symbols/com_github_Sajitha-Aldeniya_KiCad-Simple-Libraries/SL_Mechanical.kicad_sym</uri>
+    </library>
+    <library logical="PCM_SL_Pin_Headers">
+      <uri>C:\Users\OurDesktop\Documents\KiCad\7.0\3rdparty/symbols/com_github_Sajitha-Aldeniya_KiCad-Simple-Libraries/SL_Pin_Headers.kicad_sym</uri>
+    </library>
+    <library logical="Regulator_Linear">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Regulator_Linear.kicad_sym</uri>
+    </library>
+    <library logical="SamacSys_Parts">
+      <uri>C:/Users/OurDesktop/Documents/ECATCH/kicad/libloader/SamacSys_Parts.kicad_sym</uri>
+    </library>
+    <library logical="Sensor_Motion">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Sensor_Motion.kicad_sym</uri>
+    </library>
+    <library logical="Transistor_FET">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Transistor_FET.kicad_sym</uri>
+    </library>
+    <library logical="pro1-altium-import">
+      <uri>C:\Users\OurDesktop\Documents\ECATCH\kicad\catalarm6/pro1-altium-import.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+3.3V">
+      <node ref="C10" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C3" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C4" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C6" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C8" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C9" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="CON3" pin="2" pintype="passive"/>
+      <node ref="CON4" pin="1" pintype="passive"/>
+      <node ref="CON6" pin="1" pintype="passive"/>
+      <node ref="D6" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="D_out2" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="FB1" pin="2" pintype="passive"/>
+      <node ref="Q1" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="Q4" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R10" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R11" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R12" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R13" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R14" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R15" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R17" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R18" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R25" pin="1" pintype="passive"/>
+      <node ref="R4" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R7" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U2" pin="4" pinfunction="VDD" pintype="power_in"/>
+      <node ref="U3" pin="10" pinfunction="Vdd_IO" pintype="power_in"/>
+      <node ref="U3" pin="2" pinfunction="~{CS}" pintype="input"/>
+      <node ref="U3" pin="9" pinfunction="Vdd" pintype="power_in"/>
+    </net>
+    <net code="2" name="/+12V">
+      <node ref="CON3" pin="4" pintype="passive"/>
+      <node ref="D_out3" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="F2" pin="2" pintype="passive"/>
+      <node ref="LS1" pin="1" pinfunction="+" pintype="passive"/>
+    </net>
+    <net code="3" name="/3.3ext">
+      <node ref="C11" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C12" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C13" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R19" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R20" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U4" pin="10" pinfunction="Vdd_IO" pintype="power_in"/>
+      <node ref="U4" pin="2" pinfunction="~{CS}" pintype="input"/>
+      <node ref="U4" pin="9" pinfunction="Vdd" pintype="power_in"/>
+    </net>
+    <net code="4" name="/3.3ext2">
+      <node ref="C14" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C15" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C16" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R21" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R22" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U5" pin="10" pinfunction="Vdd_IO" pintype="power_in"/>
+      <node ref="U5" pin="2" pinfunction="~{CS}" pintype="input"/>
+      <node ref="U5" pin="9" pinfunction="Vdd" pintype="power_in"/>
+    </net>
+    <net code="5" name="/BAT">
+      <node ref="CON1" pin="1" pintype="passive"/>
+      <node ref="F1" pin="1" pintype="passive"/>
+      <node ref="F2" pin="1" pintype="passive"/>
+    </net>
+    <net code="6" name="/BLK">
+      <node ref="Q1" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R2" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U2" pin="8" pinfunction="PA1" pintype="bidirectional"/>
+    </net>
+    <net code="7" name="/BLK_in">
+      <node ref="CON1" pin="4" pintype="passive"/>
+      <node ref="FB3" pin="1" pintype="passive"/>
+    </net>
+    <net code="8" name="/GNDext">
+      <node ref="C11" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C12" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C13" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U4" pin="3" pinfunction="SA0/SDO" pintype="bidirectional"/>
+      <node ref="U4" pin="5" pinfunction="RES" pintype="passive"/>
+      <node ref="U4" pin="6" pinfunction="GND" pintype="power_in"/>
+      <node ref="U4" pin="7" pinfunction="GND" pintype="passive"/>
+      <node ref="U4" pin="8" pinfunction="GND" pintype="passive"/>
+    </net>
+    <net code="9" name="/GNDext2">
+      <node ref="C14" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C15" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C16" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U5" pin="3" pinfunction="SA0/SDO" pintype="bidirectional"/>
+      <node ref="U5" pin="5" pinfunction="RES" pintype="passive"/>
+      <node ref="U5" pin="6" pinfunction="GND" pintype="power_in"/>
+      <node ref="U5" pin="7" pinfunction="GND" pintype="passive"/>
+      <node ref="U5" pin="8" pinfunction="GND" pintype="passive"/>
+    </net>
+    <net code="10" name="/INT1">
+      <node ref="U2" pin="17" pinfunction="PB2" pintype="bidirectional"/>
+      <node ref="U3" pin="12" pinfunction="INT1" pintype="output"/>
+    </net>
+    <net code="11" name="/INT1ext">
+      <node ref="U4" pin="12" pinfunction="INT1" pintype="output"/>
+    </net>
+    <net code="12" name="/INT1ext2">
+      <node ref="U5" pin="12" pinfunction="INT1" pintype="output"/>
+    </net>
+    <net code="13" name="/INT2">
+      <node ref="U2" pin="18" pinfunction="PA8" pintype="bidirectional"/>
+      <node ref="U3" pin="11" pinfunction="INT2" pintype="output"/>
+    </net>
+    <net code="14" name="/INT2ext">
+      <node ref="U4" pin="11" pinfunction="INT2" pintype="output"/>
+    </net>
+    <net code="15" name="/INT2ext2">
+      <node ref="U5" pin="11" pinfunction="INT2" pintype="output"/>
+    </net>
+    <net code="16" name="/RESET">
+      <node ref="C2" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U2" pin="6" pinfunction="NRST" pintype="input"/>
+    </net>
+    <net code="17" name="/SCL">
+      <node ref="R12" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R4" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U2" pin="19" pinfunction="PA9/NC" pintype="bidirectional"/>
+      <node ref="U3" pin="1" pinfunction="SCL/SPC" pintype="input"/>
+    </net>
+    <net code="18" name="/SCL2">
+      <node ref="CON4" pin="3" pintype="passive"/>
+      <node ref="R10" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U2" pin="22" pinfunction="PA11/PA9" pintype="bidirectional"/>
+    </net>
+    <net code="19" name="/SCLext">
+      <node ref="R19" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U4" pin="1" pinfunction="SCL/SPC" pintype="input"/>
+    </net>
+    <net code="20" name="/SCLext2">
+      <node ref="R21" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U5" pin="1" pinfunction="SCL/SPC" pintype="input"/>
+    </net>
+    <net code="21" name="/SDA">
+      <node ref="R13" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R7" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U2" pin="21" pinfunction="PA10/NC" pintype="bidirectional"/>
+      <node ref="U3" pin="4" pinfunction="SDA/SDI" pintype="bidirectional"/>
+    </net>
+    <net code="22" name="/SDA2">
+      <node ref="CON4" pin="4" pintype="passive"/>
+      <node ref="R11" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U2" pin="23" pinfunction="PA12/PA10" pintype="bidirectional"/>
+    </net>
+    <net code="23" name="/SDAext">
+      <node ref="R20" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U4" pin="4" pinfunction="SDA/SDI" pintype="bidirectional"/>
+    </net>
+    <net code="24" name="/SDAext2">
+      <node ref="R22" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U5" pin="4" pinfunction="SDA/SDI" pintype="bidirectional"/>
+    </net>
+    <net code="25" name="/SWCLK">
+      <node ref="U2" pin="25" pinfunction="PA14" pintype="bidirectional"/>
+    </net>
+    <net code="26" name="/SWDIO">
+      <node ref="U2" pin="24" pinfunction="PA13" pintype="bidirectional"/>
+    </net>
+    <net code="27" name="/USART1_RX">
+      <node ref="CON6" pin="4" pintype="passive"/>
+      <node ref="LED8" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="U2" pin="31" pinfunction="PB7" pintype="bidirectional"/>
+    </net>
+    <net code="28" name="/USART1_TX">
+      <node ref="CON6" pin="3" pintype="passive"/>
+      <node ref="LED6" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="U2" pin="30" pinfunction="PB6" pintype="bidirectional"/>
+    </net>
+    <net code="29" name="/USART2_RX">
+      <node ref="LED7" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="U2" pin="10" pinfunction="PA3" pintype="bidirectional"/>
+    </net>
+    <net code="30" name="/USART2_TX">
+      <node ref="LED5" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="U2" pin="9" pinfunction="PA2" pintype="bidirectional"/>
+    </net>
+    <net code="31" name="/acc">
+      <node ref="Q4" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R3" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U2" pin="7" pinfunction="PA0" pintype="bidirectional"/>
+    </net>
+    <net code="32" name="/acc_in">
+      <node ref="CON1" pin="3" pintype="passive"/>
+      <node ref="FB2" pin="1" pintype="passive"/>
+    </net>
+    <net code="33" name="/out">
+      <node ref="R16" pin="1" pintype="passive"/>
+      <node ref="R23" pin="1" pintype="passive"/>
+      <node ref="R24" pin="1" pintype="passive"/>
+      <node ref="U2" pin="32" pinfunction="PB8" pintype="bidirectional"/>
+    </net>
+    <net code="34" name="GND">
+      <node ref="C1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C10" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C2" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C3" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C4" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="C8" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C9" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="CON4" pin="2" pintype="passive"/>
+      <node ref="CON6" pin="2" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D4" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D5" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D6" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="LED1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="LED2" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="LED3" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="LED4" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="Q6" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R16" pin="2" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="GND" pintype="power_in"/>
+      <node ref="U2" pin="5" pinfunction="VSS" pintype="power_in"/>
+      <node ref="U3" pin="3" pinfunction="SA0/SDO" pintype="bidirectional"/>
+      <node ref="U3" pin="5" pinfunction="RES" pintype="passive"/>
+      <node ref="U3" pin="6" pinfunction="GND" pintype="power_in"/>
+      <node ref="U3" pin="7" pinfunction="GND" pintype="passive"/>
+      <node ref="U3" pin="8" pinfunction="GND" pintype="passive"/>
+    </net>
+    <net code="35" name="Net-(D1-K)">
+      <node ref="CON1" pin="2" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+    </net>
+    <net code="36" name="Net-(D4-K)">
+      <node ref="C5" pin="2" pintype="input"/>
+      <node ref="D4" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="FB2" pin="2" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+    </net>
+    <net code="37" name="Net-(D5-K)">
+      <node ref="C7" pin="2" pintype="input"/>
+      <node ref="D5" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="FB3" pin="2" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+    </net>
+    <net code="38" name="Net-(D_out2-A)">
+      <node ref="CON3" pin="1" pintype="passive"/>
+      <node ref="CON3" pin="3" pintype="passive"/>
+      <node ref="D_out2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D_out3" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="LS1" pin="2" pinfunction="-" pintype="passive"/>
+      <node ref="Q6" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R25" pin="2" pintype="passive"/>
+    </net>
+    <net code="39" name="Net-(LED1-A)">
+      <node ref="LED1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R3" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="40" name="Net-(LED2-A)">
+      <node ref="LED2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R2" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="41" name="Net-(LED3-A)">
+      <node ref="LED3" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R23" pin="2" pintype="passive"/>
+    </net>
+    <net code="42" name="Net-(LED4-A)">
+      <node ref="LED4" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R1" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="43" name="Net-(LED5-A)">
+      <node ref="LED5" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R17" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="44" name="Net-(LED6-A)">
+      <node ref="LED6" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R14" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="45" name="Net-(LED7-A)">
+      <node ref="LED7" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R18" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="46" name="Net-(LED8-A)">
+      <node ref="LED8" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R15" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="47" name="Net-(Q1-G)">
+      <node ref="Q1" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+    </net>
+    <net code="48" name="Net-(Q4-G)">
+      <node ref="Q4" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+    </net>
+    <net code="49" name="Net-(Q6-G)">
+      <node ref="Q6" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R24" pin="2" pintype="passive"/>
+    </net>
+    <net code="50" name="Net-(U1-VIN)">
+      <node ref="C1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="F1" pin="2" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="VIN" pintype="power_in"/>
+    </net>
+    <net code="51" name="Net-(U1-VOUT)">
+      <node ref="FB1" pin="1" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="VOUT" pintype="power_out"/>
+    </net>
+    <net code="52" name="unconnected-(CON5-Pad1)">
+      <node ref="CON5" pin="1" pintype="passive"/>
+    </net>
+    <net code="53" name="unconnected-(CON5-Pad2)">
+      <node ref="CON5" pin="2" pintype="passive"/>
+    </net>
+    <net code="54" name="unconnected-(CON5-Pad3)">
+      <node ref="CON5" pin="3" pintype="passive"/>
+    </net>
+    <net code="55" name="unconnected-(CON5-Pad4)">
+      <node ref="CON5" pin="4" pintype="passive"/>
+    </net>
+    <net code="60" name="unconnected-(U2-PA4-Pad11)">
+      <node ref="U2" pin="11" pinfunction="PA4" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="61" name="unconnected-(U2-PA5-Pad12)">
+      <node ref="U2" pin="12" pinfunction="PA5" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="62" name="unconnected-(U2-PA6-Pad13)">
+      <node ref="U2" pin="13" pinfunction="PA6" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="63" name="unconnected-(U2-PA7-Pad14)">
+      <node ref="U2" pin="14" pinfunction="PA7" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="64" name="unconnected-(U2-PA15-Pad26)">
+      <node ref="U2" pin="26" pinfunction="PA15" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="65" name="unconnected-(U2-PB0-Pad15)">
+      <node ref="U2" pin="15" pinfunction="PB0" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="66" name="unconnected-(U2-PB1-Pad16)">
+      <node ref="U2" pin="16" pinfunction="PB1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="67" name="unconnected-(U2-PB3-Pad27)">
+      <node ref="U2" pin="27" pinfunction="PB3" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="68" name="unconnected-(U2-PB4-Pad28)">
+      <node ref="U2" pin="28" pinfunction="PB4" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="69" name="unconnected-(U2-PB5-Pad29)">
+      <node ref="U2" pin="29" pinfunction="PB5" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="70" name="unconnected-(U2-PB9-Pad1)">
+      <node ref="U2" pin="1" pinfunction="PB9" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="71" name="unconnected-(U2-PC6-Pad20)">
+      <node ref="U2" pin="20" pinfunction="PC6" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="72" name="unconnected-(U2-PC14-Pad2)">
+      <node ref="U2" pin="2" pinfunction="PC14" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="73" name="unconnected-(U2-PC15-Pad3)">
+      <node ref="U2" pin="3" pinfunction="PC15" pintype="bidirectional+no_connect"/>
+    </net>
+  </nets>
+</export>
